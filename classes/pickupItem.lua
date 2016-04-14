@@ -18,6 +18,23 @@ function _PickupItem:initializeItem( itemType )
 	print("YEAHHHHHHHH")
 end
 
+
+function _PickupItem:setPosition( x, y )
+	self.sprite.x = x
+	self.sprite.y = y
+end
+
+function _PickupItem:activate()
+	self:useItem( self.itemType )
+	self.sprite:removeSelf()
+	self.sprite = nil
+	self = nil
+end
+
+function _PickupItem:useItem( itemType )
+	print ("ITEM USED: " .. itemType)
+end
+
 function _PickupItem:setupSprite( itemType )
 	--[[
 	self.sprite = display.newImageRect( 
@@ -60,22 +77,6 @@ function _PickupItem:setupSprite( itemType )
 	mySprite:scale( gameValues.goldCoinScale, gameValues.goldCoinScale )
 	mySprite:play()
 	return mySprite
-end
-
-function _PickupItem:setPosition( x, y )
-	self.sprite.x = x
-	self.sprite.y = y
-end
-
-function _PickupItem:activate()
-	self:useItem( self.itemType )
-	self.sprite:removeSelf()
-	self.sprite = nil
-	self = nil
-end
-
-function _PickupItem:useItem( itemType )
-	print ("ITEM USED: " .. itemType)
 end
 
 return _PickupItem

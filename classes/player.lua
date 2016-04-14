@@ -17,79 +17,6 @@ function _Player:setupSpriteCircle( displayGroup )
 	return display.newCircle( displayGroup, self.x, self.y, 10 )
 end
 
-function _Player:setupSprite( displayGroup )
-	local imageSheetOptions =
-	{
-    --array of tables representing each frame (required)
-    frames =
-	    {
-	        -- FRAME (1,1):
-	        {x = 0, y = 0, width = 67, height = 93},
-	        -- FRAME (1,2):
-	        {x = 67, y = 0, width = 67, height = 93},
-	        -- FRAME (2,1):
-	        {x = 0, y = 93, width = 65, height = 91},
-	        -- FRAME (2,2):
-	        {x = 65, y = 93, width = 65, height = 91},
-	        -- FRAME (3,1):
-	        {x = 0, y = 184, width = 67, height = 93},
-	        -- FRAME (3,2):
-	        {x = 67, y = 184, width = 67, height = 93},
-	        -- FRAME (4,1):
-	        {x = 0, y = 277, width = 64, height = 91},
-	        -- FRAME (4,2):
-	        {x = 64, y = 277, width = 64, height = 91},
-
-
-	    },
-	}
-
-	local playerImageSheet = graphics.newImageSheet( gameValues.pathAlienImageSheet, imageSheetOptions )
-
-	-- sequences table
-	local sequences_walkingAlien = {
-	    -- consecutive frames sequence
-	    {
-	        name = gameValues.sequenceLeftWalk,
-	        start = 1,
-	        count = 2,
-	        time = 500,
-	        loopCount = 0,
-	        loopDirection = "forward"
-	    },
-
-	    {
-	        name = gameValues.sequenceUpWalk,
-	        start = 3,
-	        count = 2,
-	        time = 500,
-	        loopCount = 0,
-	        loopDirection = "forward"
-	    },
-
-	    {
-	        name = gameValues.sequenceRightWalk,
-	        start = 5,
-	        count = 2,
-	        time = 500,
-	        loopCount = 0,
-	        loopDirection = "forward"
-	    },
-
-	    {
-	        name = gameValues.sequenceDownWalk,
-	        start = 7,
-	        count = 2,
-	        time = 500,
-	        loopCount = 0,
-	        loopDirection = "forward"
-	    },
-	}
-
-	local mySprite = display.newSprite( displayGroup, playerImageSheet, sequences_walkingAlien )
-	mySprite:scale( gameValues.spriteScale, gameValues.spriteScale )
-	return mySprite
-end
 
 function _Player:hide()
 	self.sprite.alpha = 0
@@ -184,6 +111,80 @@ function _Player:move( directions, superSpeed )
 		self.sprite:pause()
 	end
 end	
+
+function _Player:setupSprite( displayGroup )
+	local imageSheetOptions =
+	{
+    --array of tables representing each frame (required)
+    frames =
+	    {
+	        -- FRAME (1,1):
+	        {x = 0, y = 0, width = 67, height = 93},
+	        -- FRAME (1,2):
+	        {x = 67, y = 0, width = 67, height = 93},
+	        -- FRAME (2,1):
+	        {x = 0, y = 93, width = 65, height = 91},
+	        -- FRAME (2,2):
+	        {x = 65, y = 93, width = 65, height = 91},
+	        -- FRAME (3,1):
+	        {x = 0, y = 184, width = 67, height = 93},
+	        -- FRAME (3,2):
+	        {x = 67, y = 184, width = 67, height = 93},
+	        -- FRAME (4,1):
+	        {x = 0, y = 277, width = 64, height = 91},
+	        -- FRAME (4,2):
+	        {x = 64, y = 277, width = 64, height = 91},
+
+
+	    },
+	}
+
+	local playerImageSheet = graphics.newImageSheet( gameValues.pathAlienImageSheet, imageSheetOptions )
+
+	-- sequences table
+	local sequences_walkingAlien = {
+	    -- consecutive frames sequence
+	    {
+	        name = gameValues.sequenceLeftWalk,
+	        start = 1,
+	        count = 2,
+	        time = 500,
+	        loopCount = 0,
+	        loopDirection = "forward"
+	    },
+
+	    {
+	        name = gameValues.sequenceUpWalk,
+	        start = 3,
+	        count = 2,
+	        time = 500,
+	        loopCount = 0,
+	        loopDirection = "forward"
+	    },
+
+	    {
+	        name = gameValues.sequenceRightWalk,
+	        start = 5,
+	        count = 2,
+	        time = 500,
+	        loopCount = 0,
+	        loopDirection = "forward"
+	    },
+
+	    {
+	        name = gameValues.sequenceDownWalk,
+	        start = 7,
+	        count = 2,
+	        time = 500,
+	        loopCount = 0,
+	        loopDirection = "forward"
+	    },
+	}
+
+	local mySprite = display.newSprite( displayGroup, playerImageSheet, sequences_walkingAlien )
+	mySprite:scale( gameValues.spriteScale, gameValues.spriteScale )
+	return mySprite
+end
 
 --[[
 function _Player:updatePosition(latitude, longitude)

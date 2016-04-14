@@ -245,7 +245,7 @@ function _GameMap:buildTower( dx, dy )
 		local tower = Tower:new(self.backgroundGroup, 
 			self:gridToContentArea( towerGridPos[1], towerGridPos[2])[1] - self.cellWidth*0.5, 
 			self:gridToContentArea( towerGridPos[1], towerGridPos[2])[2] - self.cellHeight*0.5, 
-			'default', self.cellWidth)
+			'basic', self.cellWidth)
 		self.towerMaster:addTower( tower )
 	end
 end

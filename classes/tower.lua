@@ -12,8 +12,16 @@ end
 
 function _Tower:setUpSprite( displayGroup )
 	print ("tower loc: " .. self:getX() .. ", " .. self:getY())
+	--[[
 	self.sprite = display.newCircle( displayGroup, self:getX(), self:getY(), 20 )
 	self.sprite:setFillColor( 1, 0, 0 )
+	-]]
+	self.sprite = display.newImageRect( displayGroup, 
+		gameValues.imagePath .. self.towerType .. gameValues.imageExtension, 
+		Layout.mapArea.height * gameValues.itemSizeModifier, 
+		Layout.mapArea.height * gameValues.itemSizeModifier )
+	self.sprite.x = self:getX()
+	self.sprite.y = self:getY()
 end
 
 function _Tower:getX()
