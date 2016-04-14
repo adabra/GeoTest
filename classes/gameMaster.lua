@@ -1,5 +1,7 @@
 local strings = require('strings.game')
 local gameValues = require('gameValues.gameMaster')
+local PickupItem = require('classes.pickupItem')
+local Layout = require('libs.layout')
 
 local _GameMaster = {}
 
@@ -9,6 +11,18 @@ function _GameMaster:new( displayGroup, statusBar, minionMaster )
 	self.__index = self
 	gameMaster.pathBuildingAllowed = true
 	gameMaster.baseHealthPoints = gameValues.maxBaseHealthPoints
+	local nextItem = PickupItem:new( displayGroup, 'gold_1')
+	nextItem:setPosition( Layout.mapArea.centerX, Layout.mapArea.centerY )
+
+	timer.performWithDelay( 300, function() local nextItem2 = PickupItem:new( displayGroup, 'gold_1')
+	nextItem2:setPosition( Layout.mapArea.centerX*0.6, Layout.mapArea.centerY*1.5 ) end )
+	
+
+	local nextItem3 = PickupItem:new( displayGroup, 'gold_1')
+	nextItem3:setPosition( Layout.mapArea.centerX*0.9, Layout.mapArea.centerY*0.3 )
+
+	local nextItem4 = PickupItem:new( displayGroup, 'gold_1')
+	nextItem4:setPosition( Layout.mapArea.centerX*1.4, Layout.mapArea.centerY*0.4 )
 	return gameMaster
 end
 
@@ -28,7 +42,6 @@ function _GameMaster:startGame()
 	print("GAME STARTED!")
 	--self:setPathBuildingAllowed(false)
 	self:sendNextWave()
-
 end
 
 function _GameMaster:sendNextWave()
