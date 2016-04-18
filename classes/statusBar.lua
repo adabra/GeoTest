@@ -27,20 +27,31 @@ function _StatusBar:createBackground( displayGroup )
 end
 
 function _StatusBar:createHealthPointField( displayGroup )
-		local textOptions = {
-		parent = displayGroup, 
-		text = gameValues.maxBaseHealthPoints .. " / " .. gameValues.maxBaseHealthPoints, 
-		x = Layout.statusBarArea.width*0.85, 
-		y = Layout.statusBarArea.centerY , 
-		width = 0, 
-		height = 0, 
-		font = native.systemFont,
-		align = "center" 
+	local textOptions = {
+	parent = displayGroup, 
+	text = gameValues.maxBaseHealthPoints .. " / " .. gameValues.maxBaseHealthPoints, 
+	x = Layout.statusBarArea.width*0.85, 
+	y = Layout.statusBarArea.centerY , 
+	width = 0, 
+	height = 0, 
+	font = native.systemFont,
+	align = "center" 
 	} 
 	self.baseHealthPointsText = display.newText( textOptions )
 end
 
 function _StatusBar:createCreditField( displayGroup )
+	local textOptions = {
+	parent = displayGroup, 
+	text = gameValues.creditStartAmount, 
+	x = Layout.statusBarArea.width*0.5, 
+	y = Layout.statusBarArea.centerY , 
+	width = 0, 
+	height = 0, 
+	font = native.systemFont,
+	align = "center" 
+	} 
+	self.creditAmountText = display.newText( textOptions )
 end
 
 function _StatusBar:createWaveField( displayGroup )
@@ -53,5 +64,8 @@ function _StatusBar:setBaseHealthPoints( amount )
 		self.baseHealthPointsText.text = amount .. " / " .. gameValues.maxBaseHealthPoints
 end
 
+function _StatusBar:setCreditAmount( amount )
+	self.creditAmountText.text = amount
+end
 
 return _StatusBar

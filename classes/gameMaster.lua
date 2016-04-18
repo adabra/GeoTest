@@ -1,16 +1,17 @@
 local strings = require('strings.game')
 local gameValues = require('gameValues.gameMaster')
+local gameValuesPickupItem = require('gameValues.pickupItem')
 local PickupItem = require('classes.pickupItem')
 local Layout = require('libs.layout')
 
 local _GameMaster = {}
 
-function _GameMaster:new( displayGroup, statusBar, minionMaster )
-	local gameMaster =  {displayGroup = displayGroup, statusBar = statusBar, minionMaster = minionMaster}
+function _GameMaster:new( displayGroup, statusBar, minionMaster, gameMap )
+	local gameMaster =  {displayGroup = displayGroup, statusBar = statusBar, minionMaster = minionMaster, gameMap = gameMap}
 	setmetatable( gameMaster, self )
 	self.__index = self
-	gameMaster.pathBuildingAllowed = true
-	gameMaster.baseHealthPoints = gameValues.maxBaseHealthPoints
+	gameMaster:init()
+	--[[
 	local nextItem = PickupItem:new( displayGroup, 'gold_1')
 	nextItem:setPosition( Layout.mapArea.centerX, Layout.mapArea.centerY )
 
@@ -23,7 +24,26 @@ function _GameMaster:new( displayGroup, statusBar, minionMaster )
 
 	local nextItem4 = PickupItem:new( displayGroup, 'gold_1')
 	nextItem4:setPosition( Layout.mapArea.centerX*1.4, Layout.mapArea.centerY*0.4 )
+
+	--]]
+	gameMaster:placeNewPickupItem( 5, 5, gameValuesPickupItem.typeGoldCoin )
+	gameMaster:placeNewPickupItem(5,6,gameValuesPickupItem.typeGoldCoin)
 	return gameMaster
+end
+
+function _GameMaster:init()
+	self.pathBuildingAllowed = true
+	self.baseHealthPoints = gameValues.maxBaseHealthPoints
+	self.gameMap:addPlayerCellListener( self )
+	self:initPickupItemGrid()
+	self.creditAmount = gameValues.creditStartAmount
+end
+
+function _GameMaster:initPickupItemGrid()
+	self.pickupItems = {}
+	for y=1,self.gameMap.cellsVertically do
+		self.pickupItems[y] = {}
+	end
 end
 
 function _GameMaster:setDifficulty( difficulty )
@@ -42,6 +62,40 @@ function _GameMaster:startGame()
 	print("GAME STARTED!")
 	--self:setPathBuildingAllowed(false)
 	self:sendNextWave()
+end
+
+function _GameMaster:playerCellChanged( newX, newY )
+	self:checkPickupItems( newX, newY )
+end
+
+function _GameMaster:checkPickupItems( x, y )
+	if self.pickupItems[y][x] then
+		self:useItem( self.pickupItems[y][x].itemType )
+		self.pickupItems[y][x]:cleanUp()
+		self.pickupItems[y][x] = nil
+	end
+end
+
+function _GameMaster:placeNewPickupItem( x, y, type )
+	local newItem = PickupItem:new( self.displayGroup, type)
+	newItem:setPosition( unpack(self.gameMap:gridToContentAreaMidCell( x, y )) )
+	self.pickupItems[y][x] = newItem
+end
+
+function _GameMaster:useItem( itemType )
+	if itemType == gameValuesPickupItem.typeGoldCoin then
+		self.creditAmount = self.creditAmount + gameValues.goldCoinAmount
+		self.statusBar:setCreditAmount( self.creditAmount )
+	end
+end
+
+function _GameMaster:canAffordBasicTower()
+	return self.creditAmount >= gameValues.basicTowerCost
+end
+
+function _GameMaster:payForBasicTower()
+	self.creditAmount = self.creditAmount - gameValues.basicTowerCost
+	self.statusBar:setCreditAmount(self.creditAmount)
 end
 
 function _GameMaster:sendNextWave()

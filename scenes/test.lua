@@ -7,7 +7,11 @@ local scene = composer.newScene()
 ---------------------------------------------------------------------------------
  
 -- local forward references should go here
- 
+local tower = require('classes.tower')
+local eachframe = require('libs.eachframe')
+local Set = require('libs.set')
+local myTower
+local background
 ---------------------------------------------------------------------------------
  
 -- "scene:create()"
@@ -18,17 +22,45 @@ function scene:create( event )
    -- Initialize the scene here.
    -- Example: add display objects to "sceneGroup", add touch listeners, etc.
 
+   background = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
+   background:setFillColor( 1,1,1 )
+
    local frame = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, 200, 200 )
    frame:setFillColor( 1,1,1, 0 )
    frame:setStrokeColor( 1, 0, 0 )
    frame.strokeWidth = 5
  --  frame.alpha = 0
+ 	myTower = tower:new( sceneGroup, display.contentCenterX, display.contentCenterY, 'basic', 100 )
+ 	eachframe.add(self)
 
-
+ 	a = {}
+ 	Set.addToSet( a, "b" )
+ 	Set.addToSet(a, "C")
+ 	Set.printSet(a)
+ 	print(Set.setContains(a, "b"))
+ 	print(Set.setContains(a, "a"))
+ 	Set.removeFromSet(a, "b")
+ 	Set.printSet(a)
+ 	print(a["b"])
 
 end
  
--- "scene:show()"
+
+local function onTouchEvent( event )
+	if not touch then
+		touch = display.newCircle( event.x, event.y, 10 )
+		touch:setFillColor( 1,0,0 )
+	else
+		touch.x = event.x
+		touch.y = event.y
+	end
+	myTower:rotateTowardMinion( {sprite = {x = event.x, y = event.y} } )
+end
+
+function scene:eachFrame()
+
+end
+
 function scene:show( event )
  
    local sceneGroup = self.view
@@ -75,6 +107,7 @@ scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )
 scene:addEventListener( "destroy", scene )
+Runtime:addEventListener( "touch", onTouchEvent )
  
 ---------------------------------------------------------------------------------
  

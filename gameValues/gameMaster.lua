@@ -2,6 +2,9 @@ _M = {}
 
 _M.waveCountdown = 3
 _M.maxBaseHealthPoints = 100
+_M.creditStartAmount = 100
+_M.goldCoinAmount = 10
+_M.basicTowerCost = 30
 
 
 --Wave balancing--

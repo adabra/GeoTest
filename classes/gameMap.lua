@@ -4,6 +4,7 @@ local Layout = require("libs.layout")
 local Tower = require('classes.tower')
 local Path = require('classes.path')
 local gameValues = require('gameValues.gameMap')
+local Set = require('libs.set')
 
 local _GameMap = {
 	width = gameValues.defaultWidth, 
@@ -56,6 +57,7 @@ function _GameMap:init()
 	end
 
 	self.grid = map
+	self.playerCellListeners = {}
 end
 
 function _GameMap:setPlayer ( player )
@@ -117,14 +119,14 @@ end
 function _GameMap:updateGrid()
 	local playerGridPos = self:contentAreaToGrid(self.player:getXPosition(), self.player:getYPosition())
 	local cellContentAreaCoords = self:gridToContentArea(playerGridPos[1], playerGridPos[2])
+	
 	-- For cell change-check
 	local playerCellBackgroundGridPos = self:contentAreaToGrid(
 		self.playerCellBackground.x - self.cellWidth/2, 
 		self.playerCellBackground.y - self.cellHeight/2)
 
 	if (playerCellBackgroundGridPos[1] ~= playerGridPos[1] or playerCellBackgroundGridPos[2] ~= playerGridPos[2]) then
-		print ("PLAYER CELL CHANGED")
-		self.playerCellChanged = true
+		self:firePlayerCellChangedEvent( playerGridPos[1], playerGridPos[2] )
 	end
 
 	self.playerCellBackground.y = cellContentAreaCoords[2]
@@ -132,11 +134,23 @@ function _GameMap:updateGrid()
 		
 end
 
-function _GameMap:hasPlayerCellChanged()
-	local temp = self.playerCellChanged 
-	self.playerCellChanged = false
-	return temp
+function _GameMap:firePlayerCellChangedEvent( newX, newY )
+	for k,listener in pairs(self.playerCellListeners) do
+		if type(listener) == "table" then
+			listener:playerCellChanged( newX, newY )
+		end
+	end
 end
+
+function _GameMap:addPlayerCellListener( listener )
+	Set.addToSet( self.playerCellListeners, listener)
+	Set.printSet(self.playerCellListeners)
+end
+
+function _GameMap:removePlayerCellListener( listener )
+	Set.removeFromSet( self.playerCellListeners, listener )
+end
+
 
 function _GameMap:printGameMap()
 	local map = self.grid
@@ -175,6 +189,12 @@ function _GameMap:gridToContentArea( x, y )
 	return {contentAreaX, contentAreaY}
 end
 
+function _GameMap:gridToContentAreaMidCell( x, y )
+	local coords = self:gridToContentArea( x, y )
+	coords[1] = coords[1] - self.cellWidth/2
+	coords[2] = coords[2] - self.cellHeight/2
+	return coords
+end
 
 function _GameMap:showGrid( shown )
 	if ( not self.gridGroup) then

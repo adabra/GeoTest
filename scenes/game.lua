@@ -68,7 +68,7 @@ function scene:create( event )
    sceneGroup:insert( statusBarGroup )
    local statusBar = StatusBar:new( statusBarGroup )
 
-   gameMaster = GameMaster:new( frontGroup, statusBar, minionMaster )
+   gameMaster = GameMaster:new( frontGroup, statusBar, minionMaster, gameMap )
    minionMaster:setGameMaster( gameMaster )
 
 
@@ -131,8 +131,6 @@ function scene:eachFrame()
    towerMaster:operateTowers()
 
    gameMap:updateGrid()
-
-   controlPanel:update()
 end
 
 

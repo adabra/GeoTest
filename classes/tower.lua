@@ -1,4 +1,5 @@
 local gameValues = require('gameValues.tower')
+local Layout = require('libs.layout')
 
 local _Tower = {}
 
@@ -62,6 +63,7 @@ function _Tower:findTargets( minions )
 			if (self:inRange( minion ) and minion:getStatus() == "moving" ) then
 				if (minion:getHealthPoints() < minHp) then
 					target = minion
+					minHp = target:getHealthPoints()
 				end
 			end
 		end
@@ -87,6 +89,7 @@ function _Tower:fire( minion )
 		self.fireSprite:removeSelf()
 	end	
 
+	self:rotateTowardMinion( minion )
 
 	self.fireSprite = display.newLine( self.displayGroup, self.x, self.y, minion.x, minion.y  )
 	self.fireSprite:setStrokeColor( 1, 0, 0 )
@@ -100,7 +103,19 @@ function _Tower:fire( minion )
 	--end
 end
 
+function _Tower:rotateTowardMinion( minion )
 
+	local minionX = minion.sprite.x
+	local minionY = minion.sprite.y
+	local towerX = self.sprite.x
+	local towerY = self.sprite.y
 
+	local dx = towerX - minionX
+	local dy = towerY - minionY
+	
+	local angle = math.atan2( dx, -dy ) * 180/math.pi
+
+	self.sprite.rotation = angle 	
+end
 
 return _Tower

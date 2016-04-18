@@ -11,27 +11,20 @@ function _ControlPanel:new( displayGroup, gameMap, gameMaster )
 	local controlPanel = { gameMap = gameMap, gameMaster = gameMaster, displayGroup = displayGroup}
 	setmetatable( controlPanel, self )
 	self.__index = self
-	controlPanel.gameMap = gameMap
-	controlPanel.buttonWidth = Layout.controlPanelArea.width*0.33
-	controlPanel.buttonHeight = Layout.controlPanelArea.height*0.33
-	controlPanel.nextX = 0
-	controlPanel.nextY = 0
-	controlPanel:createBackground( displayGroup )
-	--controlPanel:createTowerButton( displayGroup )
-	--controlPanel:createMinionButton( displayGroup )
-	--controlPanel:createTowerBuildingInterface( displayGroup )
-	controlPanel:createPathBuildingInterface( displayGroup )
+	controlPanel:init()
 	return controlPanel
 end
 
-function _ControlPanel:update()
-	self:checkForPlayerCellChanged()
+function _ControlPanel:init()
+	self.buttonWidth = Layout.controlPanelArea.width*0.33
+	self.buttonHeight = Layout.controlPanelArea.height*0.33
+	self:createBackground( self.displayGroup )
+	self:createPathBuildingInterface( self.displayGroup )
+	self.gameMap:addPlayerCellListener( self )
 end
 
-function _ControlPanel:checkForPlayerCellChanged()
-	if ( self.gameMap:hasPlayerCellChanged() ) then
-		self:cancelBuildingProcess()
-	end
+function _ControlPanel:playerCellChanged( newX, newY )
+	self:cancelBuildingProcess()
 end
 
 function _ControlPanel:cancelBuildingProcess()
@@ -312,7 +305,10 @@ function _ControlPanel:createTowerBuildingButton( displayGroup, x, y, label )
 		elseif (button.status == "pressed") then
 			self.towerButtonsOverlay[y][x]:setFillColor( unpack(Colors.cancelRed) )
 			self.overlayGroup.alpha=0
-			self.gameMap:buildTower( x-1, y-1 )
+			if( self.gameMaster:canAffordBasicTower()) then
+				self.gameMap:buildTower( x-1, y-1 )
+				self.gameMaster:payForBasicTower()
+			end
 			self.gameMap:hideBuildPosBackground()
 
 			for row=0,#self.towerButtons do

@@ -7,15 +7,12 @@ function _PickupItem:new( displayGroup, itemType )
 	local pickupItem = {displayGroup = displayGroup, itemType = itemType}
 	setmetatable( pickupItem, self )
 	self.__index = self
-	pickupItem:initializeItem( itemType )
+	pickupItem:initializeItem( itemType, gameMap )
 	return pickupItem
 end
 
 function _PickupItem:initializeItem( itemType )
 	self.sprite = self:setupSprite( itemType )
-	
-	print(gameValues.itemPath .. itemType .. gameValues.itemExtension)
-	print("YEAHHHHHHHH")
 end
 
 
@@ -24,15 +21,10 @@ function _PickupItem:setPosition( x, y )
 	self.sprite.y = y
 end
 
-function _PickupItem:activate()
-	self:useItem( self.itemType )
-	self.sprite:removeSelf()
+function _PickupItem:cleanUp()
+	self.sprite:removeSelf( )
 	self.sprite = nil
 	self = nil
-end
-
-function _PickupItem:useItem( itemType )
-	print ("ITEM USED: " .. itemType)
 end
 
 function _PickupItem:setupSprite( itemType )

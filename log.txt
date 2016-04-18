@@ -1,113 +1,75 @@
 Platform: OptiPlex 9020 / x64 / 6.3 / AMD Radeon HD 8490 / 4.5.13399 Compatibility Profile Context 15.200.1065.0 / 2016.2830 / nb_NO | NO | nb_NO | nb
-PLAYER CELL CHANGED
+{table: 09D90690, true, }
+{table: 09D90690, table: 09D911D0, true, true, }
 First tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
 GAME STARTED!
 Key 'up' was pressed down
-PLAYER CELL CHANGED
-Key 'left' was pressed down
-PLAYER CELL CHANGED
-Key 'up' was pressed up
-PLAYER CELL CHANGED
-Key 'down' was pressed down
-PLAYER CELL CHANGED
-Key 'left' was pressed up
-Key 'right' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'right' was pressed up
-Key 'left' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'down' was pressed up
-PLAYER CELL CHANGED
-Key 'up' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed up
-PLAYER CELL CHANGED
-Key 'down' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'right' was pressed up
-Key 'left' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'down' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'up' was pressed up
-Key 'right' was pressed up
-Key 'right' was pressed down
-PLAYER CELL CHANGED
-Key 'right' was pressed up
-Key 'up' was pressed down
-PLAYER CELL CHANGED
-Key 'right' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-PLAYER CELL CHANGED
 Key 'up' was pressed up
 Key 'down' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'left' was pressed down
 Key 'down' was pressed up
-PLAYER CELL CHANGED
-Key 'left' was pressed up
-Cell 7, 5 already occupied. Build aborted.
-Building tower at 6, 6
-tower loc: 391.11111111111, 384
-Key 'down' was pressed down
-PLAYER CELL CHANGED
-Key 'left' was pressed down
-Key 'down' was pressed up
-PLAYER CELL CHANGED
 Key 'up' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
 Key 'up' was pressed up
+Key 'down' was pressed down
+Key 'down' was pressed up
+Key 'up' was pressed down
+Key 'up' was pressed up
+Key 'down' was pressed down
+Key 'down' was pressed up
+Key 'up' was pressed down
+Key 'left' was pressed down
 Key 'left' was pressed up
-Building tower at 3, 6
-tower loc: 177.77777777778, 384
+Key 'up' was pressed up
+Key 'left' was pressed down
+Key 'left' was pressed up
+Key 'down' was pressed down
+Key 'down' was pressed up
+Building tower at 4, 3
+tower loc: 248.88888888889, 200.72727272727
+Key 'down' was pressed down
+Key 'down' was pressed up
+Building tower at 4, 4
+tower loc: 248.88888888889, 261.81818181818
+Key 'left' was pressed down
+Key 'left' was pressed up
+Building tower at 3, 4
+tower loc: 177.77777777778, 261.81818181818
+Key 'left' was pressed down
+Key 'left' was pressed up
 Key 'right' was pressed down
-PLAYER CELL CHANGED
 Key 'right' was pressed up
-Cell 6, 6 already occupied. Build aborted.
-Building tower at 5, 6
-tower loc: 320, 384
 Key 'down' was pressed down
-PLAYER CELL CHANGED
-Key 'left' was pressed down
-PLAYER CELL CHANGED
-Key 'down' was pressed up
-PLAYER CELL CHANGED
-Key 'up' was pressed down
-PLAYER CELL CHANGED
-Key 'left' was pressed up
-PLAYER CELL CHANGED
 Key 'right' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'up' was pressed up
-PLAYER CELL CHANGED
+Key 'down' was pressed up
 Key 'right' was pressed up
 Key 'left' was pressed down
 Key 'up' was pressed down
-PLAYER CELL CHANGED
-PLAYER CELL CHANGED
-Key 'left' was pressed up
 Key 'up' was pressed up
+Key 'left' was pressed up
+Key 'left' was pressed down
+Key 'left' was pressed up
+Building tower at 2, 4
+tower loc: 106.66666666667, 261.81818181818
+Key 'right' was pressed down
+Key 'down' was pressed down
+Key 'down' was pressed up
+Key 'right' was pressed up
+Key 'left' was pressed down
+Key 'up' was pressed down
+Key 'left' was pressed up
+Key 'right' was pressed down
+Key 'right' was pressed up
+Key 'left' was pressed down
+Key 'up' was pressed up
+Key 'left' was pressed up
+Key 'right' was pressed down
+Key 'right' was pressed up
