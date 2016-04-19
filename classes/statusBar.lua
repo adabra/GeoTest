@@ -1,6 +1,8 @@
 local Layout = require('libs.layout')
 local colors = require('libs.colors')
-local gameValues = require('gameValues.gameMaster')
+local gameValuesGameMaster = require('gameValues.gameMaster')
+local gameValues = require('gameValues.statusBar')
+local StatusBarField = require('classes.statusBarField')
 
 local _StatusBar = {}
 
@@ -13,10 +15,51 @@ function _StatusBar:new( displayGroup )
 end
 
 function _StatusBar:init( displayGroup )
+	self.remainingWidth = Layout.statusBarArea.width
 	self:createBackground ( displayGroup )
-	self:createHealthPointField( displayGroup )
-	self:createCreditField( displayGroup )
-	self:createWaveField( displayGroup )
+	self.fields = {}
+
+	self.baseHealthPointsField = StatusBarField:new( 
+		displayGroup, 
+		gameValuesGameMaster.maxBaseHealthPoints .. "/" .. gameValuesGameMaster.maxBaseHealthPoints, 
+		"baseHealthPoints", 
+		"baseHealthPoints" )
+	self:addField( self.baseHealthPointsField )
+
+	self.creditField = StatusBarField:new( 
+		displayGroup, 
+		gameValuesGameMaster.creditStartAmount, 
+		"goldCoin", 
+		"credits" )
+	self:addField( self.creditField )
+
+	--self:createWaveField( displayGroup )
+end
+
+function _StatusBar:addField( field )
+	if (self:getRemainingWidth() >= field.width) then
+		self:placeOnStatusBar( field )
+		field:setVisible( true )
+		table.insert(self.fields, field)
+	else
+		print("Couldn't add field " .. field.name .. ", statusbar width exceeded.")
+	end
+end
+
+function _StatusBar:getRemainingWidth()
+	return self.remainingWidth
+end
+
+function _StatusBar:placeOnStatusBar( field )
+	local externalFieldPadding = 0
+	if (#self.fields > 0) then
+		externalFieldPadding = gameValues.externalFieldPadding
+	else
+		externalFieldPadding = gameValues.edgePadding
+	end
+
+	field:setPosition( self:getRemainingWidth() - field.width - externalFieldPadding )
+	self.remainingWidth = self:getRemainingWidth() - field.width - externalFieldPadding
 end
 
 function _StatusBar:createBackground( displayGroup )
@@ -29,7 +72,7 @@ end
 function _StatusBar:createHealthPointField( displayGroup )
 	local textOptions = {
 	parent = displayGroup, 
-	text = gameValues.maxBaseHealthPoints .. " / " .. gameValues.maxBaseHealthPoints, 
+	text = gameValuesGameMaster.maxBaseHealthPoints .. " / " .. gameValuesGameMaster.maxBaseHealthPoints, 
 	x = Layout.statusBarArea.width*0.85, 
 	y = Layout.statusBarArea.centerY , 
 	width = 0, 
@@ -43,7 +86,7 @@ end
 function _StatusBar:createCreditField( displayGroup )
 	local textOptions = {
 	parent = displayGroup, 
-	text = gameValues.creditStartAmount, 
+	text = gameValuesGameMaster.creditStartAmount, 
 	x = Layout.statusBarArea.width*0.5, 
 	y = Layout.statusBarArea.centerY , 
 	width = 0, 
@@ -61,11 +104,11 @@ function _StatusBar:createLevelField( displayGroup )
 end
 
 function _StatusBar:setBaseHealthPoints( amount )
-		self.baseHealthPointsText.text = amount .. " / " .. gameValues.maxBaseHealthPoints
+	self.baseHealthPointsField:setText( amount .. "/" .. gameValuesGameMaster.maxBaseHealthPoints )
 end
 
 function _StatusBar:setCreditAmount( amount )
-	self.creditAmountText.text = amount
+	self.creditField:setText( amount )
 end
 
 return _StatusBar

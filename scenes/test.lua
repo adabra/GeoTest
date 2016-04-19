@@ -1,5 +1,6 @@
 local composer = require( "composer" )
 local scene = composer.newScene()
+local widget = require('widget')
  
 ---------------------------------------------------------------------------------
 -- All code outside of the listener functions will only be executed ONCE
@@ -42,6 +43,39 @@ function scene:create( event )
  	Set.removeFromSet(a, "b")
  	Set.printSet(a)
  	print(a["b"])
+
+	 	-- Handle press events for the buttons
+	local function onSwitchPress( event )
+	    local switch = event.target
+	    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+	end
+
+	-- Create a group for the radio button set
+	local radioGroup = display.newGroup()
+
+	-- Create two associated radio buttons (inserted into the same display group)
+	local radioButton1 = widget.newSwitch(
+	    {
+	        left = 150,
+	        top = 200,
+	        style = "radio",
+	        id = "RadioButton1",
+	        initialSwitchState = true,
+	        onPress = onSwitchPress
+	    }
+	)
+	radioGroup:insert( radioButton1 )
+
+	local radioButton2 = widget.newSwitch(
+	    {
+	        left = 250,
+	        top = 200,
+	        style = "radio",
+	        id = "RadioButton2",
+	        onPress = onSwitchPress
+	    }
+	)
+	radioGroup:insert( radioButton2 )
 
 end
  

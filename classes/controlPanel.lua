@@ -16,8 +16,8 @@ function _ControlPanel:new( displayGroup, gameMap, gameMaster )
 end
 
 function _ControlPanel:init()
-	self.buttonWidth = Layout.controlPanelArea.width*0.33
-	self.buttonHeight = Layout.controlPanelArea.height*0.33
+	self.buttonWidth = Layout.controlPanelArea.width*0.33333
+	self.buttonHeight = Layout.controlPanelArea.height*0.33333
 	self:createBackground( self.displayGroup )
 	self:createPathBuildingInterface( self.displayGroup )
 	self.gameMap:addPlayerCellListener( self )
@@ -127,17 +127,7 @@ function _ControlPanel:cleanUpStartGameInterface()
 end
 
 function _ControlPanel:createDifficultyPicker( displayGroup )
-	--[[
-	self.difficultyPicker = widget.newSegmentedControl( {
-		left = Layout.controlPanelArea.minX,
-		top = Layout.controlPanelArea.minY,
-		--labelSize = 40,
-		segments = {"Easy", "Normal", "Hard"},
-		defaultSegment = 2,
-		segmentWidth = Layout.controlPanelArea.width/3,
-		onPress = function( event ) print( event.target.segmentNumber ) end
-		} )
---]]
+
 end
 
 function _ControlPanel:createStartGameButton( displayGroup )
@@ -146,7 +136,7 @@ function _ControlPanel:createStartGameButton( displayGroup )
 		0,1,
 		strings.startGameButton,
 		function()
-			self:cleanUpMapOverlay( self.startGameOverlay )
+			self:cleanUpStartGameInterface()
 			self:createTowerBuildingInterface( displayGroup )
 
 			self.gameMaster:startGame()

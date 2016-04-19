@@ -11,23 +11,9 @@ function _GameMaster:new( displayGroup, statusBar, minionMaster, gameMap )
 	setmetatable( gameMaster, self )
 	self.__index = self
 	gameMaster:init()
-	--[[
-	local nextItem = PickupItem:new( displayGroup, 'gold_1')
-	nextItem:setPosition( Layout.mapArea.centerX, Layout.mapArea.centerY )
 
-	timer.performWithDelay( 300, function() local nextItem2 = PickupItem:new( displayGroup, 'gold_1')
-	nextItem2:setPosition( Layout.mapArea.centerX*0.6, Layout.mapArea.centerY*1.5 ) end )
-	
-
-	local nextItem3 = PickupItem:new( displayGroup, 'gold_1')
-	nextItem3:setPosition( Layout.mapArea.centerX*0.9, Layout.mapArea.centerY*0.3 )
-
-	local nextItem4 = PickupItem:new( displayGroup, 'gold_1')
-	nextItem4:setPosition( Layout.mapArea.centerX*1.4, Layout.mapArea.centerY*0.4 )
-
-	--]]
-	gameMaster:placeNewPickupItem( 5, 5, gameValuesPickupItem.typeGoldCoin )
-	gameMaster:placeNewPickupItem(5,6,gameValuesPickupItem.typeGoldCoin)
+	--gameMaster:placeNewPickupItem( 5, 5, gameValuesPickupItem.typeGoldCoin )
+	--gameMaster:placeNewPickupItem(5,6,gameValuesPickupItem.typeGoldCoin)
 	return gameMaster
 end
 
