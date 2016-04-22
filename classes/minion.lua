@@ -100,6 +100,7 @@ end
 
 function _Minion:die()
 	self.status = gameValues.statusDead
+	self.minionMaster:died()
 	self:cleanUp()
 end
 

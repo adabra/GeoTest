@@ -69,7 +69,7 @@ function scene:create( event )
    local statusBar = StatusBar:new( statusBarGroup )
 
    gameMaster = GameMaster:new( frontGroup, statusBar, minionMaster, gameMap )
-   minionMaster:setGameMaster( gameMaster )
+   --minionMaster:setGameMaster( gameMaster )
 
 
    local controlPanelGroup = display.newGroup()

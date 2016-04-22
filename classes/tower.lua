@@ -23,6 +23,15 @@ function _Tower:setUpSprite( displayGroup )
 		Layout.mapArea.height * gameValues.itemSizeModifier )
 	self.sprite.x = self:getX()
 	self.sprite.y = self:getY()
+	self.sprite.tower = self
+end
+
+function _Tower:addEventListener( eventName, listener )
+	self.sprite:addEventListener( eventName, listener )
+end
+
+function _Tower:removeEventListener( eventName, listener )
+	self.sprite:removeEventListener( eventName, listener )
 end
 
 function _Tower:getX()
@@ -104,7 +113,6 @@ function _Tower:fire( minion )
 end
 
 function _Tower:rotateTowardMinion( minion )
-
 	local minionX = minion.sprite.x
 	local minionY = minion.sprite.y
 	local towerX = self.sprite.x
@@ -116,6 +124,12 @@ function _Tower:rotateTowardMinion( minion )
 	local angle = math.atan2( dx, -dy ) * 180/math.pi
 
 	self.sprite.rotation = angle 	
+end
+
+function _Tower:cleanUp( )
+	self.sprite:removeSelf( )
+	self.sprite = nil
+	self = nil
 end
 
 return _Tower

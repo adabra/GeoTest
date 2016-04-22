@@ -15,6 +15,17 @@ _M.waveCountdownText = "Next wave in "
 _M.waveComingText = "Next wave coming!"
 _M.baseDestroyed = "Base destroyed! :("
 _M.restartGameButton = "Restart game."
+_M.nextWaveText = "Next wave in "
+_M.startWaveButton = "Start Wave!"
+_M.upgradeTowerButton = "Upgrade"
+_M.sellTowerButton = "Sell"
+_M.upgrade1 = "Damage"
+_M.upgrade2 = "Slow"
+_M.upgrade3 = "Range"
+_M.cancelSaleButton = "Cancel"
+_M.confirmSaleButton = "Confirm"
+_M.cancelUpgradeButton = "Cancel"
+_M.confirmUpgradeButton = "Confirm"
 
 
 return _M

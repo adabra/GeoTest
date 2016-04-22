@@ -115,6 +115,53 @@ function _GameMap:hideBuildPosBackground()
 	end
 end
 
+function _GameMap:selectTower( x, y )
+	self:showDeselectOverlay()
+	self:showTowerHighlight( x, y )
+end
+
+
+function _GameMap:showTowerHighlight( x, y )
+	if not self.towerHighlight then
+		self.towerHighlight = display.newRect( self.gridGroup, 0, 0, self.cellWidth, self.cellHeight )
+		self.towerHighlight:setFillColor( unpack(Colors.buildPosGreen) )
+	end
+	self.towerHighlight.alpha = 0.5
+	self.towerHighlight.x = x
+	self.towerHighlight.y = y
+end
+
+function _GameMap:deselectTower()
+	self:hideDeselectOverlay()
+	self:hideTowerHighlight()
+end
+
+function _GameMap:hideTowerHighlight()
+	if self.towerHighlight then
+		self.towerHighlight.alpha = 0
+	end
+end
+
+function _GameMap:showDeselectOverlay()
+	if not self.deselectOverlay then
+		self.deselectOverlay = display.newRect( 
+			self.myDisplayGroup, 
+			Layout.mapArea.centerX, Layout.mapArea.centerY, 
+			Layout.mapArea.width, Layout.mapArea.height )
+		self.deselectOverlay:addEventListener( "tap", 
+			function() 
+			self:fireGameEvent({eventType = gameValues.eventTypeTowerDeselected})
+			end )
+		self.deselectOverlay:setFillColor( unpack(Colors.cancelRed) )
+	end
+	self.deselectOverlay.alpha = 0.3
+end
+
+function _GameMap:hideDeselectOverlay()
+	if self.deselectOverlay then
+		self.deselectOverlay.alpha = 0
+	end
+end
 
 function _GameMap:updateGrid()
 	local playerGridPos = self:contentAreaToGrid(self.player:getXPosition(), self.player:getYPosition())
@@ -266,6 +313,10 @@ function _GameMap:buildTower( dx, dy )
 			self:gridToContentArea( towerGridPos[1], towerGridPos[2])[1] - self.cellWidth*0.5, 
 			self:gridToContentArea( towerGridPos[1], towerGridPos[2])[2] - self.cellHeight*0.5, 
 			'basic', self.cellWidth)
+		tower:addEventListener( "tap", 
+			function()
+				self:fireGameEvent( {eventType = gameValues.eventTypeTowerSelected, target = tower} )
+			end )
 		self.towerMaster:addTower( tower )
 	end
 end
@@ -313,6 +364,18 @@ function _GameMap:getPath()
 	return self.path
 end
 
+function _GameMap:addGameEventListener( listener )
+	if not self.gameEventListeners then
+		self.gameEventListeners = {}
+	end
+	table.insert(self.gameEventListeners, listener)
+end
+
+function _GameMap:fireGameEvent( event )
+	for k,listener in pairs(self.gameEventListeners) do
+		listener:handleGameEvent( event )
+	end
+end
 
 
 return _GameMap

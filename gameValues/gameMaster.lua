@@ -1,10 +1,11 @@
 _M = {}
 
-_M.waveCountdown = 3
+_M.waveCountdown = 2
 _M.maxBaseHealthPoints = 100
 _M.creditStartAmount = 100
 _M.goldCoinAmount = 10
 _M.basicTowerCost = 30
+_M.startGameCountdown = 20
 
 
 --Wave balancing--
