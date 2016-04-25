@@ -11,6 +11,7 @@ local widget = require('widget')
 local tower = require('classes.tower')
 local eachframe = require('libs.eachframe')
 local Set = require('libs.set')
+local ControlPanel = require('classes.controlPanel')
 local myTower
 local background
 ---------------------------------------------------------------------------------

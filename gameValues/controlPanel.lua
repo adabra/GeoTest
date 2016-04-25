@@ -6,11 +6,14 @@ _M.upgrade2 = 2
 _M.upgrade3 = 3
 
 _M.statePathBuildingInterface = "pathBuildingInterface"
-_M.stateWaveCountingInterface = "waveCountingInterface"
+_M.stateStartGameInterface = "startGameInterface"
+_M.stateAddVisualsInterface ="addVisualsInterface"
+_M.stateWaveCountdownInterface = "waveCountingInterface"
 _M.stateSellAndUpgradeInterface = "sellAndUpgradeInterface"
 _M.stateUpgradeTowerInterface = "upgradeTowerInterface"
 _M.stateSellTowerInterface = "sellTowerInterface"
 _M.stateConfirmUpgradeInterface = "confirmUpgradeInterface"
+_M.stateGameLostInterface = "gameLostInterface"
 
 
 return _M

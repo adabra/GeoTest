@@ -26,6 +26,7 @@ _M.cancelSaleButton = "Cancel"
 _M.confirmSaleButton = "Confirm"
 _M.cancelUpgradeButton = "Cancel"
 _M.confirmUpgradeButton = "Confirm"
+_M.sellAndUpgradeInstructions = "Tap a tower to sell or upgrade."
 
 
 return _M

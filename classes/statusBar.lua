@@ -33,6 +33,12 @@ function _StatusBar:init( displayGroup )
 		"credits" )
 	self:addField( self.creditField )
 
+	self.waveField = StatusBarField:new(
+		displayGroup,
+		gameValuesGameMaster.firstWave,
+		"wave",
+		"wave")
+	self:addField( self.waveField )
 	--self:createWaveField( displayGroup )
 end
 
@@ -109,6 +115,10 @@ end
 
 function _StatusBar:setCreditAmount( amount )
 	self.creditField:setText( amount )
+end
+
+function _StatusBar:setWaveLevel( level )
+	self.waveField = level
 end
 
 return _StatusBar

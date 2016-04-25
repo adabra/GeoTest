@@ -4,6 +4,7 @@ widget = require('widget')
 strings = require('strings.game')
 VisualObject = require('classes.visualObject')
 gameValues = require('gameValues.controlPanel')
+gameValuesGameMaster = require('gameValues.gameMaster')
 
 local _ControlPanel = {}
 
@@ -21,7 +22,6 @@ function _ControlPanel:init()
 	self:createBackground( self.displayGroup )
 	self:createPathBuildingInterface( self.displayGroup )
 	self.gameMap:addPlayerCellListener( self )
-	self.currentState = gameValues.statePathBuildingInterface
 end
 
 function _ControlPanel:playerCellChanged( newX, newY )
@@ -52,6 +52,7 @@ function _ControlPanel:createBackground( displayGroup )
 end
 
 function _ControlPanel:createPathBuildingInterface( displayGroup )
+	self.currentState = gameValues.statePathBuildingInterface
 	self.pathBuildingOverlay = self:createMapOverlay( displayGroup, strings.pathBuildingInstructions, true )
 
 	self.addVisualsButton = self:createButton( 
@@ -115,6 +116,7 @@ function _ControlPanel:cleanUpGameCreatorInterface()
 end
 
 function _ControlPanel:createStartGameInterface( displayGroup )
+	self.currentState = gameValues.stateStartGameInterface
 	self:createDifficultyPicker( displayGroup )
 	self:createStartGameButton( displayGroup )
 	self.startGameOverlay = self:createMapOverlay( displayGroup, strings.startGameOverlayText, false )
@@ -158,8 +160,10 @@ function _ControlPanel:createRestartGameButton( displayGroup )
 end
 
 function _ControlPanel:createWaveCountdownInterface( displayGroup )
+	self.currentState = gameValues.stateWaveCountdownInterface
 	if not self.nextWaveText then
 		self:createNextWaveText( displayGroup )
+		self:createSellAndUpgradeInstructions( displayGroup )
 	end
 	self:createStartWaveButton( displayGroup )
 end
@@ -168,22 +172,44 @@ function _ControlPanel:cleanUpWaveCountdownInterface()
 	self.nextWaveText:removeSelf( )
 	self.nextWaveText = nil
 
+	self.sellAndUpgradeInstructions:removeSelf( )
+	self.sellAndUpgradeInstructions = nil
+
 	self:cleanUpStartWaveButton()	
 end
-
 
 function _ControlPanel:createNextWaveText( displayGroup )
 	local options = {
 		parent = displayGroup,
-		text = strings.nextWaveText,
-		x = Layout.controlPanelArea.centerX,
+		text = strings.nextWaveText .. "\n" .. gameValuesGameMaster.waveCountdownTime,
+		x = Layout.controlPanelArea.width*0.25,
 		y = Layout.controlPanelArea.minY + Layout.controlPanelArea.height*0.25,
-		width = 0,
+		width = Layout.controlPanelArea.width/2,
 		height = 0,
 		font = native.systemFont,
 		align = "center"
 	}
 	self.nextWaveText = display.newText( options )
+end
+
+function _ControlPanel:updateNextWaveText( text )
+	if self.nextWaveText then
+		self.nextWaveText.text = text
+	end
+end
+
+function _ControlPanel:createSellAndUpgradeInstructions( displayGroup )
+	local options = {
+		parent = displayGroup,
+		text = strings.sellAndUpgradeInstructions,
+		x = Layout.controlPanelArea.width*0.75,
+		y = Layout.controlPanelArea.minY + Layout.controlPanelArea.height*0.25,
+		width = Layout.controlPanelArea.width/2,
+		height = 0,
+		font = native.systemFont,
+		align = "center"
+	}
+	self.sellAndUpgradeInstructions = display.newText( options )
 end
 
 function _ControlPanel:createStartWaveButton( displayGroup )
@@ -196,6 +222,7 @@ function _ControlPanel:createStartWaveButton( displayGroup )
 			--self:cleanUpStartWaveButton()
 			--self:createSellAndUpgradeInterface( displayGroup )
 			self:createTowerBuildingInterface( displayGroup )
+			self.gameMaster:skipWaveCountdown()
 		end,
 		Layout.controlPanelArea.width,
 		Layout.controlPanelArea.height/2)
@@ -207,6 +234,7 @@ function _ControlPanel:cleanUpStartWaveButton()
 end
 
 function _ControlPanel:createSellAndUpgradeInterface( displayGroup )
+	self.currentState = gameValues.stateSellAndUpgradeInterface
 	self.upgradeTowerButton = self:createButton(
 		displayGroup,
 		0,1,
@@ -240,6 +268,7 @@ function _ControlPanel:cleanUpSellAndUpgradeInterface( )
 end
 
 function _ControlPanel:createUpgradeTowerInterface( displayGroup )
+	self.currentState = gameValues.stateUpgradeTowerInterface
 	local function upgradeButton( upgradeChoice )
 		self:cleanUpUpgradeTowerInterface()
 		self:createConfirmUpgradeInterface( displayGroup, upgradeChoice )
@@ -291,6 +320,7 @@ function _ControlPanel:cleanUpUpgradeTowerInterface( )
 end
 
 function _ControlPanel:createSellTowerInterface( displayGroup )
+	self.currentState = gameValues.stateSellTowerInterface
 	self.cancelSaleButton = self:createButton(
 		displayGroup,
 		0,1,
@@ -327,6 +357,7 @@ function _ControlPanel:cleanUpSellTowerInterface( )
 end
 
 function _ControlPanel:createConfirmUpgradeInterface( displayGroup, upgradeChoice )
+	self.currentState = gameValues.stateConfirmUpgradeInterface
 	self.cancelUpgradeButton = self:createButton(
 		displayGroup,
 		0,1,
@@ -366,6 +397,7 @@ end
 
 
 function _ControlPanel:createGameLostInterface( displayGroup )
+	self.currentState = gameValues.stateGameLostInterface
 	self.gameLostOverlay = self:createMapOverlay( displayGroup, strings.baseDestroyed, false )
 	self:createRestartGameButton( displayGroup )
 end
@@ -414,6 +446,7 @@ end
 
 
 function _ControlPanel:createAddVisualsInterface( displayGroup )
+	self.currentState = gameValues.stateAddVisualsInterface
 	self.addVisualsOverlay = self:createMapOverlay( displayGroup, strings.addVisualsInstructions, true)
 
 	self.backToPathBuildingInterfaceButton = self:createButton(
@@ -457,6 +490,7 @@ end
 
 
 function _ControlPanel:createTowerBuildingInterface( displayGroup )
+	self.currentState = gameValues.stateTowerBuildingInterface
 	self.towerButtonsOverlay = {}
 	self.towerButtons = {}
 	self.overlayGroup = display.newGroup()
@@ -484,11 +518,13 @@ function _ControlPanel:cleanUpTowerBuildingInterface()
 	for y=0,#self.towerButtons do
 		for x=0,#self.towerButtons[y] do
 
-			self.towerButtons[y][x]:removeSelf( )
-			self.towerButtons[y][x] = nil
+			if self.towerButtons[y][x] then
+				self.towerButtons[y][x]:removeSelf( )
+				self.towerButtons[y][x] = nil
 
-			self.towerButtonsOverlay[y][x]:removeSelf( )
-			self.towerButtonsOverlay[y][x] = nil
+				self.towerButtonsOverlay[y][x]:removeSelf( )
+				self.towerButtonsOverlay[y][x] = nil
+			end
 		end
 	end
 end
@@ -581,6 +617,10 @@ end
 function _ControlPanel:readyForNewWave()
 	if self.currentState == gameValues.statePathBuildingInterface then
 		self:cleanUpGameCreatorInterface()
+	elseif self.currentState == gameValues.stateStartGameInterface then
+		self:cleanUpStartGameInterface()
+	elseif self.currentState == gameValues.stateAddVisualsInterface then
+		self:cleanUpAddVisualsInterface()
 	elseif self.currentState == gameValues.stateWaveCountdownInterface then
 		self:cleanUpWaveCountdownInterface()
 	elseif self.currentState == gameValues.stateSellAndUpgradeInterface then
@@ -591,6 +631,8 @@ function _ControlPanel:readyForNewWave()
 		self:cleanUpSellTowerInterface()
 	elseif self.currentState == gameValues.stateConfirmUpgradeInterface then
 		self:cleanUpConfirmUpgradeInterface()
+	elseif self.currentState == gameValues.stateGameLostInterface then
+		self:cleanUpGameLostInterface()
 	else
 
 	end

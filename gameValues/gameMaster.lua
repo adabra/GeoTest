@@ -1,12 +1,18 @@
 _M = {}
 
-_M.waveCountdown = 2
+_M.waveCountdownTime = 20
 _M.maxBaseHealthPoints = 100
 _M.creditStartAmount = 100
 _M.goldCoinAmount = 10
 _M.basicTowerCost = 30
 _M.startGameCountdown = 20
+_M.firstWave = 1
 
+
+-- Game States
+_M.stateWaiting = "stateWaiting" -- Game not started
+_M.statebaseDestroyed = "baseDestroyed"
+_M.stateGameCountdown = "gameCountdown"
 
 --Wave balancing--
 

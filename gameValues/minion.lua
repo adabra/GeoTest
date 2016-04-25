@@ -4,7 +4,7 @@ local _M = {}
 
 _M.healthBarWidth = Layout.mapArea.width*0.05
 _M.healthBarHeight = Layout.mapArea.width*0.02
-_M.basicMinionMaxHP = 1000
+_M.basicMinionMaxHP = 500
 _M.basicMinionUnitsMovedPerFrame = 1
 _M.basicMinionDamage = 20
 _M.statusWaiting = "waiting"

@@ -27,8 +27,9 @@ function _GameMaster:init()
 	self.creditAmount = gameValues.creditStartAmount
 	self.gameMap:addGameEventListener( self )
 	self.minionMaster:addGameEventListener( self )
-	self.gameInCountdown = false
 	self:initRefundValues()
+	self:setGameState( gameValues.stateWaiting)
+	self.waveLevel = 0
 end
 
 function _GameMaster:initPickupItemGrid()
@@ -42,9 +43,17 @@ function _GameMaster:initRefundValues()
 	self.refundValues = {basic = gameValues.basicTowerCost}
 end
 
+function _GameMaster:setGameState( gameState )
+	self.gameState = gameState
+end
+
+function _GameMaster:getGameState()
+	return self.gameState
+end
+
 function _GameMaster:handleGameEvent( event )
 	if event.eventType == gameValuesGameMap.eventTypeTowerSelected then
-		if self.gameInCountdown then
+		if self:getGameState() == gameValues.stateGameCountdown then
 			self:selectTower( event.target )
 		end
 	elseif event.eventType == gameValuesGameMap.eventTypeTowerDeselected then
@@ -52,9 +61,20 @@ function _GameMaster:handleGameEvent( event )
 	elseif event.eventType == gameValuesMinionMaster.eventTypeMinionAttacking then
 		self:decreaseBaseHealthPoints( event.amount )
 	elseif event.eventType == gameValuesMinionMaster.eventTypeWaveDone then
+		if self:getGameState() ~= gameValues.stateBaseDestroyed then
+			self.controlPanel:cleanUpTowerBuildingInterface()
+			self:startWaveCountdown()
+		end
+	elseif event.eventType == gameValuesMinionMaster.eventTypeGameWon then
 		self.controlPanel:cleanUpTowerBuildingInterface()
-		self:startWaveCountdown()
+		self:gameWon()
 	end
+end
+
+function _GameMaster:gameWon()
+	local winner = display.newImageRect( "images/game_objects/winner.png", display.contentWidth, display.contentHeight )
+	winner.x = display.contentCenterX
+	winner.y = display.contentCenterY
 end
 
 function _GameMaster:selectTower( tower )
@@ -96,7 +116,7 @@ function _GameMaster:startGame()
 	print("GAME STARTED!")
 	--self:setPathBuildingAllowed(false)
 	self:startWaveCountdown()
-	self:sendNextWave()
+	--self:sendNextWave()
 end
 
 function _GameMaster:startGameCountdown()
@@ -117,20 +137,41 @@ function _GameMaster:startGameCountdown()
 end
 
 function _GameMaster:startWaveCountdown( waveNumber )
-	self.gameInCountdown = true
+	self:setGameState(gameValues.stateGameCountdown)
 	self.controlPanel:createWaveCountdownInterface( self.controlPanel.displayGroup )
-	self.waveCountdownTimer = timer.performWithDelay( 
-		gameValues.waveCountdown,
+	local waveCountdown = gameValues.waveCountdownTime
+
+	self.waveCountdownTimer = timer.performWithDelay(
+		1000, 
 		function()
-			self:startNextWave()
-		end )
+			if waveCountdown>0 then
+				waveCountdown = waveCountdown-1
+				self.controlPanel:updateNextWaveText( strings.nextWaveText .. "\n" .. waveCountdown)
+			else
+				self:startNextWave()
+			end
+		end,
+		gameValues.waveCountdownTime+1
+		 )
 end
+
+function _GameMaster:skipWaveCountdown()
+	if (self:getGameState() == gameValues.stateGameCountdown) then
+		if self.waveCountdownTimer then
+			timer.cancel( self.waveCountdownTimer )
+			self.waveCountdownTimer = nil
+		end
+		self:startNextWave()
+	end
+end
+
 
 function _GameMaster:startNextWave()
 	self.gameMap:deselectTower()
 	self.controlPanel:readyForNewWave()
 	self.waveLevel = self.waveLevel + 1
 	self.statusBar:setWaveLevel( self.waveLevel )
+	self.minionMaster:createWave( self.waveLevel )
 	self.minionMaster:sendWave( self.waveLevel )
 end
 
@@ -169,7 +210,7 @@ function _GameMaster:payForBasicTower()
 end
 
 function _GameMaster:sendNextWave()
-	local waveCountdown = gameValues.waveCountdown
+	local waveCountdown = gameValues.waveCountdownTime
 
 	local textOptions = {
 		parent = self.displayGroup, 
@@ -216,7 +257,8 @@ function _GameMaster:decreaseBaseHealthPoints( amount )
 	if self.baseHealthPoints <= 0 then
 		self.baseHealthPoints = 0
 		self.controlPanel:cleanUpTowerBuildingInterface()
-		--self.controlPanel:createGameLostInterface( self.controlPanel.displayGroup )
+		self:setGameState( gameValues.stateBaseDestroyed )
+		self.controlPanel:createGameLostInterface( self.controlPanel.displayGroup )
 	end
 	self.statusBar:setBaseHealthPoints( self.baseHealthPoints )
 end
