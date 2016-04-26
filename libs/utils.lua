@@ -33,5 +33,9 @@ function _M.newPoint( latlon )
 	return point
 end
 
+function _M.firstToUpper( str )
+    return (str:gsub("^%l", string.upper))
+end
+
 
 return _M

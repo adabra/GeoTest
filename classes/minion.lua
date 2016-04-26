@@ -4,18 +4,30 @@ local HealthBar = require('classes.healthBar')
 local _Minion = {}
 
 function _Minion:new( displayGroup, gameMap, minionMaster, minionType )
-	local minion = {displayGroup = displayGroup, gameMap = gameMap, path = gameMap.path, minionMaster = minionMaster, minionType = minionType}
+	local minion = {
+		displayGroup = displayGroup, 
+		gameMap = gameMap, 
+		path = gameMap.path, 
+		minionMaster = minionMaster, 
+		minionType = minionType
+	}
 	setmetatable( minion, self )
 	self.__index = self
-	local start = minion.gameMap:gridToContentArea( unpack(minion.path:getStartPosition()) )
-	minion.x = start[1] - minion.gameMap.cellWidth/2
-	minion.y = start[2] - minion.gameMap.cellHeight/2
-	minion.currentTileIndex = 0
-	minion.units = gameValues.basicMinionUnitsMovedPerFrame
-	minion.status = gameValues.statusWaiting
-	minion.maxHealthPoints = gameValues.basicMinionMaxHP 
-	minion.healthPoints = minion.maxHealthPoints
+
+	minion:init()
 	return minion
+end
+
+function _Minion:init()
+	local start = self.gameMap:gridToContentArea( unpack(self.path:getStartPosition()) )
+	self.x = start[1] - self.gameMap.cellWidth/2
+	self.y = start[2] - self.gameMap.cellHeight/2
+	self.currentTileIndex = 0
+	self.units = gameValues.basicMinionUnitsMovedPerFrame
+	self.status = gameValues.statusWaiting
+	self.maxHealthPoints = gameValues.basicMinionMaxHP 
+	self.healthPoints = self.maxHealthPoints
+	self.slow = 1
 end
 
 function _Minion:start()
@@ -73,10 +85,18 @@ function _Minion:updateNextDestination()
 	self.nextDestination[2] = self.nextDestination[2] - self.gameMap.cellHeight/2
 end
 
-function _Minion:takeFire( damage, effect )
+function _Minion:takeFire( damage, slow )
 	self.healthPoints = self.healthPoints - damage
 	if self.healthPoints <= 0 then
 		self:die()
+	else
+		self:applySlow(slow)
+	end
+end
+
+function _Minion:applySlow( slow )
+	if slow<self.slow then
+		self.units = gameValues.basicMinionUnitsMovedPerFrame * slow
 	end
 end
 

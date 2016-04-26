@@ -1,4 +1,4 @@
-_M = {}
+local _M = {}
 
 _M.gridOrange = { 250/256, 180/256, 30/256 }
 _M.controlPanelGrey = { 96/250, 112/256, 117/256 }

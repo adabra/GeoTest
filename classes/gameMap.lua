@@ -312,12 +312,14 @@ function _GameMap:buildTower( dx, dy )
 		local tower = Tower:new(self.backgroundGroup, 
 			self:gridToContentArea( towerGridPos[1], towerGridPos[2])[1] - self.cellWidth*0.5, 
 			self:gridToContentArea( towerGridPos[1], towerGridPos[2])[2] - self.cellHeight*0.5, 
-			'basic', self.cellWidth)
+			'basic', self.cellWidth,
+			towerGridPos[1], towerGridPos[2])
 		tower:addEventListener( "tap", 
 			function()
 				self:fireGameEvent( {eventType = gameValues.eventTypeTowerSelected, target = tower} )
 			end )
 		self.towerMaster:addTower( tower )
+		self:fireGameEvent( { eventType = gameValues.eventTypeTowerBuilt } )
 	end
 end
 

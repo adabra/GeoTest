@@ -1,9 +1,9 @@
 local _M = {}
 
 _M.minimumPathLength = 4
-_M.upgrade1 = 1
-_M.upgrade2 = 2
-_M.upgrade3 = 3
+_M.upgrade1 = "damage"
+_M.upgrade2 = "slow"
+_M.upgrade3 = "range"
 
 _M.statePathBuildingInterface = "pathBuildingInterface"
 _M.stateStartGameInterface = "startGameInterface"

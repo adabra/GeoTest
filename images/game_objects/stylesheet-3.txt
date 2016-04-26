@@ -1,0 +1,83 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-enemyBlack1 {
+    width: 93px;
+    height: 84px;
+    background-position: 0 0;
+}
+
+.sprite-enemyBlue2 {
+    width: 104px;
+    height: 84px;
+    background-position: -93px 0;
+}
+
+.sprite-enemyBlue3 {
+    width: 103px;
+    height: 84px;
+    background-position: -197px 0;
+}
+
+.sprite-enemyBlue4 {
+    width: 82px;
+    height: 84px;
+    background-position: 0 -84px;
+}
+
+.sprite-enemyBlue5 {
+    width: 97px;
+    height: 84px;
+    background-position: -82px -84px;
+}
+
+.sprite-enemyGreen2 {
+    width: 104px;
+    height: 84px;
+    background-position: -179px -84px;
+}
+
+.sprite-enemyGreen3 {
+    width: 103px;
+    height: 84px;
+    background-position: 0 -168px;
+}
+
+.sprite-enemyGreen4 {
+    width: 82px;
+    height: 84px;
+    background-position: -103px -168px;
+}
+
+.sprite-enemyGreen5 {
+    width: 97px;
+    height: 84px;
+    background-position: -185px -168px;
+}
+
+.sprite-enemyRed2 {
+    width: 104px;
+    height: 84px;
+    background-position: -300px 0;
+}
+
+.sprite-enemyRed3 {
+    width: 103px;
+    height: 84px;
+    background-position: -283px -84px;
+}
+
+.sprite-enemyRed4 {
+    width: 82px;
+    height: 84px;
+    background-position: -282px -168px;
+}
+
+.sprite-enemyRed5 {
+    width: 97px;
+    height: 84px;
+    background-position: 0 -252px;
+}

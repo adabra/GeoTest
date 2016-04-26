@@ -1,4 +1,4 @@
-_M = {}
+local _M = {}
 
 _M.towerButton = "Tower"
 _M.pathButton = "Path"
@@ -14,7 +14,7 @@ _M.addVisualsInstructions = "Drag and drop visual objects onto the map. These do
 _M.waveCountdownText = "Next wave in "
 _M.waveComingText = "Next wave coming!"
 _M.baseDestroyed = "Base destroyed! :("
-_M.restartGameButton = "Restart game."
+_M.restartGameButton = "Restart wave!"
 _M.nextWaveText = "Next wave in "
 _M.startWaveButton = "Start Wave!"
 _M.upgradeTowerButton = "Upgrade"

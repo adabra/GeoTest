@@ -1,4 +1,4 @@
-_M = {}
+local _M = {}
 
 _M.newGameButton = "New Game"
 _M.optionsButton = "Options"

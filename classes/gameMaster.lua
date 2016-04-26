@@ -8,14 +8,14 @@ local Layout = require('libs.layout')
 
 local _GameMaster = {}
 
-function _GameMaster:new( displayGroup, statusBar, minionMaster, gameMap )
-	local gameMaster =  {displayGroup = displayGroup, statusBar = statusBar, minionMaster = minionMaster, gameMap = gameMap}
+function _GameMaster:new( displayGroup, statusBar, minionMaster, towerMaster, gameMap )
+	local gameMaster =  {displayGroup = displayGroup, statusBar = statusBar, minionMaster = minionMaster, towerMaster = towerMaster, gameMap = gameMap}
 	setmetatable( gameMaster, self )
 	self.__index = self
 	gameMaster:init()
 
-	gameMaster:placeNewPickupItem( 5, 5, gameValuesPickupItem.typeGoldCoin )
-	gameMaster:placeNewPickupItem(5,6,gameValuesPickupItem.typeGoldCoin)
+	--gameMaster:placeNewPickupItem( 5, 5, gameValuesPickupItem.typeGoldCoin )
+	--gameMaster:placeNewPickupItem(5,6,gameValuesPickupItem.typeGoldCoin)
 	return gameMaster
 end
 
@@ -27,7 +27,6 @@ function _GameMaster:init()
 	self.creditAmount = gameValues.creditStartAmount
 	self.gameMap:addGameEventListener( self )
 	self.minionMaster:addGameEventListener( self )
-	self:initRefundValues()
 	self:setGameState( gameValues.stateWaiting)
 	self.waveLevel = 0
 end
@@ -37,10 +36,6 @@ function _GameMaster:initPickupItemGrid()
 	for y=1,self.gameMap.cellsVertically do
 		self.pickupItems[y] = {}
 	end
-end
-
-function _GameMaster:initRefundValues()
-	self.refundValues = {basic = gameValues.basicTowerCost}
 end
 
 function _GameMaster:setGameState( gameState )
@@ -60,6 +55,8 @@ function _GameMaster:handleGameEvent( event )
 		self:deselectTower()
 	elseif event.eventType == gameValuesMinionMaster.eventTypeMinionAttacking then
 		self:decreaseBaseHealthPoints( event.amount )
+	elseif event.eventType == gameValuesGameMap.eventTypeTowerBuilt then
+		self:payForBasicTower()
 	elseif event.eventType == gameValuesMinionMaster.eventTypeWaveDone then
 		if self:getGameState() ~= gameValues.stateBaseDestroyed then
 			self.controlPanel:cleanUpTowerBuildingInterface()
@@ -75,6 +72,7 @@ function _GameMaster:gameWon()
 	local winner = display.newImageRect( "images/game_objects/winner.png", display.contentWidth, display.contentHeight )
 	winner.x = display.contentCenterX
 	winner.y = display.contentCenterY
+	self:pauseGame()
 end
 
 function _GameMaster:selectTower( tower )
@@ -91,13 +89,24 @@ end
 function _GameMaster:sellSelectedTower()
 	local towerType = self.selectedTower.towerType
 	self:getRefund( towerType )
+	self.towerMaster:removeTower( self.selectedTower )
 	self.selectedTower:cleanUp()
+	self.gameMap:setMapCell(self.selectedTower.gridX, self.selectedTower.gridY, 'empty' )
 	self:deselectTower()
 end
 
 function _GameMaster:getRefund( towerType )
-	self.creditAmount = self.creditAmount + self.refundValues[towerType]
+	self.creditAmount = self.creditAmount + self:getRefundValue( towerType )
 	self.statusBar:setCreditAmount(self.creditAmount)
+end
+
+function _GameMaster:upgradeSelectedTower( upgradeChoice )
+	local towerLevel = self.selectedTower.level
+	if self:canAffordUpgrade( upgradeChoice, towerLevel ) then
+		self.selectedTower:upgrade( upgradeChoice )
+		self:payForUpgrade( upgradeChoice, towerLevel )
+		self.gameMap:deselectTower()
+	end
 end
 
 function _GameMaster:setDifficulty( difficulty )
@@ -116,6 +125,7 @@ function _GameMaster:startGame()
 	print("GAME STARTED!")
 	--self:setPathBuildingAllowed(false)
 	self:startWaveCountdown()
+	self:resumeGame()
 	--self:sendNextWave()
 end
 
@@ -167,6 +177,7 @@ end
 
 
 function _GameMaster:startNextWave()
+	self:setGameState(gameValues.stateOngoingWave)
 	self.gameMap:deselectTower()
 	self.controlPanel:readyForNewWave()
 	self.waveLevel = self.waveLevel + 1
@@ -201,12 +212,30 @@ function _GameMaster:useItem( itemType )
 end
 
 function _GameMaster:canAffordBasicTower()
-	return self.creditAmount >= gameValues.basicTowerCost
+	return self.creditAmount >= gameValues.basicLevel1Cost
+end
+
+function _GameMaster:canAffordUpgrade( upgradeChoice, towerLevel )
+	print(upgradeChoice .. 'Level' .. towerLevel+1 .. 'Cost')
+	return self.creditAmount >= self:getUpgradeCost(upgradeChoice)
+end
+
+function _GameMaster:payForUpgrade( upgradeChoice, towerLevel )
+	self.creditAmount = self.creditAmount - self:getUpgradeCost(upgradeChoice)
+	self.statusBar:setCreditAmount(self.creditAmount)
 end
 
 function _GameMaster:payForBasicTower()
-	self.creditAmount = self.creditAmount - gameValues.basicTowerCost
+	self.creditAmount = self.creditAmount - gameValues.basicLevel1Cost
 	self.statusBar:setCreditAmount(self.creditAmount)
+end
+
+function _GameMaster:getUpgradeCost( upgradeChoice )
+	return gameValues[upgradeChoice .. 'Level' .. self.selectedTower.level+1 .. 'Cost']
+end
+
+function _GameMaster:getRefundValue( towerType )
+	return gameValues[towerType .. 'Level' .. self.selectedTower.level .. 'Value']
 end
 
 function _GameMaster:sendNextWave()
@@ -249,16 +278,31 @@ end
 function _GameMaster:createNewItem()
 end
 
+function _GameMaster:gameLost()
+	self.baseHealthPoints = 0
+	self.controlPanel:cleanUpTowerBuildingInterface()
+	self:setGameState( gameValues.stateBaseDestroyed )
+	self.controlPanel:createGameLostInterface( self.controlPanel.displayGroup )
+	self:pauseGame()
+end
 
+function _GameMaster:pauseGame()
+	self.isGameLoopRunning = false
+end
+
+function _GameMaster:resumeGame()
+	self.isGameLoopRunning = true
+end
+
+function _GameMaster:isGameRunning()
+	return self.isGameLoopRunning
+end
 
 function _GameMaster:decreaseBaseHealthPoints( amount )
 
 	self.baseHealthPoints = self.baseHealthPoints - amount
 	if self.baseHealthPoints <= 0 then
-		self.baseHealthPoints = 0
-		self.controlPanel:cleanUpTowerBuildingInterface()
-		self:setGameState( gameValues.stateBaseDestroyed )
-		self.controlPanel:createGameLostInterface( self.controlPanel.displayGroup )
+		self:gameLost()
 	end
 	self.statusBar:setBaseHealthPoints( self.baseHealthPoints )
 end

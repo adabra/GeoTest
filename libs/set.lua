@@ -1,4 +1,4 @@
-_Set = {}
+local _Set = {}
 
 function _Set.addToSet(set, val)
 	if not _Set.setContains(set, val) then

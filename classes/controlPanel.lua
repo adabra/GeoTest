@@ -1,10 +1,10 @@
-Layout = require('libs.layout')
-Colors = require('libs.colors')
-widget = require('widget')
-strings = require('strings.game')
-VisualObject = require('classes.visualObject')
-gameValues = require('gameValues.controlPanel')
-gameValuesGameMaster = require('gameValues.gameMaster')
+local Layout = require('libs.layout')
+local Colors = require('libs.colors')
+local widget = require('widget')
+local strings = require('strings.game')
+local VisualObject = require('classes.visualObject')
+local gameValues = require('gameValues.controlPanel')
+local gameValuesGameMaster = require('gameValues.gameMaster')
 
 local _ControlPanel = {}
 
@@ -175,7 +175,9 @@ function _ControlPanel:cleanUpWaveCountdownInterface()
 	self.sellAndUpgradeInstructions:removeSelf( )
 	self.sellAndUpgradeInstructions = nil
 
-	self:cleanUpStartWaveButton()	
+	if self.startWaveButton then
+		self:cleanUpStartWaveButton()	
+	end
 end
 
 function _ControlPanel:createNextWaveText( displayGroup )
@@ -279,7 +281,7 @@ function _ControlPanel:createUpgradeTowerInterface( displayGroup )
 		0,1,
 		strings.upgrade1,
 		function()
-			upgradeButton( gameValues.upgrade1)
+			upgradeButton( gameValues.upgrade1 )
 		end,
 		Layout.controlPanelArea.width/3,
 		Layout.controlPanelArea.height/2
@@ -290,7 +292,7 @@ function _ControlPanel:createUpgradeTowerInterface( displayGroup )
 		1,1,
 		strings.upgrade2,
 		function()
-			upgradeButton( gameValues.upgrade2)
+			upgradeButton( gameValues.upgrade2 )
 		end,
 		Layout.controlPanelArea.width/3,
 		Layout.controlPanelArea.height/2
@@ -301,7 +303,7 @@ function _ControlPanel:createUpgradeTowerInterface( displayGroup )
 		2,1,
 		strings.upgrade3,
 		function()
-			upgradeButton( gameValues.upgrade3)
+			upgradeButton( gameValues.upgrade3 )
 		end,
 		Layout.controlPanelArea.width/3,
 		Layout.controlPanelArea.height/2
@@ -365,8 +367,7 @@ function _ControlPanel:createConfirmUpgradeInterface( displayGroup, upgradeChoic
 		function()
 			self:cleanUpConfirmUpgradeInterface()
 			self:createWaveCountdownInterface( displayGroup )
-			--TODO:
-			--CANCEL UPGRADE PROCESS
+			self.gameMaster:deselectTower()
 		end,
 		Layout.controlPanelArea.width/2,
 		Layout.controlPanelArea.height/2
@@ -379,8 +380,7 @@ function _ControlPanel:createConfirmUpgradeInterface( displayGroup, upgradeChoic
 		function()
 			self:cleanUpConfirmUpgradeInterface()
 			self:createWaveCountdownInterface( displayGroup )
-			--TODO:
-			--EXECUTE UPGRADE PROCESS
+			self.gameMaster:upgradeSelectedTower( upgradeChoice )
 		end,
 		Layout.controlPanelArea.width/2,
 		Layout.controlPanelArea.height/2
@@ -490,6 +490,7 @@ end
 
 
 function _ControlPanel:createTowerBuildingInterface( displayGroup )
+	print("CREATING TOWER BUILDING INTERFACE YEAH")
 	self.currentState = gameValues.stateTowerBuildingInterface
 	self.towerButtonsOverlay = {}
 	self.towerButtons = {}
@@ -555,7 +556,6 @@ function _ControlPanel:createTowerBuildingButton( displayGroup, x, y, label )
 			self.overlayGroup.alpha=0
 			if( self.gameMaster:canAffordBasicTower()) then
 				self.gameMap:buildTower( x-1, y-1 )
-				self.gameMaster:payForBasicTower()
 			end
 			self.gameMap:hideBuildPosBackground()
 
@@ -633,11 +633,15 @@ function _ControlPanel:readyForNewWave()
 		self:cleanUpConfirmUpgradeInterface()
 	elseif self.currentState == gameValues.stateGameLostInterface then
 		self:cleanUpGameLostInterface()
-	else
-
+	end
+	
+	if self.sellAndUpgradeInstructions then
+		self:cleanUpWaveCountdownInterface()
 	end
 
-	self:createTowerBuildingInterface( self.displayGroup )
+	if not self.towerButtons[1][1] then
+		self:createTowerBuildingInterface( self.displayGroup )
+	end
 end
 
 --[[

@@ -7,5 +7,6 @@ _M.defaultLevel = 1
 _M.gridStrokeWidth = 2
 _M.eventTypeTowerSelected = "towerSelected"
 _M.eventTypeTowerDeselected = "towerDeselected"
+_M.eventTypeTowerBuilt = "towerBuilt"
 
 return _M

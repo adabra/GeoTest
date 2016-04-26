@@ -1,4 +1,4 @@
-_M = {}
+local _M = {}
 
 _M.itemSizeModifier = 0.06 
 _M.goldCoinScale = 0.7

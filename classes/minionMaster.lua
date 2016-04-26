@@ -36,14 +36,22 @@ end
 
 function _MinionMaster:initWaves()
 	local waves = {}
-	waves[1] = { 
+	table.insert( waves, { 
 		timeBetweenMinions = 500,
 		{minionType = "basic", numberOfMinions = 1},
-		{minionType = "basic", numberOfMinions = 1} } 
-	waves[2] = {
+		{minionType = "basic", numberOfMinions = 1} 
+		} )
+	table.insert( waves, {
+		timeBetweenMinions = 500,
+		{minionType = "basic", numberOfMinions = 3}
+		} ) 
+	table.insert( waves, {
 		timeBetweenMinions = 2000,
 		{minionType = "basic", numberOfMinions = 10}
-	}	
+		} ) 
+
+	
+
 
 
 	for i=1,#waves do

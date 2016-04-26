@@ -24,6 +24,11 @@ function scene:create( event )
    -- Initialize the scene here.
    -- Example: add display objects to "sceneGroup", add touch listeners, etc.
 
+   local LOL = {}
+   LOL.lol = "hei"
+   print( "LOL HEI")
+   print( LOL["lol"] )
+
    background = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
    background:setFillColor( 1,1,1 )
 

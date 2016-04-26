@@ -1,4 +1,5 @@
 local gameValues = require('gameValues.statusBarField')
+local Layout = require('libs.layout')
 
 local _StatusBarField = {}
 

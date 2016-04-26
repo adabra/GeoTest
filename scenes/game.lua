@@ -68,7 +68,7 @@ function scene:create( event )
    sceneGroup:insert( statusBarGroup )
    local statusBar = StatusBar:new( statusBarGroup )
 
-   gameMaster = GameMaster:new( frontGroup, statusBar, minionMaster, gameMap )
+   gameMaster = GameMaster:new( frontGroup, statusBar, minionMaster, towerMaster, gameMap )
    minionMaster:setGameMaster( gameMaster )
 
 
@@ -123,14 +123,15 @@ end
  
 
 function scene:eachFrame()
-   
-   player:move( pressedKeys, speedButtonPressed )
+   if gameMaster:isGameRunning() then
+	   player:move( pressedKeys, speedButtonPressed )
 
-   minionMaster:moveMinions()
+	   minionMaster:moveMinions()
 
-   towerMaster:operateTowers()
+	   towerMaster:operateTowers()
 
-   gameMap:updateGrid()
+	   gameMap:updateGrid()
+	end
 end
 
 

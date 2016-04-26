@@ -1,3 +1,5 @@
+local Set = require('libs.set')
+
 local _TowerMaster = {}
 
 function _TowerMaster:new( minionMaster )
@@ -10,13 +12,17 @@ end
 
 
 function _TowerMaster:operateTowers()
-	for k,tower in pairs(self.towers) do
-		tower:findTargets( self.minionMaster.minions )
+	for i=1,#self.towers do
+		self.towers[i]:findTargets( self.minionMaster.minions )
 	end
 end
 
 function _TowerMaster:addTower( tower )
-	table.insert( self.towers, tower )
+	Set.addToSet( self.towers, tower )
+end
+
+function _TowerMaster:removeTower( tower )
+	Set.removeFromSet( self.towers, tower )
 end
 
 return _TowerMaster
