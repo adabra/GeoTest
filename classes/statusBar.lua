@@ -118,7 +118,7 @@ function _StatusBar:setCreditAmount( amount )
 end
 
 function _StatusBar:setWaveLevel( level )
-	self.waveField = level
+	self.waveField:setText( level )
 end
 
 return _StatusBar

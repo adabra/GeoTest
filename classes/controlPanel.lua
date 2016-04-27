@@ -5,6 +5,7 @@ local strings = require('strings.game')
 local VisualObject = require('classes.visualObject')
 local gameValues = require('gameValues.controlPanel')
 local gameValuesGameMaster = require('gameValues.gameMaster')
+local gameValuesTower = require('gameValues.tower')
 
 local _ControlPanel = {}
 
@@ -254,7 +255,11 @@ function _ControlPanel:createSellAndUpgradeInterface( displayGroup )
 		strings.sellTowerButton,
 		function()
 			self:cleanUpSellAndUpgradeInterface()
-			self:createSellTowerInterface( displayGroup )
+			if (self.gameMaster.selectedTower.towerType == gameValuesTower.typeBasicLevel1) then
+				self:createSellTowerInterface( displayGroup )
+			else 
+				--TODO: Lag confirminterface med autodetect av typen tårn
+			end
 		end,
 		Layout.controlPanelArea.width/2,
 		Layout.controlPanelArea.height/2
