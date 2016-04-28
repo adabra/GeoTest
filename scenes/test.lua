@@ -12,6 +12,9 @@ local tower = require('classes.tower')
 local eachframe = require('libs.eachframe')
 local Set = require('libs.set')
 local ControlPanel = require('classes.controlPanel')
+local widget = require('widget')
+local Layout = require('libs.layout')
+local Colors = require('libs.colors')
 local myTower
 local background
 ---------------------------------------------------------------------------------
@@ -24,14 +27,12 @@ function scene:create( event )
    -- Initialize the scene here.
    -- Example: add display objects to "sceneGroup", add touch listeners, etc.
 
-   local LOL = {}
-   LOL.lol = "hei"
-   print( "LOL HEI")
-   print( LOL["lol"] )
+
 
    background = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
    background:setFillColor( 1,1,1 )
 
+--[[
    local frame = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, 200, 200 )
    frame:setFillColor( 1,1,1, 0 )
    frame:setStrokeColor( 1, 0, 0 )
@@ -40,48 +41,36 @@ function scene:create( event )
  	myTower = tower:new( sceneGroup, display.contentCenterX, display.contentCenterY, 'basic', 100 )
  	eachframe.add(self)
 
- 	a = {}
- 	Set.addToSet( a, "b" )
- 	Set.addToSet(a, "C")
- 	Set.printSet(a)
- 	print(Set.setContains(a, "b"))
- 	print(Set.setContains(a, "a"))
- 	Set.removeFromSet(a, "b")
- 	Set.printSet(a)
- 	print(a["b"])
+
 
 	 	-- Handle press events for the buttons
 	local function onSwitchPress( event )
 	    local switch = event.target
 	    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
 	end
+	--]]
 
-	-- Create a group for the radio button set
-	local radioGroup = display.newGroup()
-
-	-- Create two associated radio buttons (inserted into the same display group)
-	local radioButton1 = widget.newSwitch(
-	    {
-	        left = 150,
-	        top = 200,
-	        style = "radio",
-	        id = "RadioButton1",
-	        initialSwitchState = true,
-	        onPress = onSwitchPress
-	    }
-	)
-	radioGroup:insert( radioButton1 )
-
-	local radioButton2 = widget.newSwitch(
-	    {
-	        left = 250,
-	        top = 200,
-	        style = "radio",
-	        id = "RadioButton2",
-	        onPress = onSwitchPress
-	    }
-	)
-	radioGroup:insert( radioButton2 )
+   local button = widget.newButton( {
+		x = Layout.controlPanelArea.centerX,
+		y = Layout.controlPanelArea.centerY,
+		-- Visual options
+		shape = "rect",
+		fillColor = { default = Colors.controlPanelGrey, over = Colors.controlPanelButtonDown },
+		strokeColor = { default= Colors.controlPanelButtonStroke, over = Colors.controlPanelButtonStroke },
+		strokeWidth = 3,
+		width = 200,
+		height = 200,
+		label = "LOL",
+		fontSize = 40,
+		labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+		emboss = true,
+		--Behavior
+		onRelease = nil
+		} )
+   button:removeSelf()
+   print(button)
+   button = nil
+   print(button)
 
 end
  

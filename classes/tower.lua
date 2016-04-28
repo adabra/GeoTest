@@ -1,6 +1,7 @@
 local gameValues = require('gameValues.tower')
 local Layout = require('libs.layout')
 local utils = require('libs.utils')
+local colors = require('libs.colors')
 
 local _Tower = {}
 
@@ -103,7 +104,7 @@ function _Tower:fire( minion )
 	self:rotateTowardMinion( minion )
 
 	self.fireSprite = display.newLine( self.displayGroup, self.x, self.y, minion.x, minion.y  )
-	self.fireSprite:setStrokeColor( 1, 0, 0 )
+	self.fireSprite:setStrokeColor( unpack(colors[self.towerType .. 'Laser']) )
 	self.fireSprite.strokeWidth = 3
 
 	minion:takeFire( 
@@ -207,9 +208,9 @@ function _Tower:setUpSprite( itemType )
 		        loopCount = 0, 
 		        loopDirection = "forward"
 	    	}
-			print("ADDING SEQUENCE: " .. gameValues['type' .. towerTypes[i] .. 'Level' .. j])
+			--print("ADDING SEQUENCE: " .. gameValues['type' .. towerTypes[i] .. 'Level' .. j])
 			local index = (i-1)*4 + j
-			print("Start:" ..  index)
+			--print("Start:" ..  index)
 	    end
 	end
 

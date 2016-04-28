@@ -78,6 +78,7 @@ end
 function _GameMaster:selectTower( tower )
 	self.selectedTower = tower
 	self.gameMap:selectTower( tower:getX(), tower:getY() )
+	self.controlPanel:cleanUpStartWaveButton()
 	self.controlPanel:createSellAndUpgradeInterface (self.controlPanel.displayGroup)
 end
 
@@ -126,48 +127,41 @@ function _GameMaster:startGame()
 	--self:setPathBuildingAllowed(false)
 	self:startWaveCountdown()
 	self:resumeGame()
-	--self:sendNextWave()
 end
 
-function _GameMaster:startGameCountdown()
-	local startGameCountdown = gameValues.startGameCountdown
 
-	local textOptions = {
-		parent = self.controlPanel.displayGroup, 
-		text = strings.waveCountdownText .. waveCountdown, 
-		x = Layout.mapArea.centerX, 
-		y = Layout.mapArea.minY + Layout.mapArea.height*0.1, 
-		width = Layout.mapArea.width*0.95, 
-		height = 0, 
-		font = native.systemFont,
-		align = "center" 
-	}
-	self.waveCountdownText = display.newText( textOptions )
-	self.waveCountdownText:setFillColor( 0, 0, 0 )
-end
-
-function _GameMaster:startWaveCountdown( waveNumber )
+function _GameMaster:startWaveCountdown()
 	self:setGameState(gameValues.stateGameCountdown)
-	self.controlPanel:createWaveCountdownInterface( self.controlPanel.displayGroup )
-	local waveCountdown = gameValues.waveCountdownTime
+	local countdownTime
+	if self.waveLevel==0 then
+		self.controlPanel:createGameCountdownInterface( self.controlPanel.displayGroup)
+		self.waveCountdown = gameValues.gameCountdownTime
+	else 
+		self.controlPanel:createWaveCountdownInterface( self.controlPanel.displayGroup )
+		self.waveCountdown = gameValues.waveCountdownTime
+	end
+	countdownTime = self.waveCountdown
 
+	self.controlPanel:updateWaveCountdown( self.waveCountdown )
 	self.waveCountdownTimer = timer.performWithDelay(
 		1000, 
 		function()
-			if waveCountdown>0 then
-				waveCountdown = waveCountdown-1
-				self.controlPanel:updateNextWaveText( strings.nextWaveText .. "\n" .. waveCountdown)
+			if self.waveCountdown>0 then
+				self.waveCountdown = self.waveCountdown-1
+				self.controlPanel:updateWaveCountdown( self.waveCountdown)
+				print(self.waveCountdown)
 			else
 				self:startNextWave()
 			end
 		end,
-		gameValues.waveCountdownTime+1
+		countdownTime+1
 		 )
 end
 
 function _GameMaster:skipWaveCountdown()
 	if (self:getGameState() == gameValues.stateGameCountdown) then
 		if self.waveCountdownTimer then
+			self.statusBar:setCreditAmount( self.creditAmount + self.waveCountdown )
 			timer.cancel( self.waveCountdownTimer )
 			self.waveCountdownTimer = nil
 		end

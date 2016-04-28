@@ -102,6 +102,7 @@ function _ControlPanel:createPathBuildingInterface( displayGroup )
 end
 
 function _ControlPanel:cleanUpGameCreatorInterface()
+	print("CLEANING UP Game Creator Interface")
 	if (self.pathTooShortText) then
 		self.pathTooShortText:removeSelf( )
 		self.pathTooShortText = nil
@@ -109,11 +110,11 @@ function _ControlPanel:cleanUpGameCreatorInterface()
 
 	self:cleanUpMapOverlay( self.pathBuildingOverlay )
 
-	self.addVisualsButton:removeSelf()
-	self.addVisualsButton = nil
 
-	self.proceedToGameButton:removeSelf()
-	self.proceedToGameButton = nil
+	self:cleanUpButton(self.addVisualsButton)
+
+	self:cleanUpButton(self.proceedToGameButton)
+	
 end
 
 function _ControlPanel:createStartGameInterface( displayGroup )
@@ -125,9 +126,10 @@ function _ControlPanel:createStartGameInterface( displayGroup )
 end
 
 function _ControlPanel:cleanUpStartGameInterface()
+	print("CLEANING UP Start Game Interface")
 	self:cleanUpMapOverlay( self.startGameOverlay )
-	self.startGameButton:removeSelf( )
-	self.startGameButton = nil
+	self:cleanUpButton(self.startGameButton)
+
 end
 
 function _ControlPanel:createDifficultyPicker( displayGroup )
@@ -141,9 +143,7 @@ function _ControlPanel:createStartGameButton( displayGroup )
 		strings.startGameButton,
 		function()
 			self:cleanUpStartGameInterface()
-			--self:createTowerBuildingInterface( displayGroup )
 			self.gameMaster:startGame()
-			self:createWaveCountdownInterface( displayGroup )
 		end,
 		Layout.controlPanelArea.width,
 		Layout.controlPanelArea.height/2 )
@@ -160,24 +160,55 @@ function _ControlPanel:createRestartGameButton( displayGroup )
 		Layout.controlPanelArea.height/2)
 end
 
+function _ControlPanel:createGameCountdownInterface( displayGroup )
+	self.currentState = gameValues.stateGameCountdownInterface
+
+	local options = {
+		parent = displayGroup,
+		text = strings.gameCountdownText .. gameValuesGameMaster.gameCountdownTime .. '!',
+		x = Layout.controlPanelArea.centerX,
+		y = Layout.controlPanelArea.centerY,
+		width = Layout.controlPanelArea.width,
+		height = 0,
+		font = native.systemFont,
+		align = "center"
+	}
+	self.gameCountdownText = display.newText( options )
+end
+
+function _ControlPanel:cleanUpGameCountdownInterface()
+	self.gameCountdownText:removeSelf( )
+	self.gameCountdownText = nil
+end
+
+
 function _ControlPanel:createWaveCountdownInterface( displayGroup )
+	self:cleanUpWaveCountdownInterface()
 	self.currentState = gameValues.stateWaveCountdownInterface
-	if not self.nextWaveText then
-		self:createNextWaveText( displayGroup )
-		self:createSellAndUpgradeInstructions( displayGroup )
+	if not self.startWaveButton then
+		if not self.nextWaveText then
+			self:createNextWaveText( displayGroup )
+			self:createSellAndUpgradeInstructions( displayGroup )
+		end
+		self:createStartWaveButton( displayGroup )
 	end
-	self:createStartWaveButton( displayGroup )
 end
 
 function _ControlPanel:cleanUpWaveCountdownInterface()
-	self.nextWaveText:removeSelf( )
-	self.nextWaveText = nil
+	print("CLEANING UP Wave Countdown Interface")
+	if self.nextWaveText then
+		self.nextWaveText:removeSelf( )
+		self.nextWaveText = nil
+	end
 
-	self.sellAndUpgradeInstructions:removeSelf( )
-	self.sellAndUpgradeInstructions = nil
+	if self.sellAndUpgradeInstructions then
+		self.sellAndUpgradeInstructions:removeSelf( )
+		self.sellAndUpgradeInstructions = nil
+	end
 
 	if self.startWaveButton then
-		self:cleanUpStartWaveButton()	
+		self:cleanUpButton( self.startWaveButton )
+		self.startWaveButton = nil	
 	end
 end
 
@@ -198,6 +229,20 @@ end
 function _ControlPanel:updateNextWaveText( text )
 	if self.nextWaveText then
 		self.nextWaveText.text = text
+	end
+end
+
+function _ControlPanel:updateWaveCountdown( countdown )
+	if self.gameCountdownText then
+		self.gameCountdownText.text = strings.gameCountdownText .. countdown .. '!'
+	end
+
+	if self.nextWaveText then
+		self.nextWaveText.text = strings.nextWaveText .. "\n" .. countdown
+	end
+
+	if self.startWaveButton then
+		self.startWaveButton:setLabel( strings.startWaveButton .. countdown )
 	end
 end
 
@@ -224,54 +269,82 @@ function _ControlPanel:createStartWaveButton( displayGroup )
 			self:cleanUpWaveCountdownInterface()
 			--self:cleanUpStartWaveButton()
 			--self:createSellAndUpgradeInterface( displayGroup )
-			self:createTowerBuildingInterface( displayGroup )
+			--self:createTowerBuildingInterface( displayGroup )
 			self.gameMaster:skipWaveCountdown()
 		end,
 		Layout.controlPanelArea.width,
-		Layout.controlPanelArea.height/2)
+		Layout.controlPanelArea.height/2,
+		true)
 end
 
 function _ControlPanel:cleanUpStartWaveButton()
-	self.startWaveButton:removeSelf( )
-	self.startWaveButton = nil
+	self:cleanUpButton( self.startWaveButton )
 end
 
 function _ControlPanel:createSellAndUpgradeInterface( displayGroup )
 	self.currentState = gameValues.stateSellAndUpgradeInterface
+	if (self.gameMaster.selectedTower.level < 4) then
 	self.upgradeTowerButton = self:createButton(
 		displayGroup,
 		0,1,
 		strings.upgradeTowerButton,
 		function()
 			self:cleanUpSellAndUpgradeInterface()
-			self:createUpgradeTowerInterface( displayGroup )
+			print (self.gameMaster.selectedTower.towerType)
+			if (self.gameMaster.selectedTower.towerType == gameValues.basic) then
+				self:createUpgradeTowerInterface( displayGroup )	
+			else 
+				self:createConfirmUpgradeInterface( displayGroup, self.gameMaster.selectedTower.towerType )
+			end
+			
+			
 		end,
 		Layout.controlPanelArea.width/2,
 		Layout.controlPanelArea.height/2
 		)
+	else
+		self.upgradeTowerButton = self:createButton(
+			displayGroup,
+			0,1,
+			strings.upgradeTowerUnavailable,
+			function() end,
+			Layout.controlPanelArea.width/2,
+			Layout.controlPanelArea.height/2
+		)
+		self.upgradeTowerButton:setEnabled( false )
+	end
+
+	local value = self:getRefundValue( self.gameMaster.selectedTower )
 	self.sellTowerButton = self:createButton(
 		displayGroup,
 		1,1,
-		strings.sellTowerButton,
+		strings.sellTowerButton .. ' (' .. value .. ')',
 		function()
 			self:cleanUpSellAndUpgradeInterface()
-			if (self.gameMaster.selectedTower.towerType == gameValuesTower.typeBasicLevel1) then
-				self:createSellTowerInterface( displayGroup )
-			else 
-				--TODO: Lag confirminterface med autodetect av typen tårn
-			end
+			self:createSellTowerInterface( displayGroup, value )
 		end,
 		Layout.controlPanelArea.width/2,
-		Layout.controlPanelArea.height/2
+		Layout.controlPanelArea.height/2,
+		true
 		)
 end
 
-function _ControlPanel:cleanUpSellAndUpgradeInterface( )
-	self.upgradeTowerButton:removeSelf()
-	self.upgradeTowerButton = nil
+function _ControlPanel:getRefundValue( tower )
+	return gameValuesGameMaster[ tower.towerType .. 'Level' .. tower.level .. 'Value']
+end
 
-	self.sellTowerButton:removeSelf()
-	self.sellTowerButton = nil
+function _ControlPanel:getUpgradeCost( tower )
+	if tower.towerType ~= gameValues.basic then
+		return gameValuesGameMaster[ tower.towerType .. 'Level' .. tower.level+1 .. 'Cost']
+	else
+		return ""
+	end
+end
+
+function _ControlPanel:cleanUpSellAndUpgradeInterface( )
+	print("CLEANING UP Sell And Upgrade Interface")
+	self:cleanUpButton(self.upgradeTowerButton)
+	self:cleanUpButton(self.sellTowerButton)
 end
 
 function _ControlPanel:createUpgradeTowerInterface( displayGroup )
@@ -281,52 +354,51 @@ function _ControlPanel:createUpgradeTowerInterface( displayGroup )
 		self:createConfirmUpgradeInterface( displayGroup, upgradeChoice )
 	end
 
-	self.upgrade1Button = self:createButton(
+	self.upgradeDamageButton = self:createButton(
 		displayGroup,
 		0,1,
-		strings.upgrade1,
+		strings.upgradeDamage .. '\n(' .. gameValuesGameMaster.damageLevel2Cost .. ')',
 		function()
-			upgradeButton( gameValues.upgrade1 )
+			upgradeButton( gameValues.upgradeDamage )
 		end,
 		Layout.controlPanelArea.width/3,
-		Layout.controlPanelArea.height/2
+		Layout.controlPanelArea.height/2,
+		true
 		)
 
-	self.upgrade2Button = self:createButton(
+	self.upgradeSlowButton = self:createButton(
 		displayGroup,
 		1,1,
-		strings.upgrade2,
+		strings.upgradeSlow .. '\n(' .. gameValuesGameMaster.slowLevel2Cost .. ')',
 		function()
-			upgradeButton( gameValues.upgrade2 )
+			upgradeButton( gameValues.upgradeSlow )
 		end,
 		Layout.controlPanelArea.width/3,
-		Layout.controlPanelArea.height/2
+		Layout.controlPanelArea.height/2,
+		true
 		)
 
-	self.upgrade3Button = self:createButton(
+	self.upgradeRangeButton = self:createButton(
 		displayGroup,
 		2,1,
-		strings.upgrade3,
+		strings.upgradeRange .. '\n(' .. gameValuesGameMaster.rangeLevel2Cost .. ')',
 		function()
-			upgradeButton( gameValues.upgrade3 )
+			upgradeButton( gameValues.upgradeRange )
 		end,
 		Layout.controlPanelArea.width/3,
-		Layout.controlPanelArea.height/2
+		Layout.controlPanelArea.height/2,
+		true
 		)
 end
 
 function _ControlPanel:cleanUpUpgradeTowerInterface( )
-	self.upgrade1Button:removeSelf( )
-	self.upgrade1Button = nil
-
-	self.upgrade2Button:removeSelf( )
-	self.upgrade2Button = nil
-
-	self.upgrade3Button:removeSelf( )
-	self.upgrade3Button = nil
+	print("CLEANING UP Upgrade Tower Interface")
+	self:cleanUpButton(self.upgradeDamageButton)
+	self:cleanUpButton(self.upgradeRangeButton)
+	self:cleanUpButton(self.upgradeSlowButton)
 end
 
-function _ControlPanel:createSellTowerInterface( displayGroup )
+function _ControlPanel:createSellTowerInterface( displayGroup, value )
 	self.currentState = gameValues.stateSellTowerInterface
 	self.cancelSaleButton = self:createButton(
 		displayGroup,
@@ -344,7 +416,7 @@ function _ControlPanel:createSellTowerInterface( displayGroup )
 	self.confirmSaleButton = self:createButton(
 		displayGroup,
 		1,1,
-		strings.confirmSaleButton,
+		strings.confirmSaleButton .. ' (' .. value .. ')',
 		function()
 			self:cleanUpSellTowerInterface()
 			self:createWaveCountdownInterface( displayGroup )
@@ -356,11 +428,9 @@ function _ControlPanel:createSellTowerInterface( displayGroup )
 end
 
 function _ControlPanel:cleanUpSellTowerInterface( )
-	self.cancelSaleButton:removeSelf( )
-	self.cancelSaleButton = nil
-
-	self.confirmSaleButton:removeSelf( )
-	self.confirmSaleButton = nil
+	print("CLEANING UP Sell Tower Interface")
+	self:cleanUpButton(self.cancelSaleButton)
+	self:cleanUpButton(self.confirmSaleButton)
 end
 
 function _ControlPanel:createConfirmUpgradeInterface( displayGroup, upgradeChoice )
@@ -381,23 +451,22 @@ function _ControlPanel:createConfirmUpgradeInterface( displayGroup, upgradeChoic
 	self.confirmUpgradeButton = self:createButton(
 		displayGroup,
 		1,1,
-		strings.confirmUpgradeButton,
+		strings.confirmUpgradeButton .. self:getUpgradeCost( self.gameMaster.selectedTower ) ,
 		function()
 			self:cleanUpConfirmUpgradeInterface()
 			self:createWaveCountdownInterface( displayGroup )
 			self.gameMaster:upgradeSelectedTower( upgradeChoice )
 		end,
 		Layout.controlPanelArea.width/2,
-		Layout.controlPanelArea.height/2
+		Layout.controlPanelArea.height/2,
+		true
 		)
 end
 
 function _ControlPanel:cleanUpConfirmUpgradeInterface( )
-	self.cancelUpgradeButton:removeSelf( )
-	self.cancelUpgradeButton = nil
-
-	self.confirmUpgradeButton:removeSelf( )
-	self.confirmUpgradeButton = nil
+	print("CLEANING UP Confirm Upgrade Interface")
+	self:cleanUpButton(self.cancelUpgradeButton)
+	self:cleanUpButton(self.confirmUpgradeButton)
 end
 
 
@@ -408,9 +477,9 @@ function _ControlPanel:createGameLostInterface( displayGroup )
 end
 
 function _ControlPanel:cleanUpGameLostInterface()
+	print("CLEANING UP Game Lost Interface")
 	self:cleanUpMapOverlay( self.gameLostOverlay )
-	self.restartGameButton:removeSelf( )
-	self.restartGameButton = nil
+	self:cleanUpButton(self.restartGameButton)
 end
 
 function _ControlPanel:createMapOverlay( displayGroup, text, tapToRemove)
@@ -481,10 +550,10 @@ function _ControlPanel:createAddVisualsInterface( displayGroup )
 end
 
 function _ControlPanel:cleanUpAddVisualsInterface()
+	print("CLEANING UP Add Visuals Interface")
 	self:cleanUpMapOverlay( self.addVisualsOverlay )
 
-	self.backToPathBuildingInterfaceButton:removeSelf( )
-	self.backToPathBuildingInterfaceButton = nil
+	self:cleanUpButton(self.backToPathBuildingInterfaceButton)
 
 	for i=1,8 do
 		self.visualObjects[i].sprite:removeSelf( )
@@ -521,6 +590,7 @@ function _ControlPanel:createTowerBuildingInterface( displayGroup )
 end
 
 function _ControlPanel:cleanUpTowerBuildingInterface()
+	print("CLEANING UP Tower Building Interface")
 	for y=0,#self.towerButtons do
 		for x=0,#self.towerButtons[y] do
 
@@ -582,34 +652,61 @@ function _ControlPanel:createTowerBuildingButton( displayGroup, x, y, label )
 	return button
 end
 
-function _ControlPanel:createButton( displayGroup, x, y, label, onRelease, buttonWidth, buttonHeight )
+function _ControlPanel:createButton( displayGroup, x, y, label, onRelease, buttonWidth, buttonHeight, icon )
 	local buttonWidth = buttonWidth or self.buttonWidth
 	local buttonHeight = buttonHeight or self.buttonHeight
 	local button = widget.newButton( {
-	x = Layout.controlPanelArea.minX+(x*buttonWidth),
-	y = Layout.controlPanelArea.minY+(y*buttonHeight),
-	-- Visual options
-	shape = "rect",
-	fillColor = { default = Colors.controlPanelGrey, over = Colors.controlPanelButtonDown },
-	strokeColor = { default= Colors.controlPanelButtonStroke, over = Colors.controlPanelButtonStroke },
-	strokeWidth = buttonWidth*0.01,
-	width = buttonWidth*0.985,
-	height = buttonHeight*0.985,
-	label = label,
-	fontSize = 40,
-	labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-	emboss = true,
-	--Behavior
-	onRelease = onRelease
-	} )
+		x = Layout.controlPanelArea.minX+(x*buttonWidth),
+		y = Layout.controlPanelArea.minY+(y*buttonHeight),
+		-- Visual options
+		shape = "rect",
+		fillColor = { default = Colors.controlPanelGrey, over = Colors.controlPanelButtonDown },
+		strokeColor = { default= Colors.controlPanelButtonStroke, over = Colors.controlPanelButtonStroke },
+		strokeWidth = buttonWidth*0.01,
+		width = buttonWidth*0.985,
+		height = buttonHeight*0.985,
+		label = label,
+		fontSize = 40,
+		labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+		emboss = true,
+		--Behavior
+		onRelease = onRelease
+		} )
 
 	button.anchorX = 0
 	button.anchorY = 0
 	button.status = "idle"
 	--self:updateNextXY()
 	displayGroup:insert(button)
+	-- Icon
+	if icon then
+		self:placeButtonIcon( button )
+	end
 	return button
 end	
+
+function _ControlPanel:placeButtonIcon( button )
+	button.buttonIcon = display.newImageRect( 
+		self.displayGroup, 
+		gameValues.buttonIconImagePath, 
+		Layout.statusBarArea.height*0.7, 
+		Layout.statusBarArea.height*0.7 )
+	button.buttonIcon.y = button.y + button.height/2
+	button.buttonIcon.x = button.x + button.width*0.9
+	--button.buttonIcon.x = display.contentCenterX
+	--button.buttonIcon.y = display.contentCenterY
+end
+
+function _ControlPanel:cleanUpButton( button )
+	if button.buttonIcon then
+		button.buttonIcon:removeSelf( )
+		button.buttonIcon = nil
+	end
+
+	button:removeSelf( )
+	button = nil
+end
+
 
 function _ControlPanel:placeVisualObject( visualObject, x, y, imageBoxWidth, imageBoxHeight )
 	local imageBoxWidth = imageBoxWidth or self.buttonWidth
@@ -626,6 +723,8 @@ function _ControlPanel:readyForNewWave()
 		self:cleanUpStartGameInterface()
 	elseif self.currentState == gameValues.stateAddVisualsInterface then
 		self:cleanUpAddVisualsInterface()
+	elseif self.currentState == gameValues.stateGameCountdownInterface then
+		self:cleanUpGameCountdownInterface()
 	elseif self.currentState == gameValues.stateWaveCountdownInterface then
 		self:cleanUpWaveCountdownInterface()
 	elseif self.currentState == gameValues.stateSellAndUpgradeInterface then
@@ -644,9 +743,11 @@ function _ControlPanel:readyForNewWave()
 		self:cleanUpWaveCountdownInterface()
 	end
 
-	if not self.towerButtons[1][1] then
+	
+	if not self.towerButton or self.towerButtons[1][1] then
 		self:createTowerBuildingInterface( self.displayGroup )
 	end
+	
 end
 
 --[[

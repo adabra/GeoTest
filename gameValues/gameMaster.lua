@@ -1,5 +1,6 @@
 local _M = {}
 
+_M.gameCountdownTime = 5
 _M.waveCountdownTime = 20
 _M.maxBaseHealthPoints = 100
 _M.creditStartAmount = 1000
@@ -54,13 +55,13 @@ for k,towerType in pairs(towerTypes) do
 	end
 end
 
-
-for k,towerType in pairs(towerTypes) do
-	for i=2,5 do
-		print(towerType .. 'Level' .. i .. 'Value' .. ":" .. _M[towerType .. 'Level' .. i .. 'Value'])
+_M.printTowerRefundvalues = function()
+	for k,towerType in pairs(towerTypes) do
+		for i=2,5 do
+			print(towerType .. 'Level' .. i .. 'Value' .. ":" .. _M[towerType .. 'Level' .. i .. 'Value'])
+		end
 	end
 end
-
 
 
 -- Game States
