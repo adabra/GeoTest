@@ -1,6 +1,7 @@
 local Minion = require('classes.minion')
 local gameValuesMinion = require('gameValues.minion')
 local gameValues = require('gameValues.minionMaster')
+local widget = require('widget')
 
 local _MinionMaster = {}
 
@@ -30,7 +31,8 @@ end
 
 function _MinionMaster:newMinion( minion )
 	table.insert(self.minions, minion)
-	
+	print("minion added: ")
+	print(self.minions[#self.minions])
 	--self.waitingMinions[#self.waitingMinions+1] = minion
 end
 
@@ -39,20 +41,16 @@ function _MinionMaster:initWaves()
 	table.insert( waves, { 
 		timeBetweenMinions = 500,
 		{minionType = "basic", numberOfMinions = 1},
-		{minionType = "basic", numberOfMinions = 1} 
+		{minionType = "basic", numberOfMinions = 7} 
 		} )
 	table.insert( waves, {
 		timeBetweenMinions = 500,
-		{minionType = "basic", numberOfMinions = 3}
+		{minionType = "basic", numberOfMinions = 5}
 		} ) 
 	table.insert( waves, {
-		timeBetweenMinions = 2000,
+		timeBetweenMinions = 500,
 		{minionType = "basic", numberOfMinions = 10}
 		} ) 
-
-	
-
-
 
 	for i=1,#waves do
 		waves[i].totalNumberOfMinions = 0
@@ -60,9 +58,27 @@ function _MinionMaster:initWaves()
 			waves[i].totalNumberOfMinions = waves[i].totalNumberOfMinions + waves[i][j].numberOfMinions
 		end
 	end
+--[[
+	local options = {
+		x = 100,
+		y = 100,
+		onPress = function() self:wavePrint() return true end,
+		label = "print wave",
+		shape = 'rect',
+		fillColor = {default = {0,0,0}, over = {0.5,0.5,0.5}}
+	}
+	self.wavePrintButton = widget.newButton( options )
+--]]
 
 	self.numberOfWaves = #waves
 	return waves
+end
+
+function _MinionMaster:wavePrint()
+	for i=1,#self.minions do
+		print(self.minions[i])
+	end
+	print("--------")
 end
 
 function _MinionMaster:createWave( waveLevel )
@@ -73,11 +89,23 @@ function _MinionMaster:createWave( waveLevel )
 	end
 
 	local waveBlueprint = self.waves[waveLevel]
+
 	for subWave=1,#waveBlueprint do
 		for minion=1,waveBlueprint[subWave].numberOfMinions do
 			self:createMinion( waveBlueprint[subWave].minionType )
 		end
 	end
+end
+
+function _MinionMaster:clearWave()
+	self:wavePrint()
+	for i=1,#self.minions do
+		local minion = self.minions[i]
+		minion:hide()
+		minion:cleanUp()
+
+	end
+	self.minion = {}
 end
 
 
@@ -104,9 +132,11 @@ function _MinionMaster:sendWave( waveLevel )
 	print("Time between minions: " .. self.waves[waveLevel].timeBetweenMinions)
 	timer.performWithDelay( 
 		self.waves[waveLevel].timeBetweenMinions, 
+		
 		function() 
 			self:sendNextMinion() 
 		end, 
+
 		self.waves[waveLevel].totalNumberOfMinions )
 end
 

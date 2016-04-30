@@ -73,7 +73,7 @@ function _Tower:findTargets( minions )
 		local target
 		local minHp = 999999
 		for k,minion in pairs(minions) do
-			if (self:inRange( minion ) and minion:getStatus() == "moving" ) then
+			if (self:inRange( minion ) and minion:getStatus() == "moving" and minion.sprite) then
 				if (minion:getHealthPoints() < minHp) then
 					target = minion
 					minHp = target:getHealthPoints()

@@ -47,13 +47,19 @@ function _HealthBar:updateBarSize( bar )
 	bar.width = gameValues.healthBarWidth*(self.minion:getHealthPoints()/self.minion.maxHealthPoints)
 end
 
-function _HealthBar:cleanUp()
-	self.healthBarRed:removeSelf( )
-	self.healthBarRed = nil
-	self.healthBarGreen:removeSelf( )
-	self.healthBarGreen = nil
-	self.healthBarFrame:removeSelf( )
-	self.healthBarFrame = nil
+function _HealthBar:hide()
+	if self.healthBarRed then
+		self.healthBarRed:removeSelf( )
+		self.healthBarGreen:removeSelf( )
+		self.healthBarFrame:removeSelf( )
+		self.healthBarRed = nil
+		self.healthBarGreen = nil
+		self.healthBarFrame = nil
+	end
+end
+
+function _HealthBar:cleanUp()	
+	self = nil
 end
 
 function _HealthBar:getValue1()

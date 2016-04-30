@@ -67,7 +67,7 @@ end
 -- Game States
 _M.stateWaiting = "stateWaiting" -- Game not started
 _M.statebaseDestroyed = "baseDestroyed"
-_M.stateGameCountdown = "gameCountdown"
+_M.stateWaveCountdown = "waveCountdown"
 _M.stateOngoingWave = "ongoingWave"
 
 --Wave balancing--

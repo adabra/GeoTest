@@ -115,19 +115,31 @@ end
 function _Minion:attackBase()
 	self.status = gameValues.statusDone
 	self.minionMaster:attackedBase( self.minionType )
-	self:cleanUp()
+	self:hide()
 end
 
 function _Minion:die()
 	self.status = gameValues.statusDead
 	self.minionMaster:died()
-	self:cleanUp()
+	self:hide()
+end
+
+function _Minion:hide()
+	if self.sprite then
+		self.sprite:removeSelf()
+		self.sprite = nil
+	end
+	
+	if self.healthBar then
+		self.healthBar:hide()
+	end
 end
 
 function _Minion:cleanUp()
-	self.sprite:removeSelf()
-	self.sprite = nil
-	self.healthBar:cleanUp()
+	if self.healthBar then
+		self.healthBar:cleanUp()
+	end
+	self = nil
 end
 
 return _Minion

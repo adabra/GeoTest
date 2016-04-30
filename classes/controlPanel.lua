@@ -110,11 +110,11 @@ function _ControlPanel:cleanUpGameCreatorInterface()
 
 	self:cleanUpMapOverlay( self.pathBuildingOverlay )
 
+	self.addVisualsButton:removeSelf()
+	self.addVisualsButton = nil
 
-	self:cleanUpButton(self.addVisualsButton)
-
-	self:cleanUpButton(self.proceedToGameButton)
-	
+	self.proceedToGameButton:removeSelf( )
+	self.proceedToGameButton = nil	
 end
 
 function _ControlPanel:createStartGameInterface( displayGroup )
@@ -128,7 +128,8 @@ end
 function _ControlPanel:cleanUpStartGameInterface()
 	print("CLEANING UP Start Game Interface")
 	self:cleanUpMapOverlay( self.startGameOverlay )
-	self:cleanUpButton(self.startGameButton)
+	self.startGameButton:removeSelf( )
+	self.startGameButton = nil
 
 end
 
@@ -155,6 +156,8 @@ function _ControlPanel:createRestartGameButton( displayGroup )
 		0,1,
 		strings.restartGameButton,
 		function()
+			self:cleanUpGameLostInterface()
+			self.gameMaster:restartGame()
 		end,
 		Layout.controlPanelArea.width,
 		Layout.controlPanelArea.height/2)
@@ -207,8 +210,7 @@ function _ControlPanel:cleanUpWaveCountdownInterface()
 	end
 
 	if self.startWaveButton then
-		self:cleanUpButton( self.startWaveButton )
-		self.startWaveButton = nil	
+		self:cleanUpStartWaveButton()
 	end
 end
 
@@ -278,7 +280,9 @@ function _ControlPanel:createStartWaveButton( displayGroup )
 end
 
 function _ControlPanel:cleanUpStartWaveButton()
-	self:cleanUpButton( self.startWaveButton )
+	self:cleanUpButtonIcon( self.startWaveButton )
+	self.startWaveButton:removeSelf()
+	self.startWaveButton = nil
 end
 
 function _ControlPanel:createSellAndUpgradeInterface( displayGroup )
@@ -337,14 +341,18 @@ function _ControlPanel:getUpgradeCost( tower )
 	if tower.towerType ~= gameValues.basic then
 		return gameValuesGameMaster[ tower.towerType .. 'Level' .. tower.level+1 .. 'Cost']
 	else
-		return ""
+		return gameValuesGameMaster.damageLevel2Cost
 	end
 end
 
 function _ControlPanel:cleanUpSellAndUpgradeInterface( )
 	print("CLEANING UP Sell And Upgrade Interface")
-	self:cleanUpButton(self.upgradeTowerButton)
-	self:cleanUpButton(self.sellTowerButton)
+	self.upgradeTowerButton:removeSelf()
+	self.upgradeTowerButton = nil
+
+	self:cleanUpButtonIcon( self.sellTowerButton )
+	self.sellTowerButton:removeSelf( )
+	self.sellTowerButton = nil
 end
 
 function _ControlPanel:createUpgradeTowerInterface( displayGroup )
@@ -393,9 +401,17 @@ end
 
 function _ControlPanel:cleanUpUpgradeTowerInterface( )
 	print("CLEANING UP Upgrade Tower Interface")
-	self:cleanUpButton(self.upgradeDamageButton)
-	self:cleanUpButton(self.upgradeRangeButton)
-	self:cleanUpButton(self.upgradeSlowButton)
+	self:cleanUpButtonIcon( self.upgradeDamageButton )
+	self.upgradeDamageButton:removeSelf( )
+	self.upgradeDamageButton = nil
+
+	self:cleanUpButtonIcon( self.upgradeRangeButton )
+	self.upgradeRangeButton:removeSelf( )
+	self.upgradeRangeButton = nil
+
+	self:cleanUpButtonIcon( self.upgradeSlowButton )
+	self.upgradeSlowButton:removeSelf( )
+	self.upgradeSlowButton = nil
 end
 
 function _ControlPanel:createSellTowerInterface( displayGroup, value )
@@ -429,8 +445,12 @@ end
 
 function _ControlPanel:cleanUpSellTowerInterface( )
 	print("CLEANING UP Sell Tower Interface")
-	self:cleanUpButton(self.cancelSaleButton)
-	self:cleanUpButton(self.confirmSaleButton)
+	self.cancelSaleButton:removeSelf( )
+	self.cancelSaleButton = nil
+
+	self:cleanUpButtonIcon( self.confirmSaleButton )
+	self.confirmSaleButton:removeSelf( )
+	self.confirmSaleButton = nil
 end
 
 function _ControlPanel:createConfirmUpgradeInterface( displayGroup, upgradeChoice )
@@ -451,7 +471,7 @@ function _ControlPanel:createConfirmUpgradeInterface( displayGroup, upgradeChoic
 	self.confirmUpgradeButton = self:createButton(
 		displayGroup,
 		1,1,
-		strings.confirmUpgradeButton .. self:getUpgradeCost( self.gameMaster.selectedTower ) ,
+		strings.confirmUpgradeButton .. ' (' .. self:getUpgradeCost( self.gameMaster.selectedTower ) .. ')' ,
 		function()
 			self:cleanUpConfirmUpgradeInterface()
 			self:createWaveCountdownInterface( displayGroup )
@@ -465,8 +485,11 @@ end
 
 function _ControlPanel:cleanUpConfirmUpgradeInterface( )
 	print("CLEANING UP Confirm Upgrade Interface")
-	self:cleanUpButton(self.cancelUpgradeButton)
-	self:cleanUpButton(self.confirmUpgradeButton)
+	self.cancelUpgradeButton:removeSelf()
+	self.cancelUpgradeButton = nil
+
+	self.confirmUpgradeButton:removeSelf()
+	self.confirmUpgradeButton = nil
 end
 
 
@@ -479,7 +502,8 @@ end
 function _ControlPanel:cleanUpGameLostInterface()
 	print("CLEANING UP Game Lost Interface")
 	self:cleanUpMapOverlay( self.gameLostOverlay )
-	self:cleanUpButton(self.restartGameButton)
+	self.restartGameButton:removeSelf( )
+	self.restartGameButton = nil
 end
 
 function _ControlPanel:createMapOverlay( displayGroup, text, tapToRemove)
@@ -553,7 +577,8 @@ function _ControlPanel:cleanUpAddVisualsInterface()
 	print("CLEANING UP Add Visuals Interface")
 	self:cleanUpMapOverlay( self.addVisualsOverlay )
 
-	self:cleanUpButton(self.backToPathBuildingInterfaceButton)
+	self.backToPathBuildingInterfaceButton:removeSelf( )
+	self.backToPathBuildingInterfaceButton = nil
 
 	for i=1,8 do
 		self.visualObjects[i].sprite:removeSelf( )
@@ -697,14 +722,11 @@ function _ControlPanel:placeButtonIcon( button )
 	--button.buttonIcon.y = display.contentCenterY
 end
 
-function _ControlPanel:cleanUpButton( button )
+function _ControlPanel:cleanUpButtonIcon( button )
 	if button.buttonIcon then
 		button.buttonIcon:removeSelf( )
 		button.buttonIcon = nil
 	end
-
-	button:removeSelf( )
-	button = nil
 end
 
 

@@ -29,6 +29,7 @@ function _GameMaster:init()
 	self.minionMaster:addGameEventListener( self )
 	self:setGameState( gameValues.stateWaiting)
 	self.waveLevel = 0
+	self.isGameCountdown = true
 end
 
 function _GameMaster:initPickupItemGrid()
@@ -48,7 +49,7 @@ end
 
 function _GameMaster:handleGameEvent( event )
 	if event.eventType == gameValuesGameMap.eventTypeTowerSelected then
-		if self:getGameState() == gameValues.stateGameCountdown then
+		if self:getGameState() == gameValues.stateWaveCountdown and not self.isGameCountdown then
 			self:selectTower( event.target )
 		end
 	elseif event.eventType == gameValuesGameMap.eventTypeTowerDeselected then
@@ -129,9 +130,19 @@ function _GameMaster:startGame()
 	self:resumeGame()
 end
 
+function _GameMaster:restartGame()
+	self.minionMaster:clearWave()
+	self.baseHealthPoints = gameValues.maxBaseHealthPoints
+	self.statusBar:setBaseHealthPoints( self. baseHealthPoints )
+	self.waveLevel = self.waveLevel - 1
+	self:startGame()
+	self.isGameCountdown = true
+end
+
+
 
 function _GameMaster:startWaveCountdown()
-	self:setGameState(gameValues.stateGameCountdown)
+	self:setGameState(gameValues.stateWaveCountdown)
 	local countdownTime
 	if self.waveLevel==0 then
 		self.controlPanel:createGameCountdownInterface( self.controlPanel.displayGroup)
@@ -146,20 +157,19 @@ function _GameMaster:startWaveCountdown()
 	self.waveCountdownTimer = timer.performWithDelay(
 		1000, 
 		function()
-			if self.waveCountdown>0 then
+			if self.waveCountdown>1 then
 				self.waveCountdown = self.waveCountdown-1
 				self.controlPanel:updateWaveCountdown( self.waveCountdown)
-				print(self.waveCountdown)
 			else
 				self:startNextWave()
 			end
 		end,
-		countdownTime+1
+		countdownTime
 		 )
 end
 
 function _GameMaster:skipWaveCountdown()
-	if (self:getGameState() == gameValues.stateGameCountdown) then
+	if (self:getGameState() == gameValues.stateWaveCountdown) then
 		if self.waveCountdownTimer then
 			self.statusBar:setCreditAmount( self.creditAmount + self.waveCountdown )
 			timer.cancel( self.waveCountdownTimer )
@@ -172,11 +182,12 @@ end
 
 function _GameMaster:startNextWave()
 	self:setGameState(gameValues.stateOngoingWave)
+	self.isGameCountdown = false
 	self.gameMap:deselectTower()
 	self.controlPanel:readyForNewWave()
 	self.waveLevel = self.waveLevel + 1
 	self.statusBar:setWaveLevel( self.waveLevel )
-	self.minionMaster:createWave( self.waveLevel )
+	--self.minionMaster:createWave( self.waveLevel )
 	self.minionMaster:sendWave( self.waveLevel )
 end
 

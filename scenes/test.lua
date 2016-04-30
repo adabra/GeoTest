@@ -28,7 +28,6 @@ function scene:create( event )
    -- Example: add display objects to "sceneGroup", add touch listeners, etc.
 
 
-
    background = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
    background:setFillColor( 1,1,1 )
 
