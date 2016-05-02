@@ -47,7 +47,7 @@ _M.slowRangeLevel4 = _M.slowBasicLevel1
 _M.slowRangeLevel5 = _M.slowBasicLevel1
 
 _M.slowSlowLevel2 = _M.slowBasicLevel1*0.6
-_M.slowSlowLevel3 = _M.slowBasicLevel1*0.1
+_M.slowSlowLevel3 = _M.slowBasicLevel1*0.5
 _M.slowSlowLevel4 = _M.slowBasicLevel1*0.4
 _M.slowSlowLevel5 = _M.slowBasicLevel1*0.3
 

@@ -14,19 +14,17 @@ function _MinionMaster:new( displayGroup, gameMap )
 end
 
 function _MinionMaster:init()
-	self.minionDamage = { basic = gameValuesMinion.basicMinionDamage }
+	self.minionDamage = { 
+		basic = gameValuesMinion.basicMinionDamage, 
+		light = gameValuesMinion.lightMinionDamage,
+		heavy = gameValuesMinion.heavyMinionDamage,
+		boss1 = gameValuesMinion.boss1MinionDamage }
 	self.minions = {}
 	self.waves = self:initWaves()
 end
 
 function _MinionMaster:createMinion( minionType )
-	if (minionType == gameValuesMinion.typeBasicMinion) then
-		self:createBasicMinion()
-	end
-end
-
-function _MinionMaster:createBasicMinion()
-	self:newMinion( Minion:new( self.displayGroup, self.gameMap , self, gameValuesMinion.typeBasicMinion) )
+	self:newMinion( Minion:new( self.displayGroup, self.gameMap , self, minionType) )
 end
 
 function _MinionMaster:newMinion( minion )
@@ -40,12 +38,12 @@ function _MinionMaster:initWaves()
 	local waves = {}
 	table.insert( waves, { 
 		timeBetweenMinions = 500,
-		{minionType = "basic", numberOfMinions = 1},
-		{minionType = "basic", numberOfMinions = 7} 
+		{minionType = "boss1", numberOfMinions = 1},
+		--{minionType = "light", numberOfMinions = 7} 
 		} )
 	table.insert( waves, {
 		timeBetweenMinions = 500,
-		{minionType = "basic", numberOfMinions = 5}
+		{minionType = "basic", numberOfMinions = 1}
 		} ) 
 	table.insert( waves, {
 		timeBetweenMinions = 500,
@@ -148,6 +146,14 @@ function _MinionMaster:moveMinions()
 	for k,minion in pairs(self.minions) do
 		if (minion:getStatus() == gameValuesMinion.statusMoving) then
 			minion:move()
+		end
+	end
+end
+
+function _MinionMaster:damageMinions( amount )
+	for k,minion in pairs(self.minions) do
+		if minion:getStatus() == gameValuesMinion.statusMoving then
+			minion:takeDamage( amount )
 		end
 	end
 end

@@ -1,6 +1,9 @@
 
 local _M = {}
 
+--Frames per second
+_M.fps = 60
+
 --Calculates the distance between to latlon points in meters
 function _M.calculateDistance(point1, point2)
 
@@ -37,5 +40,9 @@ function _M.firstToUpper( str )
     return (str:gsub("^%l", string.upper))
 end
 
+function _M.metersPerSecondToCoronaPixelsPerFrame( metersPerSecond, metersPerCoronaPixel )
+	local metersPerFrame = metersPerSecond/self.fps
+	
+end
 
 return _M

@@ -1,12 +1,24 @@
 local _M = {}
 
-_M.gameCountdownTime = 5
+_M.gameCountdownTime = 1
 _M.waveCountdownTime = 20
 _M.maxBaseHealthPoints = 100
 _M.creditStartAmount = 1000
-_M.goldCoinAmount = 10
 _M.startGameCountdown = 20
 _M.firstWave = 1
+_M.itemDelay = 1000
+
+_M.coinMinSpawnDistance = 1
+_M.coinMaxSpawnDistance = 3
+
+_M.powerUpMinSpawnDistance = 2
+_M.powerUpMaxSpawnDistance = 4
+
+
+-- Pickup item values
+_M.goldCoinAmount = 10
+_M.zapperAmount = 400
+_M.hpPackAmount = 30
 
 _M.damageLevel2 = "damageLevel2"
 _M.damageLevel3 = "damageLevel3"

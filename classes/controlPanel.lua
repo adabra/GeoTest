@@ -30,7 +30,7 @@ function _ControlPanel:playerCellChanged( newX, newY )
 end
 
 function _ControlPanel:cancelBuildingProcess()
-	if (self.towerButtons) then
+	if (self.towerButtons and self.towerButtons[1][1]) then
 		self.gameMap:hideBuildPosBackground()
 
 		for row=0,#self.towerButtons do

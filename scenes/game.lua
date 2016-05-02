@@ -123,8 +123,8 @@ end
  
 
 function scene:eachFrame()
-   if gameMaster:isGameRunning() then
-	   player:move( pressedKeys, speedButtonPressed )
+	player:move( pressedKeys, speedButtonPressed )
+   	if gameMaster:isGameRunning() then
 
 	   minionMaster:moveMinions()
 

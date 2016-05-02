@@ -75,6 +75,16 @@ function _GameMap:setPlayer ( player )
 	end
 end
 
+function _GameMap:getPlayerPosition()
+	return self.player:getPosition()
+end
+
+function _GameMap:getPlayerCell()
+	local playerPos = self:getPlayerPosition()
+	local playerCell = self:contentAreaToGrid(playerPos.x, playerPos.y)
+	return {x = playerCell[1], y = playerCell[2]}
+end
+
 function _GameMap:hidePlayer()
 	if ( self.player ) then
 		self.player:hide()
