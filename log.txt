@@ -1,6 +1,11 @@
 Platform: OptiPlex 9020 / x64 / 6.3 / AMD Radeon HD 8490 / 4.5.13399 Compatibility Profile Context 15.200.1065.0 / 2016.2830 / nb_NO | NO | nb_NO | nb
-{table: 09F3CEC8, true, }
-{table: 09F3CEC8, table: 09F3D508, true, true, }
+{table: 09901668, true, }
+{table: 09901668, table: 09901550, true, true, }
+METERS_PER_SECOND_TO_CORONA_PIXELS_PER_FRAME
+640
+640
+width in meters:
+47.967768186965
 Key 'enter' was pressed up
 direction invalid, not moving
 First tile successfully added to path.
@@ -10,981 +15,249 @@ Tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
+Tile successfully added to path.
 CLEANING UP Game Creator Interface
 CLEANING UP Start Game Interface
 GAME STARTED!
+Key 'up' was pressed down
+Key 'up' was pressed up
+Key 'up' was pressed down
+Key 'left' was pressed down
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
 CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
 minion added: 
-table: 09EEEE50
-Total number of minions: 1
-Time between minions: 500
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed up
-Key 'up' was pressed down
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Key 'up' was pressed up
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Key 'up' was pressed up
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Key 'up' was pressed up
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.5, 142.5), min = 48, max = 720.
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'down' was pressed down
-Trying to set player position with invalid x-value, was (577, 643), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (577, 643), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (577, 643), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (577, 643), min = 0, max = 640.
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
+table: 09A623F8
+StartPos: 7,1
+minion added: 
+table: 09A63140
+StartPos: 7,1
+minion added: 
+table: 09A630F0
+StartPos: 7,1
+minion added: 
+table: 09A63000
+StartPos: 7,1
+minion added: 
+table: 09A63078
+Total number of minions: 5
+Time between minions: 1000
+Wave 1 at 1x speed.
 Key 'left' was pressed up
 Key 'right' was pressed down
 Key 'right' was pressed up
+Key 'right' was pressed down
+MINION GRID POS: x = 7, y = 1
+Key 'right' was pressed up
+Key 'up' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 'down' was pressed down
+MINION GRID POS: x = 7, y = 1
+Building tower at 6, 2
+Key 'right' was pressed down
+MINION GRID POS: x = 7, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 7, y = 1
+Key 'right' was pressed up
 Key 'down' was pressed up
+Building tower at 7, 4
+Key 'down' was pressed down
+Key 'left' was pressed down
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 'down' was pressed up
+MINION GRID POS: x = 7, y = 1
+Key 'up' was pressed down
+Key 'up' was pressed up
+Key 'down' was pressed down
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 7, y = 1
+Building tower at 5, 5
+MINION GRID POS: x = 6, y = 4
+Key 'left' was pressed up
+Key 'right' was pressed down
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 4
+Key 'down' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 3
+Key 'up' was pressed down
+MINION GRID POS: x = 6, y = 6
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 6, y = 3
+Key 'up' was pressed up
+Key 'up' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'right' was pressed up
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 4
+Key 'right' was pressed down
+MINION GRID POS: x = 6, y = 7
+MINION GRID POS: x = 6, y = 6
+Key 'right' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'right' was pressed down
+Key 'right' was pressed up
+MINION GRID POS: x = 6, y = 8
+MINION GRID POS: x = 6, y = 7
+CLEANING UP Tower Building Interface
+Key 'up' was pressed up
+Key 'left' was pressed down
+Key 'down' was pressed down
+Key 'down' was pressed up
+Key 'down' was pressed down
+Key 'down' was pressed up
+Key 'down' was pressed down
+Key 'right' was pressed down
+Key 'left' was pressed up
+Key 'left' was pressed down
+Key 'right' was pressed up
+Key 'down' was pressed up
+Key 'up' was pressed down
+Key 'left' was pressed up
+Key 'right' was pressed down
+Key 'right' was pressed up
+Key 'up' was pressed up
 Key 'left' was pressed down
 Key 'up' was pressed down
 Key 'left' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'right' was pressed up
 Key 'leftShift' was pressed down
 direction invalid, not moving
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'leftShift' was pressed up
-direction invalid, not moving
-Trying to set player position with invalid x-value, was (580.5, 649.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (580.5, 649.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (580.5, 649.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (580.5, 649.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (580.5, 649.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (580.5, 649.5), min = 0, max = 640.
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
 Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'right' was pressed up
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'up' was pressed down
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'left' was pressed up
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Trying to set player position with invalid x-value, was (-3, 63), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'leftShift' was pressed down
-direction invalid, not moving
-Key 'up' was pressed down
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed up
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'left' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'leftShift' was pressed up
-direction invalid, not moving
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'leftShift' was pressed down
-direction invalid, not moving
-Key 'down' was pressed down
-Key 'left' was pressed down
-Key 'down' was pressed up
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Key 'up' was pressed down
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed down
 Key 'left' was pressed down
 Key 'leftShift' was pressed up
 direction invalid, not moving
-Key 'down' was pressed up
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-3.5, 63.5), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
 Key 'left' was pressed up
 Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
 Key 'leftShift' was pressed down
 direction invalid, not moving
-Key 'leftShift' was pressed up
-direction invalid, not moving
-Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'leftShift' was pressed down
-direction invalid, not moving
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
 Key 'up' was pressed up
 Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Key 'up' was pressed down
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed down
-Key 'up' was pressed up
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed down
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13.5, 53.5), min = 0, max = 640.
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed up
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (43.5, 136.5), min = 48, max = 720.
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid x-value, was (587, 653), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (587, 653), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (587, 653), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (587, 653), min = 0, max = 640.
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed up
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (628.5, 721.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'left' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'leftShift' was pressed up
-direction invalid, not moving
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'leftShift' was pressed down
-direction invalid, not moving
-Key 'down' was pressed down
-Trying to set player position with invalid y-value, was (633.5, 726.5), min = 48, max = 720.
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
 Key 'leftShift' was pressed up
 direction invalid, not moving
 Key 'leftShift' was pressed down
 direction invalid, not moving
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed down
-Key 'right' was pressed up
 Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Key 'down' was pressed down
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-13, 53), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (-14.5, 54.5), min = 0, max = 640.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
 Key 'up' was pressed down
 Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
 Key 'right' was pressed down
-Key 'up' was pressed up
+Key 'up' was pressed down
 Key 'right' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'left' was pressed up
-Key 'left' was pressed down
-Key 'left' was pressed up
 Key 'leftShift' was pressed up
 direction invalid, not moving
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
 Key 'left' was pressed down
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed down
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
 Key 'up' was pressed up
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Key 'left' was pressed up
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
 Key 'down' was pressed down
-Key 'right' was pressed up
+Key 'left' was pressed down
+Key 'down' was pressed up
+Key 'up' was pressed down
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
+Key 'up' was pressed up
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
+Key 'down' was pressed down
+Key 'down' was pressed up
 Key 'leftShift' was pressed down
 direction invalid, not moving
-Key 'left' was pressed down
-Key 'down' was pressed up
 Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
+Key 'left' was pressed down
 Key 'down' was pressed down
-Trying to set player position with invalid y-value, was (638.5, 731.5), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (638.5, 731.5), min = 48, max = 720.
-Key 'down' was pressed up
 Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed down
-Trying to set player position with invalid x-value, was (586.5, 653.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (586.5, 653.5), min = 0, max = 640.
-Key 'right' was pressed up
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed down
 Key 'left' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid x-value, was (586.5, 653.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (586.5, 653.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (586.5, 653.5), min = 0, max = 640.
-Key 'right' was pressed up
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (38.5, 131.5), min = 48, max = 720.
+Key 'down' was pressed up
+Key 'up' was pressed down
 Key 'up' was pressed up
 Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (586.5, 653.5), min = 0, max = 640.
 Key 'right' was pressed up
 Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (38.5, 131.5), min = 48, max = 720.
+Key 'down' was pressed up
+Key 'up' was pressed down
+Key 'left' was pressed up
+Key 'right' was pressed down
 Key 'up' was pressed up
-Key 'left' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'right' was pressed down
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Key 'down' was pressed down
-Trying to set player position with invalid x-value, was (585.5, 654.5), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (587, 653), min = 0, max = 640.
-Trying to set player position with invalid x-value, was (587, 653), min = 0, max = 640.
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'left' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed up
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed down
 Key 'leftShift' was pressed up
 direction invalid, not moving
-Key 'up' was pressed up
 Key 'right' was pressed up

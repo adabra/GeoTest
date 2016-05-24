@@ -1,5 +1,5 @@
 local _M = {}
 
-_M.cellSizeInMeters = 10
+_M.cellSizeInMeters = 5
 
 return _M

@@ -10,6 +10,10 @@ end
 local composer = require('composer')
 composer.recycleOnSceneChange = true -- Automatically remove scenes from memory
 
+-- Load audio
+local sounds = require('sounds.sounds')
+audio.setVolume( 0.2 )
+
 -- Show menu scene
 --composer.gotoScene('scenes.mainMenu')
 

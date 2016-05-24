@@ -1,12 +1,19 @@
 local _M = {}
 
+_M.timeWarp = 1
+_M.maxTimeWarp = 2
+_M.minTimeWarp = 0.1
+_M.midTimeWarp = 1
+_M.fastForwardTimeWarp = 8
+
 _M.gameCountdownTime = 1
-_M.waveCountdownTime = 20
+_M.waveCountdownTime = 30
 _M.maxBaseHealthPoints = 100
-_M.creditStartAmount = 1000
+_M.creditStartAmount = 600
 _M.startGameCountdown = 20
 _M.firstWave = 1
-_M.itemDelay = 1000
+_M.itemDelay = 7000
+_M.numberOfWaves = 10
 
 _M.coinMinSpawnDistance = 1
 _M.coinMaxSpawnDistance = 3

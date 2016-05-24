@@ -1,5 +1,7 @@
 local gameValues = require('gameValues.minion')
+local gameValuesGameMaster = require('gameValues.gameMaster')
 local HealthBar = require('classes.healthBar')
+local sounds = require('sounds.sounds')
 
 local _Minion = {}
 
@@ -19,7 +21,9 @@ function _Minion:new( displayGroup, gameMap, minionMaster, minionType )
 end
 
 function _Minion:init()
-	local start = self.gameMap:gridToContentArea( unpack(self.path:getStartPosition()) )
+	self.gridPos = self.path:getStartPosition()
+	print("StartPos: " .. self.gridPos[1]..","..self.gridPos[2])
+	local start = self.gameMap:gridToContentArea( unpack(self.gridPos) )
 	self.x = start[1] - self.gameMap.cellWidth/2
 	self.y = start[2] - self.gameMap.cellHeight/2
 	self.currentTileIndex = 0
@@ -29,7 +33,7 @@ function _Minion:init()
 end
 
 function _Minion:initMinionType()
-	self.units = gameValues[self.minionType .. 'MinionUnitsMovedPerFrame']
+	self.units = self.minionMaster[self.minionType .. 'MinionUnitsMovedPerFrame']
 	self.maxHealthPoints = gameValues[self.minionType .. 'MinionMaxHP']
 	self.healthPoints = self.maxHealthPoints
 end
@@ -55,6 +59,8 @@ function _Minion:setupSprite()
 end
 
 function _Minion:updateSprite()
+	self.units = self.minionMaster[self.minionType .. 'MinionUnitsMovedPerFrame']*gameValuesGameMaster.timeWarp*self.slow
+	self.slow = 1
 	if self.sprite then
 		self.x = self.x + self.direction[1]*self.units
 		self.y = self.y + self.direction[2]*self.units
@@ -62,6 +68,7 @@ function _Minion:updateSprite()
 		self.sprite.y = self.y
 		self.healthBar:updateSprite()
 	end
+	self.gridPos = self.gameMap:contentAreaToGrid(self.x, self.y)
 end
 
 function _Minion:move()
@@ -78,6 +85,7 @@ function _Minion:move()
 end
 
 function _Minion:updateNextDestination()
+	print("MINION GRID POS: x = ".. self.gridPos[1] ..", y = " .. self.gridPos[2])
 	self.currentTileIndex = self.currentTileIndex + 1
 	if (self.path:isLastTile( self.currentTileIndex ) ) then
 		self:attackBase()
@@ -119,7 +127,8 @@ end
 
 function _Minion:applySlow( slow )
 	if slow<self.slow then
-		self.units = gameValues.basicMinionUnitsMovedPerFrame * slow
+		self.slow = slow
+		--self.units = self.minionMaster[self.minionType .. 'MinionUnitsMovedPerFrame'] * slow
 	end
 end
 
@@ -135,15 +144,21 @@ function _Minion:setStatus( status )
 	self.status = status
 end
 
+function _Minion:getGridPos()
+	return self.gridPos
+end
+
 function _Minion:attackBase()
 	self.status = gameValues.statusDone
 	self.minionMaster:attackedBase( self.minionType )
+	audio.play( sounds.soundMinionAttack )
 	self:hide()
 end
 
 function _Minion:die()
 	self.status = gameValues.statusDead
 	self.minionMaster:died()
+	audio.play(sounds.soundMinionDead)
 	self:hide()
 end
 

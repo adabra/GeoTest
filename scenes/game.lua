@@ -56,6 +56,8 @@ function scene:create( event )
 
    player = Player:new( frontGroup )
    player:setPosition(Layout.mapArea.width/2, Layout.mapArea.height/2)
+   player:setSpeed( gameMap.width )
+
    gameMap:setPlayer( player )
    gameMap:hidePlayer()
 
@@ -76,6 +78,13 @@ function scene:create( event )
    sceneGroup:insert( controlPanelGroup )
    controlPanel = ControlPanel:new( controlPanelGroup, gameMap, gameMaster )   
    gameMaster:setControlPanel( controlPanel )
+
+   minionMaster:setMinionSpeeds( gameMap.width )
+   print("METERS_PER_SECOND_TO_CORONA_PIXELS_PER_FRAME")
+   print(60*Utils.metersPerSecondToCoronaPixelsPerFrame( gameMap.width, gameMap.width/display.contentWidth ))
+   print(display.contentWidth)
+   print("width in meters:")
+   print(gameMap.width)
 
 end
  
@@ -126,9 +135,9 @@ function scene:eachFrame()
 	player:move( pressedKeys, speedButtonPressed )
    	if gameMaster:isGameRunning() then
 
-	   minionMaster:moveMinions()
-
 	   towerMaster:operateTowers()
+      
+      minionMaster:moveMinions()
 
 	   gameMap:updateGrid()
 	end

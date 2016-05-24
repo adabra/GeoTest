@@ -5,6 +5,7 @@ local gameValuesGameMap = require('gameValues.gameMap')
 local gameValuesMinionMaster = require('gameValues.minionMaster')
 local PickupItem = require('classes.pickupItem')
 local Layout = require('libs.layout')
+local sounds = require('sounds.sounds')
 
 local _GameMaster = {}
 
@@ -51,7 +52,11 @@ function _GameMaster:handleGameEvent( event )
 
 	if event.eventType == gameValuesGameMap.eventTypeTowerSelected then		
 		if self:getGameState() == gameValues.stateWaveCountdown and not self.isGameCountdown then
-			self:selectTower( event.target )
+			if self.selectedTower == event.target then
+				self:deselectTower()
+			else
+				self:selectTower( event.target )
+			end
 		end
 
 	elseif event.eventType == gameValuesGameMap.eventTypeTowerDeselected then
@@ -71,6 +76,10 @@ function _GameMaster:handleGameEvent( event )
 
 	elseif event.eventType == gameValuesMinionMaster.eventTypeWaveDone then
 		if self:getGameState() ~= gameValues.stateBaseDestroyed then
+			if gameValues.timeWarp > gameValues.maxTimeWarp then
+				gameValues.timeWarp = self.statusBar.gameSpeed
+			end
+			self.controlPanel.straightFromWave = true
 			self.controlPanel:cleanUpTowerBuildingInterface()
 			timer.cancel( self.itemTimer )
 			self:cleanUpPickupItems()
@@ -78,17 +87,20 @@ function _GameMaster:handleGameEvent( event )
 		end
 
 	elseif event.eventType == gameValuesMinionMaster.eventTypeGameWon then
-		self.controlPanel:cleanUpTowerBuildingInterface()
-		self:cleanUpPickupItems()
-		self:gameWon()
+		if self:getGameState() ~= gameValues.stateBaseDestroyed then
+			self.controlPanel:cleanUpTowerBuildingInterface()
+			self:cleanUpPickupItems()
+			self:gameWon()
+		end
 	end
 end
 
 function _GameMaster:gameWon()
-	local winner = display.newImageRect( "images/game_objects/winner.png", display.contentWidth, display.contentHeight )
+	local winner = display.newImageRect( "images/visual_objects/you_win.png", Layout.mapArea.width, Layout.mapArea.height )
 	winner.x = display.contentCenterX
 	winner.y = display.contentCenterY
 	self:pauseGame()
+	audio.play(sounds.soundGameWon)
 end
 
 function _GameMaster:selectTower( tower )
@@ -101,6 +113,8 @@ end
 function _GameMaster:deselectTower( )
 	self.selectedTower = nil
 	self.gameMap:deselectTower()
+	self.controlPanel:cleanUpCurrentInterface()
+	self.controlPanel:createWaveCountdownInterface(self.controlPanel.displayGroup)
 end
 
 function _GameMaster:sellSelectedTower()
@@ -140,7 +154,6 @@ end
 
 function _GameMaster:startGame()
 	print("GAME STARTED!")
-	--self:setPathBuildingAllowed(false)
 	self:startWaveCountdown()
 	self:resumeGame()
 end
@@ -153,8 +166,6 @@ function _GameMaster:restartGame()
 	self.isGameCountdown = true
 	self:startGame()
 end
-
-
 
 function _GameMaster:startWaveCountdown()
 	self:setGameState(gameValues.stateWaveCountdown)
@@ -196,6 +207,7 @@ end
 
 
 function _GameMaster:startNextWave()
+	self:deselectTower()
 	self:setGameState(gameValues.stateOngoingWave)
 	self.isGameCountdown = false
 	self.gameMap:deselectTower()
@@ -204,7 +216,8 @@ function _GameMaster:startNextWave()
 	self.statusBar:setWaveLevel( self.waveLevel )
 	self.minionMaster:sendWave( self.waveLevel )
 	self:startPlacingPickupItems()
-	self.gameMap.player:setPosition( display.contentHeight - 600, display.contentWidth - 300 )
+	print("Wave " .. self.waveLevel .. " at " .. gameValues.timeWarp .. "x speed.")
+	--self.gameMap.player:setPosition( display.contentHeight - 600, display.contentWidth - 300 )
 end
 
 function _GameMaster:playerCellChanged( newX, newY )
@@ -214,6 +227,7 @@ end
 function _GameMaster:checkPickupItems( x, y )
 	if self.pickupItems[y][x] then
 		self:useItem( self.pickupItems[y][x].itemType )
+
 	end
 	if self.pickupItems[y][x] then
 		self.pickupItems[y][x]:cleanUp()
@@ -223,10 +237,8 @@ end
 
 function _GameMaster:startPlacingPickupItems()
 	local items = {gameValuesPickupItem.typeGoldCoin, gameValuesPickupItem.typeHpPack, gameValuesPickupItem.typeZapper}
-	self.itemTimer = timer.performWithDelay( gameValues.itemDelay, 
+	self.itemTimer = timer.performWithDelay( gameValues.itemDelay*(1/gameValues.timeWarp), 
 		function()
-			
-			
 			-- Place coin within gameValues.coinMaxSpawnDistance cells of player position
 			local coinPos = self:findValidItemPosition( gameValues.coinMinSpawnDistance, gameValues.coinMaxSpawnDistance )		
 			self:placeNewPickupItem( coinPos.x, coinPos.y, gameValuesPickupItem.typeGoldCoin)
@@ -235,6 +247,7 @@ function _GameMaster:startPlacingPickupItems()
 			local powerUpPos = self:findValidItemPosition( gameValues.powerUpMinSpawnDistance, gameValues.powerUpMaxSpawnDistance)
 			local powerUpItem = items[math.random(2,3)]
 			self:placeNewPickupItem( powerUpPos.x, powerUpPos.y, powerUpItem)
+			audio.play( sounds.soundPowerUpSpawned )
 		end,
 		0)
 end
@@ -289,11 +302,14 @@ function _GameMaster:useItem( itemType )
 	if itemType == gameValuesPickupItem.typeGoldCoin then
 		self.creditAmount = self.creditAmount + gameValues.goldCoinAmount
 		self.statusBar:setCreditAmount( self.creditAmount )
+		audio.play(sounds.soundPowerUpPickedUp)
 	elseif itemType == gameValuesPickupItem.typeZapper then
 		self.minionMaster:damageMinions(gameValues.zapperAmount)
+		audio.play(sounds.soundZapperUsed)
 	elseif itemType == gameValuesPickupItem.typeHpPack then
 		self.baseHealthPoints = self.baseHealthPoints + gameValues.hpPackAmount
 		self.statusBar:setBaseHealthPoints(self.baseHealthPoints)
+		audio.play(sounds.soundPowerUpPickedUp)
 	end
 end
 
@@ -306,6 +322,14 @@ function _GameMaster:cleanUpPickupItems()
 			end
 		end
 	end
+end
+
+function _GameMaster:setTimeWarp( percent )
+	gameValues.timeWarp = gameValues.maxTimeWarp * percent
+end
+
+function _GameMaster:getTimeWarp( )
+	return gameValues.timeWarp
 end
 
 function _GameMaster:canAffordBasicTower()
@@ -344,6 +368,7 @@ function _GameMaster:gameLost()
 	self:setGameState( gameValues.stateBaseDestroyed )
 	self.controlPanel:createGameLostInterface( self.controlPanel.displayGroup )
 	self:pauseGame()
+	audio.play( sounds.soundGameLost )
 end
 
 function _GameMaster:pauseGame()

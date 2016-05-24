@@ -17,7 +17,7 @@ _M.typeSlowLevel3 = "slowLevel3"
 _M.typeSlowLevel4 = "slowLevel4"
 _M.typeSlowLevel5 = "slowLevel5"
 
-_M.damageBasicLevel1 = 2
+_M.damageBasicLevel1 = 1--2
 
 _M.damageDamageLevel2 = _M.damageBasicLevel1 * 2
 _M.damageDamageLevel3 = _M.damageBasicLevel1 * 3

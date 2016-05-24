@@ -3,6 +3,8 @@ local colors = require('libs.colors')
 local gameValuesGameMaster = require('gameValues.gameMaster')
 local gameValues = require('gameValues.statusBar')
 local StatusBarField = require('classes.statusBarField')
+local widget = require('widget')
+local strings = require('strings.game')
 
 local _StatusBar = {}
 
@@ -35,11 +37,11 @@ function _StatusBar:init( displayGroup )
 
 	self.waveField = StatusBarField:new(
 		displayGroup,
-		gameValuesGameMaster.firstWave,
+		gameValuesGameMaster.firstWave .. "/" .. gameValuesGameMaster.numberOfWaves,
 		"wave",
 		"wave")
 	self:addField( self.waveField )
-	--self:createWaveField( displayGroup )
+	self:createFastForwardButton( displayGroup )
 end
 
 function _StatusBar:addField( field )
@@ -75,6 +77,84 @@ function _StatusBar:createBackground( displayGroup )
 	self.background:setFillColor( unpack(colors.controlPanelGrey) )
 end
 
+function _StatusBar:fastForwardButtonEvent( event )
+	
+		if event.phase == "began" then
+			self.gameSpeed = gameValuesGameMaster.timeWarp
+			gameValuesGameMaster.timeWarp = gameValuesGameMaster.fastForwardTimeWarp
+		elseif event.phase == "ended" then
+			gameValuesGameMaster.timeWarp = self.gameSpeed
+		end
+end
+
+function _StatusBar:createFastForwardButton( displayGroup )
+		
+
+		self.fastForwardButton = widget.newButton( {
+			id = "yeID",
+			x = Layout.statusBarArea.minX + Layout.statusBarArea.width * 0.1,
+			y = Layout.statusBarArea.minY + Layout.statusBarArea.height/2,
+			-- Visual options
+			shape = "rect",
+			fillColor = { default = colors.controlPanelGrey, over = colors.controlPanelButtonDown },
+			strokeColor = { default= colors.controlPanelButtonStroke, over = colors.controlPanelButtonStroke },
+			strokeWidth = Layout.statusBarArea.width*0.05*0.1,
+			width = Layout.statusBarArea.width*0.2,
+			height = Layout.statusBarArea.height*0.9,
+			label = strings.fastForwardButton,
+			labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+			emboss = true,
+			--Behavior		
+			onEvent = function( event )
+				self:fastForwardButtonEvent( event )				
+			end
+		} )
+end
+
+function _StatusBar:createPauseButton( displayGroup )
+		self.menuButton = widget.newButton( {
+			x = Layout.statusBarArea.minX + Layout.statusBarArea.width * 0.1,
+			y = Layout.statusBarArea.minY + Layout.statusBarArea.height/2,
+			-- Visual options
+			shape = "rect",
+			fillColor = { default = colors.controlPanelGrey, over = colors.controlPanelButtonDown },
+			strokeColor = { default= colors.controlPanelButtonStroke, over = colors.controlPanelButtonStroke },
+			strokeWidth = Layout.statusBarArea.width*0.05*0.1,
+			width = Layout.statusBarArea.width*0.2,
+			height = Layout.statusBarArea.height*0.9,
+			label = strings.menuButton,
+			labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+			emboss = true,
+			--Behavior
+			onRelease = function()
+				print("Menu button pressed")
+				gameValuesGameMaster.timeWarp = 0.1
+			end
+		} )
+end
+
+function _StatusBar:createWaveField( displayGroup )
+end
+
+function _StatusBar:createLevelField( displayGroup )
+end
+
+function _StatusBar:setBaseHealthPoints( amount )
+	self.baseHealthPointsField:setText( amount .. "/" .. gameValuesGameMaster.maxBaseHealthPoints )
+end
+
+function _StatusBar:setCreditAmount( amount )
+	self.creditField:setText( amount )
+end
+
+function _StatusBar:setWaveLevel( level )
+	self.waveField:setText( level .. "/" .. gameValuesGameMaster.numberOfWaves )
+end
+
+return _StatusBar
+
+--[[
+
 function _StatusBar:createHealthPointField( displayGroup )
 	local textOptions = {
 	parent = displayGroup, 
@@ -102,23 +182,4 @@ function _StatusBar:createCreditField( displayGroup )
 	} 
 	self.creditAmountText = display.newText( textOptions )
 end
-
-function _StatusBar:createWaveField( displayGroup )
-end
-
-function _StatusBar:createLevelField( displayGroup )
-end
-
-function _StatusBar:setBaseHealthPoints( amount )
-	self.baseHealthPointsField:setText( amount .. "/" .. gameValuesGameMaster.maxBaseHealthPoints )
-end
-
-function _StatusBar:setCreditAmount( amount )
-	self.creditField:setText( amount )
-end
-
-function _StatusBar:setWaveLevel( level )
-	self.waveField:setText( level )
-end
-
-return _StatusBar
+--]]

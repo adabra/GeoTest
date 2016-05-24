@@ -99,6 +99,8 @@ function _ControlPanel:createPathBuildingInterface( displayGroup )
 	)
 
 	self.gameMaster:setPathBuildingAllowed( true )
+	--self:createDifficultySlider( displayGroup )
+	--self:createDifficultySliderText( displayGroup )
 end
 
 function _ControlPanel:cleanUpGameCreatorInterface()
@@ -191,7 +193,9 @@ function _ControlPanel:createWaveCountdownInterface( displayGroup )
 	if not self.startWaveButton then
 		if not self.nextWaveText then
 			self:createNextWaveText( displayGroup )
-			self:createSellAndUpgradeInstructions( displayGroup )
+			self:createSellAndUpgradeInstructionsOverlay( displayGroup )
+			self:createDifficultySlider( displayGroup )
+			self:createDifficultySliderText( displayGroup )
 		end
 		self:createStartWaveButton( displayGroup )
 	end
@@ -204,14 +208,80 @@ function _ControlPanel:cleanUpWaveCountdownInterface()
 		self.nextWaveText = nil
 	end
 
-	if self.sellAndUpgradeInstructions then
-		self.sellAndUpgradeInstructions:removeSelf( )
-		self.sellAndUpgradeInstructions = nil
+	if self.difficultySlider then
+		self.difficultySlider:removeSelf( )
+		self.difficultySlider = nil
+
+		self:cleanUpDifficultSliderText()
+	end
+
+	if self.sellAndUpgradeInstructionsOverlay then
+		self:cleanUpMapOverlay( self.sellAndUpgradeInstructionsOverlay )
+		--self.sellAndUpgradeInstructions:removeSelf( )
+		--self.sellAndUpgradeInstructions = nil
 	end
 
 	if self.startWaveButton then
 		self:cleanUpStartWaveButton()
 	end
+end
+
+function _ControlPanel:createDifficultySlider( displayGroup )
+
+	-- Slider listener
+	local function sliderListener( event )
+		if event.value < 10 then
+			event.value = 10
+		end
+	    self.gameMaster:setTimeWarp( event.value/100 )
+	end
+
+	self.difficultySlider = widget.newSlider(
+	    {
+	    	x = Layout.controlPanelArea.minX + Layout.controlPanelArea.width*0.75,
+	    	y = Layout.controlPanelArea.minY + Layout.controlPanelArea.height*0.25,
+	        width = Layout.controlPanelArea.width*0.4,
+	        value = self.gameMaster:getTimeWarp()*50,
+	        listener = sliderListener
+	    }
+	)
+end
+
+function _ControlPanel:createDifficultySliderText( displayGroup )
+	local options = {
+		parent = displayGroup,
+		text = gameValuesGameMaster.minTimeWarp .. 'x',
+		x = Layout.controlPanelArea.width*0.58,
+		y = Layout.controlPanelArea.minY + Layout.controlPanelArea.height*0.4,
+		width = 0,
+		height = 0,
+		font = native.systemFont,
+		fontSize = Layout.controlPanelArea.width*0.04,
+		align = "center"
+	}
+
+	self.difficultySliderMinText = display.newText( options )
+
+	options.text = gameValuesGameMaster.midTimeWarp .. 'x'
+	options.x = Layout.controlPanelArea.width*0.75
+
+	self.difficultySliderMidText = display.newText( options )
+
+	options.text = gameValuesGameMaster.maxTimeWarp .. 'x'
+	options.x = Layout.controlPanelArea.width*0.95
+
+	self.difficultySliderMaxText = display.newText( options )
+end
+
+function _ControlPanel:cleanUpDifficultSliderText(  )
+	self.difficultySliderMaxText:removeSelf( )
+	self.difficultySliderMaxText = nil
+
+	self.difficultySliderMidText:removeSelf( )
+	self.difficultySliderMidText = nil
+
+	self.difficultySliderMinText:removeSelf( )
+	self.difficultySliderMinText = nil
 end
 
 function _ControlPanel:createNextWaveText( displayGroup )
@@ -227,6 +297,7 @@ function _ControlPanel:createNextWaveText( displayGroup )
 	}
 	self.nextWaveText = display.newText( options )
 end
+
 
 function _ControlPanel:updateNextWaveText( text )
 	if self.nextWaveText then
@@ -248,7 +319,15 @@ function _ControlPanel:updateWaveCountdown( countdown )
 	end
 end
 
-function _ControlPanel:createSellAndUpgradeInstructions( displayGroup )
+function _ControlPanel:createSellAndUpgradeInstructionsOverlay( displayGroup )
+	if self.straightFromWave then
+		self.sellAndUpgradeInstructionsOverlay = self:createMapOverlay( 
+			displayGroup, 
+			strings.sellAndUpgradeInstructions, 
+			true, 
+			true)
+	end
+	--[[
 	local options = {
 		parent = displayGroup,
 		text = strings.sellAndUpgradeInstructions,
@@ -260,6 +339,7 @@ function _ControlPanel:createSellAndUpgradeInstructions( displayGroup )
 		align = "center"
 	}
 	self.sellAndUpgradeInstructions = display.newText( options )
+	--]]
 end
 
 function _ControlPanel:createStartWaveButton( displayGroup )
@@ -280,9 +360,11 @@ function _ControlPanel:createStartWaveButton( displayGroup )
 end
 
 function _ControlPanel:cleanUpStartWaveButton()
-	self:cleanUpButtonIcon( self.startWaveButton )
-	self.startWaveButton:removeSelf()
-	self.startWaveButton = nil
+	if self.startWaveButton then
+		self:cleanUpButtonIcon( self.startWaveButton )
+		self.startWaveButton:removeSelf()
+		self.startWaveButton = nil
+	end
 end
 
 function _ControlPanel:createSellAndUpgradeInterface( displayGroup )
@@ -506,7 +588,7 @@ function _ControlPanel:cleanUpGameLostInterface()
 	self.restartGameButton = nil
 end
 
-function _ControlPanel:createMapOverlay( displayGroup, text, tapToRemove)
+function _ControlPanel:createMapOverlay( displayGroup, text, tapToRemove, spawnIfTrue)
 	local overlayBackground = display.newRect( displayGroup, Layout.mapArea.centerX, Layout.mapArea.centerY, Layout.mapArea.width, Layout.mapArea.height )
 	overlayBackground:setFillColor( 0, 0, 0 )
 	overlayBackground.alpha = 0.5
@@ -527,7 +609,13 @@ function _ControlPanel:createMapOverlay( displayGroup, text, tapToRemove)
 	local overlay = {background = overlayBackground, text = overlayText}
 
 	if (tapToRemove) then
-		overlayBackground:addEventListener("tap", function() self:cleanUpMapOverlay( overlay ) return true end )
+		overlayBackground:addEventListener("tap", function() 
+			self:cleanUpMapOverlay( overlay )
+			if spawnIfTrue then
+				self.straightFromWave = false
+			end 
+			return true 
+			end )
 	end
 
 	return overlay
@@ -738,7 +826,7 @@ function _ControlPanel:placeVisualObject( visualObject, x, y, imageBoxWidth, ima
 	visualObject:setBasePosition( visualObject:getX(), visualObject:getY() )
 end
 
-function _ControlPanel:readyForNewWave()
+function _ControlPanel:cleanUpCurrentInterface()
 	if self.currentState == gameValues.statePathBuildingInterface then
 		self:cleanUpGameCreatorInterface()
 	elseif self.currentState == gameValues.stateStartGameInterface then
@@ -760,12 +848,15 @@ function _ControlPanel:readyForNewWave()
 	elseif self.currentState == gameValues.stateGameLostInterface then
 		self:cleanUpGameLostInterface()
 	end
+end
+
+function _ControlPanel:readyForNewWave()
+	self:cleanUpCurrentInterface()
 	
 	if self.sellAndUpgradeInstructions then
 		self:cleanUpWaveCountdownInterface()
 	end
 
-	
 	if not self.towerButton or self.towerButtons[1][1] then
 		self:createTowerBuildingInterface( self.displayGroup )
 	end

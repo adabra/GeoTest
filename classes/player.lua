@@ -1,9 +1,10 @@
 local Layout = require("libs.layout")
 local gameValues = require('gameValues.player')
+local utils = require('libs.utils')
 
 local _Player = {x = gameValues.defaultPlayerXPosition, y = gameValues.defaultPlayerYPosition }
 
-function _Player:new( displayGroup, parameters )
+function _Player:new( displayGroup )
 	local player = {}
 	setmetatable( player, self )
 	self.__index = self
@@ -17,6 +18,9 @@ function _Player:setupSpriteCircle( displayGroup )
 	return display.newCircle( displayGroup, self.x, self.y, 10 )
 end
 
+function _Player:setSpeed( gameMapWidth )
+	self.unitsMovedPerSecond = utils.metersPerSecondToCoronaPixelsPerFrame( gameValues.playerMetersPerSecond, gameMapWidth/display.contentWidth)
+end
 
 function _Player:hide()
 	self.sprite.alpha = 0
@@ -79,7 +83,7 @@ function _Player:move( directions, superSpeed )
 		direction[2] = direction[2] + v[2]
 	end
 
-	local units = gameValues.unitsMovedPerFrame
+	local units = self.unitsMovedPerSecond
 	
 	if (superSpeed) then
 		units = units * 3

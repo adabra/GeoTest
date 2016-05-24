@@ -31,7 +31,7 @@ function scene:create( event )
    background = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
    background:setFillColor( 1,1,1 )
 
---[[
+
    local frame = display.newRect( sceneGroup, display.contentCenterX, display.contentCenterY, 200, 200 )
    frame:setFillColor( 1,1,1, 0 )
    frame:setStrokeColor( 1, 0, 0 )
@@ -41,13 +41,43 @@ function scene:create( event )
  	eachframe.add(self)
 
 
+ 	local cell1 = {3,3}
 
-	 	-- Handle press events for the buttons
-	local function onSwitchPress( event )
-	    local switch = event.target
-	    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+ 	for y=1,4 do
+ 		local line = ""
+ 		local cell
+ 		for x=1,4 do
+ 			--print("("..x..","..y)
+ 			if tower.isNeighbor(cell1, {x,y}) then
+ 				cell="O,"
+ 			elseif cell1[1] == x and cell1[2] == y then
+ 				cell = "T,"
+ 			else
+ 				cell ="X,"
+ 			end
+ 			line = line .. cell
+		end
+		print(line)
 	end
-	--]]
+	print("-------------")
+	for y=1,4 do
+ 		local line = ""
+ 		local cell
+ 		for x=1,4 do
+ 			--print("("..x..","..y)
+ 			if tower.isNeighbor({x,y}, cell1) then
+ 				cell="O,"
+ 			elseif cell1[1] == x and cell1[2] == y then
+ 				cell = "T,"
+ 			else
+ 				cell ="X,"
+ 			end
+ 			line = line .. cell
+		end
+		print(line)
+	end
+
+	
 
    local button = widget.newButton( {
 		x = Layout.controlPanelArea.centerX,

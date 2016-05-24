@@ -1,7 +1,9 @@
 local gameValues = require('gameValues.tower')
+local gameValuesGameMaster = require('gameValues.gameMaster')
 local Layout = require('libs.layout')
 local utils = require('libs.utils')
 local colors = require('libs.colors')
+local sounds = require('sounds.sounds')
 
 local _Tower = {}
 
@@ -90,12 +92,23 @@ function _Tower:findTargets( minions )
 end
 
 function _Tower:inRange( minion )
+	
 	local distance = math.sqrt( (self.x-minion.x)*(self.x-minion.x) + (self.y-minion.y)*(self.y-minion.y) )
 	return distance < self.cellSize*self:getRange()
+	
+	
+	--[[local minionGridPos = minion:getGridPos()
+	return self.isNeighborDiagonalsIncluded(minionGridPos, {self.gridX, self.gridY}, 2)
+	--]]
 end
 
 
 function _Tower:fire( minion )
+
+	if not sounds.isLaserPlaying then
+		sounds.isLaserPlaying = true
+		audio.play( sounds.soundLaserFire, {onComplete = function() sounds.isLaserPlaying = false end } )
+	end
 
 	if self.fireSprite then
 		self.fireSprite:removeSelf()
@@ -121,7 +134,7 @@ function _Tower:getRange()
 end
 
 function _Tower:getDamage()
-	return self:getValue('damage')
+	return self:getValue('damage')*gameValuesGameMaster.timeWarp
 end
 
 function _Tower:getValue( value )
@@ -221,5 +234,19 @@ function _Tower:setUpSprite( itemType )
 	self.sprite.y = self:getY()
 	self.sprite.tower = self
 end
+
+-- Not used
+function _Tower.isNeighborDiagonalsIncluded(cell1, cell2, distance )
+	local xDiff = math.abs(cell1[1] - cell2[1])
+	local yDiff = math.abs(cell1[2] - cell2[2])
+	return (xDiff<=distance --[[or xDiff >=0--]]) and (yDiff<=distance --[[or yDiff>=0--]]) and not (xDiff==0 and yDiff==0)
+end
+
+function _Tower.isNeighbor(cell1, cell2)
+	local xDiff = math.abs(cell1[1] - cell2[1])
+	local yDiff = math.abs(cell1[2] - cell2[2])
+	return (xDiff==1 and yDiff==0) or (xDiff==0 and yDiff==1) 
+end
+--
 
 return _Tower

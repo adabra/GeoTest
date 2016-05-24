@@ -125,7 +125,7 @@ function _GameMap:hideBuildPosBackground()
 	end
 end
 
-function _GameMap:selectTower( x, y )
+function _GameMap:selectTower( x, y )	
 	self:showDeselectOverlay()
 	self:showTowerHighlight( x, y )
 end
@@ -161,6 +161,7 @@ function _GameMap:showDeselectOverlay()
 		self.deselectOverlay:addEventListener( "tap", 
 			function() 
 			self:fireGameEvent({eventType = gameValues.eventTypeTowerDeselected})
+			return true
 			end )
 		self.deselectOverlay:setFillColor( unpack(Colors.cancelRed) )
 	end

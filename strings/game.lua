@@ -29,6 +29,7 @@ _M.cancelUpgradeButton = "Cancel"
 _M.confirmUpgradeButton = "Confirm"
 _M.sellAndUpgradeInstructions = "Tap a tower to sell or upgrade."
 _M.upgradeTowerUnavailable = "Tower at max level!"
-
+_M.fastForwardButton = ">>"
+_M.pauseButton = "Pause"
 
 return _M

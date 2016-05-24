@@ -28,7 +28,6 @@ function scene:show( event )
       Layout.mapArea.width, Layout.mapArea.height )
    myMap.isScrollEnabled = true
    myMap.isZoomEnabled = true
- 
    if ( phase == "will" ) then
       -- Called when the scene is still off screen (but is about to come on screen).
    elseif ( phase == "did" ) then

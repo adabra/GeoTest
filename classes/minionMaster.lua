@@ -1,7 +1,9 @@
 local Minion = require('classes.minion')
 local gameValuesMinion = require('gameValues.minion')
+local gameValuesGameMaster = require('gameValues.gameMaster')
 local gameValues = require('gameValues.minionMaster')
 local widget = require('widget')
+local utils = require('libs.utils')
 
 local _MinionMaster = {}
 
@@ -23,6 +25,13 @@ function _MinionMaster:init()
 	self.waves = self:initWaves()
 end
 
+function _MinionMaster:setMinionSpeeds( mapWidth )
+	self.basicMinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.basicMinionMetersPerSecond, mapWidth/display.contentWidth)--1
+	self.lightMinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.lightMinionMetersPerSecond, mapWidth/display.contentWidth)--3
+	self.heavyMinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.heavyMinionMetersPerSecond, mapWidth/display.contentWidth)--0.6
+	self.boss1MinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.boss1MinionMetersPerSecond, mapWidth/display.contentWidth)--0.6
+end
+
 function _MinionMaster:createMinion( minionType )
 	self:newMinion( Minion:new( self.displayGroup, self.gameMap , self, minionType) )
 end
@@ -37,18 +46,45 @@ end
 function _MinionMaster:initWaves()
 	local waves = {}
 	table.insert( waves, { 
-		timeBetweenMinions = 500,
-		{minionType = "boss1", numberOfMinions = 1},
+		timeBetweenMinions = 1000,
+		{minionType = "basic", numberOfMinions = 5},
 		--{minionType = "light", numberOfMinions = 7} 
 		} )
+	--[[
 	table.insert( waves, {
 		timeBetweenMinions = 500,
 		{minionType = "basic", numberOfMinions = 1}
 		} ) 
 	table.insert( waves, {
 		timeBetweenMinions = 500,
-		{minionType = "basic", numberOfMinions = 10}
+		{minionType = "basic", numberOfMinions = 1}
 		} ) 
+	table.insert( waves, {
+		timeBetweenMinions = 500,
+		{minionType = "basic", numberOfMinions = 1}
+		} ) 
+	table.insert( waves, {
+		timeBetweenMinions = 500,
+		{minionType = "basic", numberOfMinions = 1}
+		} ) 
+	table.insert( waves, {
+		timeBetweenMinions = 500,
+		{minionType = "basic", numberOfMinions = 1}
+		} ) 
+	table.insert( waves, {
+		timeBetweenMinions = 500,
+		{minionType = "basic", numberOfMinions = 1}
+		} ) 
+	table.insert( waves, {
+		timeBetweenMinions = 500,
+		{minionType = "basic", numberOfMinions = 1}
+		} ) 
+	table.insert( waves, {
+		timeBetweenMinions = 500,
+		{minionType = "basic", numberOfMinions = 1}
+		} ) 
+
+--]]
 
 	for i=1,#waves do
 		waves[i].totalNumberOfMinions = 0
@@ -127,9 +163,9 @@ function _MinionMaster:sendWave( waveLevel )
 	self.activeMinions = self.waves[waveLevel].totalNumberOfMinions
 	self:createWave( waveLevel )
 	print("Total number of minions: " .. self.waves[waveLevel].totalNumberOfMinions)
-	print("Time between minions: " .. self.waves[waveLevel].timeBetweenMinions)
+	print("Time between minions: " .. self.waves[waveLevel].timeBetweenMinions*(1/gameValuesGameMaster.timeWarp))
 	timer.performWithDelay( 
-		self.waves[waveLevel].timeBetweenMinions, 
+		self.waves[waveLevel].timeBetweenMinions*(1/gameValuesGameMaster.timeWarp), 
 		
 		function() 
 			self:sendNextMinion() 

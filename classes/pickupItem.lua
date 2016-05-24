@@ -1,4 +1,5 @@
 local gameValues = require('gameValues.pickupItem')
+local gameValuesGameMaster = require('gameValues.gameMaster')
 local Layout = require('libs.layout')
 local colors = require('libs.colors')
 
@@ -50,7 +51,7 @@ function _PickupItem:addListener( listener )
 end
 
 function _PickupItem:initTimer()
-	local duration = gameValues[self.itemType .. 'Timer']
+	local duration = gameValues[self.itemType .. 'Timer']*(1/gameValuesGameMaster.timeWarp)
 	local frequency = 1000/30
 	self.myTimer = timer.performWithDelay( frequency, 
 		function()
@@ -97,7 +98,7 @@ function _PickupItem:setupDurationBar()
 end
 
 function _PickupItem:updateDurationBar( duration )
-	self.durationBar.foreground.width = gameValues.durationBarWidth * duration/gameValues[self.itemType..'Timer']
+	self.durationBar.foreground.width = (gameValues.durationBarWidth * duration)/(gameValues[self.itemType..'Timer']*(1/gameValuesGameMaster.timeWarp))
 
 	self.durationBar.background.x = self.sprite.x
 	self.durationBar.background.y = self.sprite.y - (self.cellSize * 0.4)
