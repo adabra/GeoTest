@@ -1,7 +1,7 @@
 local Layout = require('libs.layout')
 local gameValues = require('gameValues.visualObject')
 
-local _VisualObject = {imagePath = "/images/visual_objects/", 
+local _VisualObject = {imagePath = "images/visual_objects/", 
 	imageSizes = {bush = {5, 5}, tree = {5,5}, car = {5,5}, cone = {5,5}, rock = {5,5}, duck_yellow = {5,5}, duck_white = {5,5}, target={5,5} }, 
 	images = {},
 	baseX = 0, baseY = 0

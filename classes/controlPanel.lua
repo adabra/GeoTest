@@ -9,8 +9,8 @@ local gameValuesTower = require('gameValues.tower')
 
 local _ControlPanel = {}
 
-function _ControlPanel:new( displayGroup, gameMap, gameMaster )
-	local controlPanel = { gameMap = gameMap, gameMaster = gameMaster, displayGroup = displayGroup}
+function _ControlPanel:new( displayGroup, gameMap, gameMaster, level )
+	local controlPanel = { gameMap = gameMap, gameMaster = gameMaster, displayGroup = displayGroup, level = level}
 	setmetatable( controlPanel, self )
 	self.__index = self
 	controlPanel:init()
@@ -36,7 +36,7 @@ function _ControlPanel:cancelBuildingProcess()
 		for row=0,#self.towerButtons do
 			for col=0,#self.towerButtons[row] do
 				self.towerButtons[row][col].status = "idle"
-				self.towerButtons[row][col]:setLabel(self.towerButtons[row][col].status)
+				self.towerButtons[row][col]:setLabel("T")--self.towerButtons[row][col].status)
 				self.towerButtonsOverlay[row][col]:setFillColor( unpack(Colors.cancelRed) )
 			end
 		end
@@ -98,6 +98,99 @@ function _ControlPanel:createPathBuildingInterface( displayGroup )
 		Layout.controlPanelArea.height*0.5
 	)
 
+	self.quickGameButton = self:createButton(
+		displayGroup,
+		0,0,
+		strings.quickGameButton,
+		function()
+			self:cleanUpGameCreatorInterface()
+			local paths = {
+				{
+					{7,1},
+					{7,2},
+					{7,3},
+					{6,3},
+					{6,4},
+					{6,5},
+					{6,6},
+					{6,7},
+					{6,8},
+					{6,9},
+					{5,9},
+					{5,10},
+					{5,11},
+					{4,11}
+				},
+
+				{
+				},
+
+				{
+					{8,2},
+					{7,2},
+					{7,3},
+					{7,4},
+					{7,5},
+					{6,5},
+					{6,6},
+					{6,7},
+					{5,7},
+					{5,8},
+					{5,9},
+					{5,10},
+					{4,10},
+				},
+				
+				{
+					{6,8},
+					{7,8},
+					{7,9},
+					{7,10},
+					{7,11},
+					{8,11},
+					{9,11},
+					{10,11},
+					{11,11},
+					{12,11},
+					{13,11},
+					{14,11},
+					{15,11},
+
+
+				},
+
+				{
+					{2,3},
+					{3,3},
+					{3,2},
+					{4,2},
+					{5,2},
+					{6,2},
+					{7,2},
+					{7,3},
+					{7,4},
+					{8,4},
+					{8,5},
+				},
+
+				{
+
+				},
+
+				{
+
+				}
+
+			}
+			for k,tile in pairs(paths[self.level]) do
+				self.gameMap:updatePath( tile[1], tile[2], true )
+			end
+			self:createStartGameInterface( self.displayGroup )
+		end,
+		Layout.controlPanelArea.width*0.5,
+		Layout.controlPanelArea.height*0.5
+		)
+
 	self.gameMaster:setPathBuildingAllowed( true )
 	--self:createDifficultySlider( displayGroup )
 	--self:createDifficultySliderText( displayGroup )
@@ -117,13 +210,17 @@ function _ControlPanel:cleanUpGameCreatorInterface()
 
 	self.proceedToGameButton:removeSelf( )
 	self.proceedToGameButton = nil	
+
+	self.quickGameButton:removeSelf( )
+	self.quickGameButton = nil
 end
 
 function _ControlPanel:createStartGameInterface( displayGroup )
 	self.currentState = gameValues.stateStartGameInterface
-	self:createDifficultyPicker( displayGroup )
 	self:createStartGameButton( displayGroup )
 	self.startGameOverlay = self:createMapOverlay( displayGroup, strings.startGameOverlayText, false )
+	self:createDifficultySlider( displayGroup )
+	self:createDifficultySliderText( displayGroup )
 	self.gameMap:showPlayer()
 end
 
@@ -132,10 +229,13 @@ function _ControlPanel:cleanUpStartGameInterface()
 	self:cleanUpMapOverlay( self.startGameOverlay )
 	self.startGameButton:removeSelf( )
 	self.startGameButton = nil
+	
+	if self.difficultySlider then
+		self.difficultySlider:removeSelf( )
+		self.difficultySlider = nil
 
-end
-
-function _ControlPanel:createDifficultyPicker( displayGroup )
+		self:cleanUpDifficultySliderText()
+	end
 
 end
 
@@ -212,7 +312,7 @@ function _ControlPanel:cleanUpWaveCountdownInterface()
 		self.difficultySlider:removeSelf( )
 		self.difficultySlider = nil
 
-		self:cleanUpDifficultSliderText()
+		self:cleanUpDifficultySliderText()
 	end
 
 	if self.sellAndUpgradeInstructionsOverlay then
@@ -273,7 +373,7 @@ function _ControlPanel:createDifficultySliderText( displayGroup )
 	self.difficultySliderMaxText = display.newText( options )
 end
 
-function _ControlPanel:cleanUpDifficultSliderText(  )
+function _ControlPanel:cleanUpDifficultySliderText(  )
 	self.difficultySliderMaxText:removeSelf( )
 	self.difficultySliderMaxText = nil
 
@@ -681,9 +781,11 @@ function _ControlPanel:createTowerBuildingInterface( displayGroup )
 	self.currentState = gameValues.stateTowerBuildingInterface
 	self.towerButtonsOverlay = {}
 	self.towerButtons = {}
+	self.topGroup = display.newGroup( )
 	self.overlayGroup = display.newGroup()
 	self.overlayGroup.alpha = 0.5
-	--displayGroup:insert( self.overlayGroup )
+	self.topGroup:insert( self.overlayGroup )
+	
 	for y=0,2 do
 		self.towerButtonsOverlay[y] = {}
 		self.towerButtons[y] = {}
@@ -700,6 +802,8 @@ function _ControlPanel:createTowerBuildingInterface( displayGroup )
 		end
 		self.overlayGroup.alpha = 0
 	end
+
+	self:checkCreditAmount( self.gameMaster.creditAmount )
 end
 
 function _ControlPanel:cleanUpTowerBuildingInterface()
@@ -715,17 +819,42 @@ function _ControlPanel:cleanUpTowerBuildingInterface()
 				self.towerButtonsOverlay[y][x] = nil
 			end
 		end
+	end	
+	self:cleanUpNotEnoughCreditsOverlay()
+end
+
+function _ControlPanel:checkCreditAmount( amount )
+	if not self.gameMaster:canAffordBasicTower() then
+		if not self.notEnoughCreditsOverlay then
+			self.notEnoughCreditsOverlay = display.newRect( self.topGroup, 
+				Layout.controlPanelArea.centerX, 
+				Layout.controlPanelArea.centerY, 
+				Layout.controlPanelArea.width, 
+				Layout.controlPanelArea.height )
+			self.notEnoughCreditsOverlay:setFillColor( unpack(Colors.cancelRed) )
+			self.notEnoughCreditsOverlay.alpha = 0.3
+			self:towerButtonsSetEnabled(false)
+		end
+	end
+end
+
+function _ControlPanel:cleanUpNotEnoughCreditsOverlay()
+	if self.notEnoughCreditsOverlay then
+		self.notEnoughCreditsOverlay:removeSelf()
+		self.notEnoughCreditsOverlay = nil
+		self:towerButtonsSetEnabled( true )
 	end
 end
 
 function _ControlPanel:createTowerBuildingButton( displayGroup, x, y, label )
 	
 	local button
+	local label
 	local function onRelease()
 
 		if (button.status  == "idle" ) then
 			button.status = "pressed"
-			button:setLabel(button.status)
+			button:setLabel("T")--button.status)
 			self.overlayGroup.alpha = 0.3
 			self.towerButtonsOverlay[y][x]:setFillColor( unpack(Colors.buildPosGreen) )
 			self.gameMap:updateBuildPosBackground(x-1, y-1)
@@ -734,12 +863,13 @@ function _ControlPanel:createTowerBuildingButton( displayGroup, x, y, label )
 				for col=0,#self.towerButtons[row] do
 					if ( not (x==col and y==row ) ) then 
 						self.towerButtons[row][col].status = "cancel"
-						self.towerButtons[row][col]:setLabel(self.towerButtons[row][col].status)
+						self.towerButtons[row][col]:setLabel("X")--self.towerButtons[row][col].status)
 					end
 				end
 			end
 
 		elseif (button.status == "pressed") then
+			label = ""
 			self.towerButtonsOverlay[y][x]:setFillColor( unpack(Colors.cancelRed) )
 			self.overlayGroup.alpha=0
 			if( self.gameMaster:canAffordBasicTower()) then
@@ -750,7 +880,7 @@ function _ControlPanel:createTowerBuildingButton( displayGroup, x, y, label )
 			for row=0,#self.towerButtons do
 				for col=0,#self.towerButtons[row] do
 					self.towerButtons[row][col].status = "idle"
-					self.towerButtons[row][col]:setLabel(self.towerButtons[row][col].status)
+					self.towerButtons[row][col]:setLabel("T")--self.towerButtons[row][col].status)
 				end
 			end
 
@@ -760,9 +890,21 @@ function _ControlPanel:createTowerBuildingButton( displayGroup, x, y, label )
 	end
 	
 	button = self:createButton( displayGroup, x, y, "BUILD", onRelease )
-	button:setLabel(button.status)
+	button:setLabel("T")--button.status)
 	
 	return button
+end
+
+function _ControlPanel:towerButtonsSetEnabled( areEnabled )
+	for y=0,#self.towerButtons do
+		for x=0,#self.towerButtons[y] do
+
+			if self.towerButtons[y][x] then
+				self.towerButtons[y][x]:setEnabled( areEnabled )
+			end
+
+		end
+	end
 end
 
 function _ControlPanel:createButton( displayGroup, x, y, label, onRelease, buttonWidth, buttonHeight, icon )

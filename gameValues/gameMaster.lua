@@ -1,7 +1,7 @@
 local _M = {}
 
 _M.timeWarp = 1
-_M.maxTimeWarp = 2
+_M.maxTimeWarp = 2--2
 _M.minTimeWarp = 0.1
 _M.midTimeWarp = 1
 _M.fastForwardTimeWarp = 8
@@ -9,7 +9,7 @@ _M.fastForwardTimeWarp = 8
 _M.gameCountdownTime = 1
 _M.waveCountdownTime = 30
 _M.maxBaseHealthPoints = 100
-_M.creditStartAmount = 600
+_M.creditStartAmount = 500
 _M.startGameCountdown = 20
 _M.firstWave = 1
 _M.itemDelay = 7000
@@ -21,10 +21,9 @@ _M.coinMaxSpawnDistance = 3
 _M.powerUpMinSpawnDistance = 2
 _M.powerUpMaxSpawnDistance = 4
 
-
 -- Pickup item values
 _M.goldCoinAmount = 10
-_M.zapperAmount = 400
+_M.zapperAmount = 120
 _M.hpPackAmount = 30
 
 _M.damageLevel2 = "damageLevel2"

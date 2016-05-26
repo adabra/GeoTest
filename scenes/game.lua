@@ -22,7 +22,6 @@ local MinionMaster = require( 'classes.minionMaster' )
 local TowerMaster = require('classes.towerMaster')
 local GameMaster = require('classes.gameMaster')
 local StatusBar = require('classes.statusBar')
-local gameValues = require('gameValues.game')
 
 local gameMap
 local player
@@ -49,7 +48,7 @@ function scene:create( event )
    mapGroup = display.newGroup()
    sceneGroup:insert( mapGroup )
    mapGroup:addEventListener( "tap", onTapEvent)
-   gameMap = GameMap:new( mapGroup, {cellSize = gameValues.cellSizeInMeters, level = currentLevel} )
+   gameMap = GameMap:new( mapGroup, {level = currentLevel} )
    
    frontGroup = display.newGroup( )
    sceneGroup:insert( frontGroup )
@@ -76,10 +75,11 @@ function scene:create( event )
 
    local controlPanelGroup = display.newGroup()
    sceneGroup:insert( controlPanelGroup )
-   controlPanel = ControlPanel:new( controlPanelGroup, gameMap, gameMaster )   
+   controlPanel = ControlPanel:new( controlPanelGroup, gameMap, gameMaster, currentLevel )   
    gameMaster:setControlPanel( controlPanel )
 
    minionMaster:setMinionSpeeds( gameMap.width )
+
    print("METERS_PER_SECOND_TO_CORONA_PIXELS_PER_FRAME")
    print(60*Utils.metersPerSecondToCoronaPixelsPerFrame( gameMap.width, gameMap.width/display.contentWidth ))
    print(display.contentWidth)

@@ -1,13 +1,19 @@
 Platform: OptiPlex 9020 / x64 / 6.3 / AMD Radeon HD 8490 / 4.5.13399 Compatibility Profile Context 15.200.1065.0 / 2016.2830 / nb_NO | NO | nb_NO | nb
-{table: 09901668, true, }
-{table: 09901668, table: 09901550, true, true, }
+minion1: 550(+300)
+minion2: 850(+300)
+minion3: 1150(+300)
+minion4: 1450(+300)
+minion5: 2050(+600)
+minion6: 2650(+600)
+minion7: 3250(+600)
+{table: 09105CC0, true, }
+{table: 09105CC0, table: 09106350, true, true, }
 METERS_PER_SECOND_TO_CORONA_PIXELS_PER_FRAME
-640
+1280
 640
 width in meters:
 47.967768186965
-Key 'enter' was pressed up
-direction invalid, not moving
+CLEANING UP Game Creator Interface
 First tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
@@ -21,243 +27,1456 @@ Tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
 Tile successfully added to path.
-CLEANING UP Game Creator Interface
+Tile successfully added to path.
 CLEANING UP Start Game Interface
 GAME STARTED!
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed down
 CLEANING UP Wave Countdown Interface
 CLEANING UP Wave Countdown Interface
 CREATING TOWER BUILDING INTERFACE YEAH
 StartPos: 7,1
 minion added: 
-table: 09A623F8
+table: 092390F0
 StartPos: 7,1
 minion added: 
-table: 09A63140
+table: 09239780
 StartPos: 7,1
 minion added: 
-table: 09A630F0
+table: 09239938
 StartPos: 7,1
 minion added: 
-table: 09A63000
+table: 09239730
 StartPos: 7,1
 minion added: 
-table: 09A63078
+table: 09239848
 Total number of minions: 5
-Time between minions: 1000
+Time between minions: 2000
 Wave 1 at 1x speed.
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'right' was pressed down
-MINION GRID POS: x = 7, y = 1
-Key 'right' was pressed up
-Key 'up' was pressed up
-MINION GRID POS: x = 7, y = 2
-Key 'down' was pressed down
-MINION GRID POS: x = 7, y = 1
-Building tower at 6, 2
-Key 'right' was pressed down
-MINION GRID POS: x = 7, y = 3
-MINION GRID POS: x = 7, y = 2
-MINION GRID POS: x = 7, y = 1
-Key 'right' was pressed up
-Key 'down' was pressed up
-Building tower at 7, 4
-Key 'down' was pressed down
-Key 'left' was pressed down
-MINION GRID POS: x = 6, y = 3
-MINION GRID POS: x = 7, y = 3
-MINION GRID POS: x = 7, y = 2
-Key 'down' was pressed up
-MINION GRID POS: x = 7, y = 1
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-MINION GRID POS: x = 6, y = 4
-MINION GRID POS: x = 6, y = 3
-MINION GRID POS: x = 7, y = 3
-MINION GRID POS: x = 7, y = 2
-MINION GRID POS: x = 7, y = 1
 Building tower at 5, 5
-MINION GRID POS: x = 6, y = 4
-Key 'left' was pressed up
-Key 'right' was pressed down
-MINION GRID POS: x = 6, y = 3
-MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed down
+Key 'w' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'w' was pressed up
+Key 'a' was pressed down
+Key 's' was pressed down
+Key 's' was pressed up
+Key 'a' was pressed up
+Key 'w' was pressed down
+Key 'a' was pressed down
+type:minion0
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed up
+Key 'd' was pressed up
+Key 'w' was pressed down
+Key 'w' was pressed up
 MINION GRID POS: x = 7, y = 2
-MINION GRID POS: x = 6, y = 5
-MINION GRID POS: x = 6, y = 4
-Key 'down' was pressed up
-MINION GRID POS: x = 6, y = 3
+Key 's' was pressed down
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 's' was pressed down
+Key 'a' was pressed down
 MINION GRID POS: x = 7, y = 3
-Key 'up' was pressed down
-MINION GRID POS: x = 6, y = 6
-MINION GRID POS: x = 6, y = 5
-MINION GRID POS: x = 6, y = 4
+Key 'd' was pressed up
+type:minion0
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
 MINION GRID POS: x = 6, y = 3
-Key 'up' was pressed up
-Key 'up' was pressed down
-MINION GRID POS: x = 6, y = 6
-Key 'right' was pressed up
-MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
 MINION GRID POS: x = 6, y = 4
-Key 'right' was pressed down
-MINION GRID POS: x = 6, y = 7
-MINION GRID POS: x = 6, y = 6
-Key 'right' was pressed up
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed down
+Key 's' was pressed up
+Key 'a' was pressed up
+type:minion0
+MINION GRID POS: x = 7, y = 1
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
 MINION GRID POS: x = 6, y = 5
-Key 'right' was pressed down
-Key 'right' was pressed up
-MINION GRID POS: x = 6, y = 8
-MINION GRID POS: x = 6, y = 7
+Key 's' was pressed up
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 'w' was pressed down
+Key 'a' was pressed down
+MINION GRID POS: x = 7, y = 2
+Key 'd' was pressed up
+Key 'w' was pressed up
+Key 's' was pressed down
+Key 'd' was pressed down
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed up
+Key 'w' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'a' was pressed down
+Key 'd' was pressed up
+type:minion0
+MINION GRID POS: x = 7, y = 1
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed down
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed up
+Key 'a' was pressed down
+Key 'w' was pressed down
+type:minion0
+MINION GRID POS: x = 7, y = 1
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 's' was pressed down
+Key 'a' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed up
+Key 's' was pressed up
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 'a' was pressed down
+Key 'w' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 's' was pressed down
+Key 'd' was pressed down
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'a' was pressed up
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
 CLEANING UP Tower Building Interface
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'down' was pressed down
-Key 'down' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'left' was pressed down
-Key 'right' was pressed up
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'right' was pressed up
-Key 'up' was pressed up
-Key 'left' was pressed down
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'leftShift' was pressed down
-direction invalid, not moving
-Key 'up' was pressed up
-Key 'left' was pressed down
+CLEANING UP Wave Countdown Interface
+Key 'd' was pressed up
 Key 'leftShift' was pressed up
 direction invalid, not moving
-Key 'left' was pressed up
-Key 'up' was pressed down
+Key 'w' was pressed down
+Key 'd' was pressed down
+Key 'w' was pressed up
+Key 'd' was pressed up
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
+minion added: 
+table: 0CECAF68
+StartPos: 7,1
+minion added: 
+table: 0CECB4E0
+StartPos: 7,1
+minion added: 
+table: 0CECB5A8
+StartPos: 7,1
+minion added: 
+table: 0CECB3F0
+StartPos: 7,1
+minion added: 
+table: 0CECBA08
+Total number of minions: 5
+Time between minions: 2000
+Wave 2 at 1x speed.
+Key 'd' was pressed down
+Key 'w' was pressed down
 Key 'leftShift' was pressed down
 direction invalid, not moving
-Key 'up' was pressed up
-Key 'up' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'd' was pressed up
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 's' was pressed up
+Key 'a' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+type:minion1
+MINION GRID POS: x = 7, y = 1
+Cell 6, 5 already occupied. Build aborted.
+Key 'd' was pressed down
+Key 'd' was pressed up
+Building tower at 7, 5
+MINION GRID POS: x = 7, y = 2
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 's' was pressed up
+type:minion1
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed down
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 3
+Key 'w' was pressed up
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 's' was pressed down
+Key 'd' was pressed up
+Key 'a' was pressed down
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+type:minion1
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed up
+Key 'w' was pressed down
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 3
+Key 'w' was pressed up
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 6
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Key 'w' was pressed down
+Key 'a' was pressed down
+Key 'w' was pressed up
+Key 'a' was pressed up
+Key 'a' was pressed down
+type:minion1
+MINION GRID POS: x = 7, y = 1
+Key 's' was pressed down
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 's' was pressed down
+Key 'a' was pressed down
+MINION GRID POS: x = 7, y = 2
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed down
+Trying to set player position with invalid x-value, was (-1.6935208266895, 65.306479173311), min = 0, max = 640.
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed up
+Key 'w' was pressed down
+Key 'd' was pressed down
+type:minion1
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 7
+Key 'w' was pressed up
+Key 'w' was pressed down
+Key 'd' was pressed up
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 3
+Key 'w' was pressed down
+Key 'd' was pressed up
+Key 'a' was pressed down
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 8
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'w' was pressed down
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+MINION GRID POS: x = 6, y = 9
+MINION GRID POS: x = 6, y = 7
+MINION GRID POS: x = 6, y = 5
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 3
+Trying to set player position with invalid x-value, was (-2.6935208266895, 66.306479173311), min = 0, max = 640.
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 'd' was pressed down
+Key 'a' was pressed down
+Key 's' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed up
+CLEANING UP Tower Building Interface
+CLEANING UP Wave Countdown Interface
+Key 'd' was pressed down
+Key 'd' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'w' was pressed down
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'w' was pressed up
+Key 'd' was pressed up
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'd' was pressed up
+Key 's' was pressed up
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
+minion added: 
+table: 09229A08
+StartPos: 7,1
+minion added: 
+table: 0922A250
+StartPos: 7,1
+minion added: 
+table: 0922A6B0
+StartPos: 7,1
+minion added: 
+table: 0922A818
+StartPos: 7,1
+minion added: 
+table: 0922A480
+Total number of minions: 5
+Time between minions: 2000
+Wave 3 at 1x speed.
+Building tower at 5, 6
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+Key 'w' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'a' was pressed down
+Key 's' was pressed down
+type:minion2
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed down
+Key 'd' was pressed down
+Key 'w' was pressed up
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 'a' was pressed down
+Key 'd' was pressed up
+type:minion2
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed down
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed up
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 'a' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 's' was pressed up
+type:minion2
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 'd' was pressed down
+Key 'w' was pressed down
+Key 'd' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 7
+type:minion2
+MINION GRID POS: x = 7, y = 1
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 'd' was pressed down
+MINION GRID POS: x = 7, y = 2
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 6
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 's' was pressed down
+Key 'd' was pressed down
+type:minion2
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 7
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed down
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 3
+Trying to set player position with invalid x-value, was (577.36197935287, 644.36197935287), min = 0, max = 640.
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed up
+Trying to set player position with invalid x-value, was (577.36197935287, 644.36197935287), min = 0, max = 640.
+Trying to set player position with invalid x-value, was (576.36197935287, 645.36197935287), min = 0, max = 640.
+Trying to set player position with invalid x-value, was (576.36197935287, 645.36197935287), min = 0, max = 640.
+Trying to set player position with invalid x-value, was (576.36197935287, 645.36197935287), min = 0, max = 640.
+MINION GRID POS: x = 6, y = 8
+Trying to set player position with invalid x-value, was (576.36197935287, 645.36197935287), min = 0, max = 640.
+Trying to set player position with invalid x-value, was (576.36197935287, 645.36197935287), min = 0, max = 640.
+Key 'd' was pressed up
+Key 's' was pressed down
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 9
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 7
+Key 's' was pressed down
+Trying to set player position with invalid y-value, was (633.73114987633, 726.73114987633), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (633.73114987633, 726.73114987633), min = 48, max = 720.
+Key 'a' was pressed down
+Trying to set player position with invalid y-value, was (633.73114987633, 726.73114987633), min = 48, max = 720.
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 'a' was pressed down
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'w' was pressed up
+Key 'w' was pressed down
+Key 'd' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed up
+Key 'a' was pressed down
+Key 'w' was pressed down
+CLEANING UP Tower Building Interface
+CLEANING UP Wave Countdown Interface
+Key 'w' was pressed up
+Key 'a' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+Key 'w' was pressed down
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
+minion added: 
+table: 091B1948
+StartPos: 7,1
+minion added: 
+table: 091AE4C8
+StartPos: 7,1
+minion added: 
+table: 091AE6A8
+StartPos: 7,1
+minion added: 
+table: 091AE400
+StartPos: 7,1
+minion added: 
+table: 091AE298
+Total number of minions: 5
+Time between minions: 2000
+Wave 4 at 1x speed.
+Key 'w' was pressed up
+Key 'a' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'd' was pressed up
+Key 's' was pressed down
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'd' was pressed up
+Building tower at 5, 4
+Key 'd' was pressed down
+Key 's' was pressed down
+Key 'a' was pressed down
+type:minion3
+MINION GRID POS: x = 7, y = 1
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 7, y = 2
+Key 'd' was pressed up
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed down
+Key 'a' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed up
+Key 'w' was pressed up
+type:minion3
+MINION GRID POS: x = 7, y = 1
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 3
+type:minion3
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 6
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'w' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed down
+type:minion3
+MINION GRID POS: x = 7, y = 1
+Key 'a' was pressed up
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 7
+Key 'd' was pressed up
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 3
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 8
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+MINION GRID POS: x = 6, y = 9
+type:minion3
+MINION GRID POS: x = 7, y = 1
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 7
+Key 'd' was pressed up
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'w' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 3
+Key 'd' was pressed up
+MINION GRID POS: x = 5, y = 9
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 8
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'leftShift' was pressed down
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 5, y = 10
+MINION GRID POS: x = 7, y = 3
+MINION GRID POS: x = 6, y = 9
+MINION GRID POS: x = 6, y = 7
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 5, y = 11
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 5, y = 9
+MINION GRID POS: x = 6, y = 8
+MINION GRID POS: x = 6, y = 6
+MINION GRID POS: x = 4, y = 11
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 5, y = 10
+MINION GRID POS: x = 6, y = 9
+MINION GRID POS: x = 6, y = 7
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 5, y = 11
+Key 'd' was pressed down
+Key 'w' was pressed down
+Key 'w' was pressed up
+MINION GRID POS: x = 5, y = 9
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 8
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed up
+MINION GRID POS: x = 4, y = 11
+MINION GRID POS: x = 5, y = 10
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 9
+Key 'a' was pressed up
+Trying to set player position with invalid y-value, was (631.06269135015, 724.06269135015), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (631.06269135015, 724.06269135015), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (631.06269135015, 724.06269135015), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (631.06269135015, 724.06269135015), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (631.06269135015, 724.06269135015), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (631.06269135015, 724.06269135015), min = 48, max = 720.
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 7
+Trying to set player position with invalid x-value, was (576.36197935287, 645.36197935287), min = 0, max = 640.
+Key 'd' was pressed up
+MINION GRID POS: x = 5, y = 11
+Key 'a' was pressed down
+Key 'w' was pressed down
+MINION GRID POS: x = 5, y = 9
+MINION GRID POS: x = 6, y = 8
+Key 'a' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 4, y = 11
+MINION GRID POS: x = 5, y = 10
+MINION GRID POS: x = 6, y = 9
+MINION GRID POS: x = 5, y = 11
+MINION GRID POS: x = 5, y = 9
+MINION GRID POS: x = 4, y = 11
+MINION GRID POS: x = 5, y = 10
+MINION GRID POS: x = 5, y = 11
+Key 'd' was pressed down
+MINION GRID POS: x = 4, y = 11
+CLEANING UP Tower Building Interface
+CLEANING UP Wave Countdown Interface
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'd' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'a' was pressed down
+Key 'w' was pressed down
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
+minion added: 
+table: 0CEAAD98
+StartPos: 7,1
+minion added: 
+table: 0CEAB018
+StartPos: 7,1
+minion added: 
+table: 0CEAB4F0
+StartPos: 7,1
+minion added: 
+table: 0CEAB428
+StartPos: 7,1
+minion added: 
+table: 0CEAB8B0
+Total number of minions: 5
+Time between minions: 2000
+Wave 5 at 1x speed.
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'd' was pressed up
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+Cell 7, 5 already occupied. Build aborted.
+Key 's' was pressed down
+Key 'a' was pressed down
+type:minion4
+MINION GRID POS: x = 7, y = 1
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Building tower at 7, 6
+Key 's' was pressed down
+Key 's' was pressed up
+MINION GRID POS: x = 7, y = 2
+Building tower at 7, 7
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 's' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 'w' was pressed down
+type:minion4
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed up
+Key 'a' was pressed up
+Key 's' was pressed down
 Key 'leftShift' was pressed up
 direction invalid, not moving
 Key 'leftShift' was pressed down
 direction invalid, not moving
-Key 'up' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed down
-Key 'right' was pressed up
+Key 's' was pressed up
 Key 'leftShift' was pressed up
 direction invalid, not moving
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (44.001815592077, 137.00181559208), min = 48, max = 720.
-Key 'left' was pressed down
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Key 'up' was pressed up
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Key 'left' was pressed up
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Key 'down' was pressed down
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (46.67027411825, 139.67027411825), min = 48, max = 720.
-Key 'up' was pressed up
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Trying to set player position with invalid y-value, was (47.004503381337, 142.00450338134), min = 48, max = 720.
-Key 'down' was pressed down
-Key 'down' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 's' was pressed up
+Key 's' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 's' was pressed up
+type:minion4
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 5
 Key 'leftShift' was pressed down
 direction invalid, not moving
-Key 'left' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed down
-Key 'right' was pressed down
-Key 'left' was pressed up
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'up' was pressed up
-Key 'down' was pressed down
-Key 'right' was pressed up
-Key 'left' was pressed down
-Key 'down' was pressed up
-Key 'up' was pressed down
-Key 'left' was pressed up
-Key 'right' was pressed down
-Key 'up' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 6
+Key 'd' was pressed down
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Key 'w' was pressed up
+Key 'd' was pressed up
+type:minion4
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 5
+Key 'w' was pressed down
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 'd' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 6
+Key 'd' was pressed down
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed down
+type:minion4
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 3
 Key 'leftShift' was pressed up
 direction invalid, not moving
-Key 'right' was pressed up
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'w' was pressed down
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 'w' was pressed up
+Key 'w' was pressed down
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 7
+Key 'd' was pressed up
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 3
+Key 'a' was pressed up
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 's' was pressed up
+Key 'd' was pressed up
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'w' was pressed up
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 7
+Key 's' was pressed up
+CLEANING UP Tower Building Interface
+CLEANING UP Wave Countdown Interface
+Key 'a' was pressed up
+Key 'd' was pressed down
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
+minion added: 
+table: 0CF1E648
+StartPos: 7,1
+minion added: 
+table: 0CF1F138
+StartPos: 7,1
+minion added: 
+table: 0CF1F160
+StartPos: 7,1
+minion added: 
+table: 0CF1F188
+StartPos: 7,1
+minion added: 
+table: 0CF1F390
+Total number of minions: 5
+Time between minions: 2000
+Wave 6 at 1x speed.
+Key 'd' was pressed up
+Building tower at 5, 7
+Key 'd' was pressed down
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'a' was pressed up
+Key 's' was pressed up
+type:minion5
+MINION GRID POS: x = 7, y = 1
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'd' was pressed up
+Key 'a' was pressed down
+Key 'w' was pressed down
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed up
+Key 'w' was pressed down
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed up
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 3
+Key 'a' was pressed down
+Key 'w' was pressed down
+type:minion5
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed up
+Key 'a' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+type:minion5
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 6
+MINION GRID POS: x = 6, y = 4
+Key 'w' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 7
+type:minion5
+MINION GRID POS: x = 7, y = 1
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 's' was pressed down
+Key 'd' was pressed up
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 8
+MINION GRID POS: x = 7, y = 2
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 6
+MINION GRID POS: x = 6, y = 4
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 9
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed down
+Key 'w' was pressed down
+type:minion5
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed up
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 7
+MINION GRID POS: x = 6, y = 5
+Key 'w' was pressed down
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Key 'd' was pressed down
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+MINION GRID POS: x = 5, y = 9
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+MINION GRID POS: x = 6, y = 3
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+MINION GRID POS: x = 7, y = 2
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+MINION GRID POS: x = 6, y = 8
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 6
+Key 's' was pressed down
+Key 's' was pressed up
+Key 'd' was pressed up
+Key 'w' was pressed down
+MINION GRID POS: x = 5, y = 10
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Key 'a' was pressed down
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (44.00181559208, 137.00181559208), min = 48, max = 720.
+Key 'w' was pressed up
+Key 'a' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 3
+Key 'd' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 6
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'd' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 5
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'd' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 6
+CLEANING UP Tower Building Interface
+CLEANING UP Wave Countdown Interface
+Key 's' was pressed up
+Key 'a' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
+minion added: 
+table: 0CEE8A38
+StartPos: 7,1
+minion added: 
+table: 0CEE92F8
+StartPos: 7,1
+minion added: 
+table: 0CEE9410
+StartPos: 7,1
+minion added: 
+table: 0CEE9258
+StartPos: 7,1
+minion added: 
+table: 0CEE9190
+Total number of minions: 5
+Time between minions: 2000
+Wave 7 at 1x speed.
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+Key 'w' was pressed down
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+type:minion6
+MINION GRID POS: x = 7, y = 1
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 'w' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 's' was pressed up
+Building tower at 7, 4
+Key 'a' was pressed down
+Key 's' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'leftShift' was pressed down
+direction invalid, not moving
+type:minion6
+MINION GRID POS: x = 7, y = 1
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed down
+Key 'a' was pressed up
+Key 'w' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed up
+Key 'w' was pressed down
+type:minion6
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 5
+Building tower at 5, 3
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 3
+Key 'a' was pressed down
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed up
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 's' was pressed down
+Key 'a' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 's' was pressed up
+Key 'a' was pressed up
+type:minion6
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 7
+Key 'w' was pressed down
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 8
+MINION GRID POS: x = 6, y = 6
+Key 'd' was pressed down
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+MINION GRID POS: x = 6, y = 4
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+MINION GRID POS: x = 7, y = 3
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 9
+Key 'w' was pressed down
+Trying to set player position with invalid y-value, was (40.333357065908, 135.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+MINION GRID POS: x = 6, y = 7
+Key 'd' was pressed up
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+type:minion6
+MINION GRID POS: x = 7, y = 1
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Key 'w' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'w' was pressed down
+Trying to set player position with invalid y-value, was (40.333357065908, 135.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Key 'd' was pressed up
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+MINION GRID POS: x = 6, y = 3
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Key 'w' was pressed up
+MINION GRID POS: x = 5, y = 9
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 8
+MINION GRID POS: x = 7, y = 2
+Key 'w' was pressed down
+Trying to set player position with invalid y-value, was (40.333357065908, 135.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+MINION GRID POS: x = 6, y = 6
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (41.333357065908, 134.33335706591), min = 48, max = 720.
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 5, y = 10
+MINION GRID POS: x = 6, y = 9
+MINION GRID POS: x = 7, y = 3
+Key 'd' was pressed up
+Key 'd' was pressed down
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 5
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 3
+Key 'd' was pressed up
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 's' was pressed down
+MINION GRID POS: x = 6, y = 4
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'a' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 's' was pressed up
+Key 'w' was pressed down
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 6
+Key 'd' was pressed down
+Key 'w' was pressed up
+CLEANING UP Tower Building Interface
+CLEANING UP Wave Countdown Interface
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'd' was pressed up
+Key 's' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'w' was pressed down
+Key 'w' was pressed up
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CLEANING UP Wave Countdown Interface
+CREATING TOWER BUILDING INTERFACE YEAH
+StartPos: 7,1
+minion added: 
+table: 0CECCDB8
+StartPos: 7,1
+minion added: 
+table: 0CECD6C8
+StartPos: 7,1
+minion added: 
+table: 0CECD808
+StartPos: 7,1
+minion added: 
+table: 0CECD6F0
+StartPos: 7,1
+minion added: 
+table: 0CECD8A8
+Total number of minions: 5
+Time between minions: 2000
+Wave 8 at 1x speed.
+Key 'w' was pressed down
+Key 'd' was pressed down
+Key 'w' was pressed up
+Key 'd' was pressed up
+Key 'w' was pressed down
+Key 'd' was pressed down
+Key 'w' was pressed up
+Key 'd' was pressed up
+Building tower at 7, 8
+Key 'a' was pressed down
+type:minion7
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed down
+Key 'w' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 3
+Building tower at 5, 8
+Key 'a' was pressed down
+type:minion7
+MINION GRID POS: x = 7, y = 1
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 3
+Key 'w' was pressed up
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 4
+MINION GRID POS: x = 7, y = 3
+type:minion7
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 3
+MINION GRID POS: x = 7, y = 2
+MINION GRID POS: x = 6, y = 6
+MINION GRID POS: x = 6, y = 4
+Key 's' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'a' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+type:minion7
+MINION GRID POS: x = 7, y = 1
+MINION GRID POS: x = 6, y = 7
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 5
+MINION GRID POS: x = 6, y = 3
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 's' was pressed up
+Key 'a' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'a' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 'd' was pressed down
+MINION GRID POS: x = 7, y = 3
+type:minion7
+MINION GRID POS: x = 7, y = 1
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 7
+Key 'd' was pressed up
+Key 'a' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 5
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'd' was pressed down
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 'd' was pressed up
+MINION GRID POS: x = 7, y = 2
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 6
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 'd' was pressed down
+MINION GRID POS: x = 7, y = 3
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 7
+Key 'w' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 5
+Key 'w' was pressed up
+MINION GRID POS: x = 6, y = 3
+Key 's' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'd' was pressed down
+Key 'a' was pressed down
+Key 'a' was pressed up
+MINION GRID POS: x = 6, y = 6
+Key 's' was pressed up
+MINION GRID POS: x = 6, y = 4
+Key 'd' was pressed up
+Key 'a' was pressed down
+Key 's' was pressed down
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'd' was pressed down
+MINION GRID POS: x = 6, y = 7
+Key 's' was pressed up
+Key 'a' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 5
+Key 's' was pressed down
+Key 'a' was pressed down
+Key 'd' was pressed up
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'd' was pressed down
+Key 'd' was pressed up
+Trying to set player position with invalid y-value, was (628.39423282398, 721.39423282398), min = 48, max = 720.
+MINION GRID POS: x = 6, y = 6
+Trying to set player position with invalid y-value, was (628.39423282398, 721.39423282398), min = 48, max = 720.
+Trying to set player position with invalid y-value, was (628.39423282398, 721.39423282398), min = 48, max = 720.
+Key 'd' was pressed down
+Trying to set player position with invalid y-value, was (628.39423282398, 721.39423282398), min = 48, max = 720.
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'a' was pressed up
+Key 's' was pressed up
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'w' was pressed down
+MINION GRID POS: x = 6, y = 7
+Key 'a' was pressed down
+Key 'a' was pressed up
+Key 'd' was pressed up
+Key 'w' was pressed up
+Key 'leftShift' was pressed up
+direction invalid, not moving
+MINION GRID POS: x = 6, y = 8
+Key 'd' was pressed down
+Key 'w' was pressed down
+Key 'd' was pressed up
+MINION GRID POS: x = 6, y = 9
+Key 'w' was pressed up
+MINION GRID POS: x = 5, y = 9
+Key 'w' was pressed down
+Key 'leftShift' was pressed down
+direction invalid, not moving
+Key 'a' was pressed down
+Key 'a' was pressed up
+MINION GRID POS: x = 5, y = 10
+CLEANING UP Tower Building Interface
+Key 'a' was pressed down
+Key 'leftShift' was pressed up
+direction invalid, not moving
+Key 'a' was pressed up
+Key 'd' was pressed down
+Key 'd' was pressed up
+Key 'w' was pressed up

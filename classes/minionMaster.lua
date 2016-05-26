@@ -21,6 +21,11 @@ function _MinionMaster:init()
 		light = gameValuesMinion.lightMinionDamage,
 		heavy = gameValuesMinion.heavyMinionDamage,
 		boss1 = gameValuesMinion.boss1MinionDamage }
+	-------
+	for i=0,7 do
+			self.minionDamage['minion' .. i] = gameValuesMinion['minion'..i..'MinionDamage']
+	end
+	--------
 	self.minions = {}
 	self.waves = self:initWaves()
 end
@@ -30,6 +35,12 @@ function _MinionMaster:setMinionSpeeds( mapWidth )
 	self.lightMinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.lightMinionMetersPerSecond, mapWidth/display.contentWidth)--3
 	self.heavyMinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.heavyMinionMetersPerSecond, mapWidth/display.contentWidth)--0.6
 	self.boss1MinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.boss1MinionMetersPerSecond, mapWidth/display.contentWidth)--0.6
+
+	-----
+	for i=0,7 do
+		self['minion'..i..'MinionUnitsMovedPerFrame'] = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion['minion'..i..'MinionMetersPerSecond'], mapWidth/display.contentWidth)
+	end
+	-----
 end
 
 function _MinionMaster:createMinion( minionType )
@@ -45,16 +56,26 @@ end
 
 function _MinionMaster:initWaves()
 	local waves = {}
-	table.insert( waves, { 
-		timeBetweenMinions = 1000,
-		{minionType = "basic", numberOfMinions = 5},
-		--{minionType = "light", numberOfMinions = 7} 
-		} )
+
+	for i=0,7 do
+		table.insert( waves, {
+			timeBetweenMinions = 2000,
+			{minionType=gameValuesMinion['typeMinion'..i..'Minion'], numberOfMinions =5}
+			})
+	end
 	--[[
+	table.insert( waves, { 
+		timeBetweenMinions = 1650,
+		{minionType = gameValuesMinion.typeBasicMinion, numberOfMinions = 5}
+		} )
 	table.insert( waves, {
-		timeBetweenMinions = 500,
-		{minionType = "basic", numberOfMinions = 1}
+		timeBetweenMinions = 1500,
+		{minionType = gameValuesMinion.typeBasicMinion, numberOfMinions = 3},
+		{minionType = gameValuesMinion.typeLightMinion, numberOfMinions = 3},
+		{minionType = gameValuesMinion.typeBasicMinion, numberOfMinions = 3},
+		{minionType = gameValuesMinion.typeLightMinion, numberOfMinions = 3},
 		} ) 
+	
 	table.insert( waves, {
 		timeBetweenMinions = 500,
 		{minionType = "basic", numberOfMinions = 1}
@@ -186,10 +207,10 @@ function _MinionMaster:moveMinions()
 	end
 end
 
-function _MinionMaster:damageMinions( amount )
+function _MinionMaster:damageMinions( amount, percent )
 	for k,minion in pairs(self.minions) do
 		if minion:getStatus() == gameValuesMinion.statusMoving then
-			minion:takeDamage( amount )
+			minion:takeDamage( amount, percent )
 		end
 	end
 end

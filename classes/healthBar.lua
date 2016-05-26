@@ -1,4 +1,5 @@
 local gameValues = require('gameValues.minion')
+local colors = require('libs.colors')
 
 local _HealthBar = {value1 = "default"}
 
@@ -19,7 +20,7 @@ function _HealthBar:setupSprite()
 	self.healthBarGreen = display.newRect( self.displayGroup, 0, 0, 
 		gameValues.healthBarWidth, gameValues.healthBarHeight)
 	self.healthBarRed:setFillColor( 1, 0, 0 )
-	self.healthBarGreen:setFillColor( 0, 1, 0 )
+	self.healthBarGreen:setFillColor( unpack(colors.healthBarGreen) )
 	self.healthBarFrame:setFillColor( 0, 0, 0, 0 )
 	self.healthBarFrame:setStrokeColor( 0, 0, 0 )
 	self.healthBarFrame.strokeWidth = 2
@@ -36,7 +37,7 @@ function _HealthBar:updateSprite()
 end
 
 function _HealthBar:updateBarPosition( bar, anchorLeft )
-	bar.y = self.minion.y - self.minion.sprite.height*2
+	bar.y = self.minion.y - self.minion.sprite.height
 	bar.x = self.minion.x
 	if anchorLeft then
 		bar.x = bar.x - (gameValues.healthBarWidth - bar.width)/2

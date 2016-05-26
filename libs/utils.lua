@@ -2,7 +2,7 @@
 local _M = {}
 
 --Frames per second
-local fps = 60
+local fps = 30
 
 --Calculates the distance between to latlon points in meters
 function _M.calculateDistance(point1, point2)

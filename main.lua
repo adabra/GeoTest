@@ -15,14 +15,14 @@ local sounds = require('sounds.sounds')
 audio.setVolume( 0.2 )
 
 -- Show menu scene
---composer.gotoScene('scenes.mainMenu')
+composer.gotoScene('scenes.mainMenu')
 
 
 -- Map screenshot scene
 --composer.gotoScene( "test.mapCreator")
 
 --straight to game for testing purposes
-composer.gotoScene( "scenes.game", {params = { level = 4 } } )
+--composer.gotoScene( "scenes.game", {params = { level = 7 } } )
 
 --testing
 --composer.gotoScene( "scenes.test" )

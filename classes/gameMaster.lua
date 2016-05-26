@@ -197,7 +197,8 @@ end
 function _GameMaster:skipWaveCountdown()
 	if (self:getGameState() == gameValues.stateWaveCountdown) then
 		if self.waveCountdownTimer then
-			self.statusBar:setCreditAmount( self.creditAmount + self.waveCountdown )
+			self.creditAmount = self.creditAmount + self.waveCountdown 
+			self.statusBar:setCreditAmount( self.creditAmount )
 			timer.cancel( self.waveCountdownTimer )
 			self.waveCountdownTimer = nil
 		end
@@ -303,9 +304,15 @@ function _GameMaster:useItem( itemType )
 		self.creditAmount = self.creditAmount + gameValues.goldCoinAmount
 		self.statusBar:setCreditAmount( self.creditAmount )
 		audio.play(sounds.soundPowerUpPickedUp)
+
+		if self:canAffordBasicTower() then
+			self.controlPanel:cleanUpNotEnoughCreditsOverlay()
+		end
+
 	elseif itemType == gameValuesPickupItem.typeZapper then
-		self.minionMaster:damageMinions(gameValues.zapperAmount)
+		self.minionMaster:damageMinions(gameValues.zapperAmount*self.waveLevel)
 		audio.play(sounds.soundZapperUsed)
+
 	elseif itemType == gameValuesPickupItem.typeHpPack then
 		self.baseHealthPoints = self.baseHealthPoints + gameValues.hpPackAmount
 		self.statusBar:setBaseHealthPoints(self.baseHealthPoints)
@@ -343,11 +350,13 @@ end
 function _GameMaster:payForUpgrade( upgradeChoice, towerLevel )
 	self.creditAmount = self.creditAmount - self:getUpgradeCost(upgradeChoice)
 	self.statusBar:setCreditAmount(self.creditAmount)
+	self.controlPanel:checkCreditAmount( self.creditAmount )
 end
 
 function _GameMaster:payForBasicTower()
 	self.creditAmount = self.creditAmount - gameValues.basicLevel1Cost
 	self.statusBar:setCreditAmount(self.creditAmount)
+	self.controlPanel:checkCreditAmount( self.creditAmount )
 end
 
 function _GameMaster:getUpgradeCost( upgradeChoice )
@@ -391,6 +400,7 @@ function _GameMaster:decreaseBaseHealthPoints( amount )
 		self:gameLost()
 	end
 	self.statusBar:setBaseHealthPoints( self.baseHealthPoints )
+
 end
 
 function _GameMaster:setControlPanel( controlPanel )

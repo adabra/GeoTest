@@ -20,6 +20,16 @@ function _GameMap:new( displayGroup, o )
 	gameMap.map = Maps[gameMap.level]
 	gameMap.width = gameMap.map.widthInMeters
 	gameMap.height = gameMap.map.heightInMeters
+	print("MAP WIDTH AND HEIGHT:")
+	print(gameMap.width)
+	print(gameMap.height)
+
+	if (gameMap.height > 90) then
+		gameMap.cellSize = 10
+	else
+		gameMap.cellSize = 5
+	end
+
 	gameMap.myDisplayGroup = displayGroup
 	gameMap.backgroundGroup = display.newGroup()
 	gameMap.myDisplayGroup:insert( gameMap.backgroundGroup )
@@ -349,13 +359,20 @@ function _GameMap:buildPath()
 	end
 end
 
-function _GameMap:updatePath(x, y)
+function _GameMap:updatePath(x, y, isGridPos)
+
 	if (not self.path) then
 		self.path = Path:new(self.backgroundGroup, self)
 	end
 
-	local cellPos = self:contentAreaToGrid(x, y)
-	
+	local cellPos
+
+	if not isGridPos then
+		cellPos = self:contentAreaToGrid(x, y)
+	else
+		cellPos = {x, y}
+	end
+
 	if ( self:getMapCell( cellPos[1], cellPos[2] ) == 'empty' ) then
 		if (self.path:addTile( cellPos[1], cellPos[2] ) ) then
 			self:setMapCell(cellPos[1], cellPos[2], 'path')

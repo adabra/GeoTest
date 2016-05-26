@@ -26,7 +26,6 @@ function _StatusBarField:init( displayGroup, value, icon, name )
 	} 
 	self.text = display.newText( textOptions )
 	self.text.anchorX = 0
-
 	if icon then
 		self.icon = display.newImageRect( 
 			displayGroup, 

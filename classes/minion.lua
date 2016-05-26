@@ -3,7 +3,13 @@ local gameValuesGameMaster = require('gameValues.gameMaster')
 local HealthBar = require('classes.healthBar')
 local sounds = require('sounds.sounds')
 
-local _Minion = {}
+local _Minion = { minionSizes = {} }
+
+_Minion.minionSizes[gameValues.typeLightMinion] = 0.5
+_Minion.minionSizes[gameValues.typeBasicMinion] = 0.7
+_Minion.minionSizes[gameValues.typeHeavyMinion] = 1
+_Minion.minionSizes[gameValues.typeBoss1Minion] = 1.5
+
 
 function _Minion:new( displayGroup, gameMap, minionMaster, minionType )
 	local minion = {
@@ -45,16 +51,7 @@ function _Minion:start()
 end
 
 function _Minion:setupSprite()
-	if self.minionType == gameValues.typeBasicMinion then
-		self:setupBasicMinionSprite()
-	elseif self.minionType == gameValues.typeLightMinion then
-		self:setupLightMinionSprite()
-	elseif self.minionType == gameValues.typeHeavyMinion then
-		self:setupHeavyMinionSprite()
-	elseif self.minionType == gameValues.typeBoss1Minion then
-		self:setupBoss1MinionSprite()
-	end
-
+	self:setUpSprite( self.minionType )
 	self.healthBar = HealthBar:new( self.displayGroup, self )
 end
 
@@ -115,7 +112,7 @@ end
 function _Minion:takeDamage( amount, percent )
 	local percent = percent or false
 	if percent then
-		self.healthPoints = math.floor( self.healthPoints*(amount/100) )
+		self.healthPoints = self.healthPoints - math.floor( self.maxHealthPoints*(amount/100) )
 	else
 		self.healthPoints = self.healthPoints - amount
 	end
@@ -180,24 +177,24 @@ function _Minion:cleanUp()
 	self = nil
 end
 
-function _Minion:setupBasicMinionSprite()
-	self.sprite = display.newCircle( self.displayGroup, self.x, self.y, 10 )
-	self.sprite:setFillColor( 0, 1, 0 )
+function _Minion:setUpSprite( type )
+	local minionColors = {minion1 = {0,0,1}, minion2 = {0,1,0}, minion3 = {0,1,1}, minion4 = {1,0,0}, minion5 = {1,0,1}, minion6 = {1,1,0}, minion7 = {1,1,1}, minion0 = {0,0,0}}
+	self.sprite = display.newCircle( self.displayGroup, 0, 0, 5 )
+	print("type:"..type)
+	self.sprite:setFillColor( unpack(minionColors[type]) )
 end
 
-function _Minion:setupLightMinionSprite()
-	self.sprite = display.newCircle( self.displayGroup, self.x, self.y, 7 )
-	self.sprite:setFillColor( 1, 0, 0 )
+
+--[[
+
+function _Minion:setUpSprite( type )
+	self.sprite = display.newImageRect( 
+		self.displayGroup, 
+		"images/game_objects/" .. self.minionType .. "Minion.png", 
+		self.gameMap.cellWidth*self.minionSizes[self.minionType], 
+		self.gameMap.cellWidth*self.minionSizes[self.minionType] )
 end
 
-function _Minion:setupHeavyMinionSprite()
-	self.sprite = display.newCircle( self.displayGroup, self.x, self.y, 13 )
-	self.sprite:setFillColor( 0, 0, 1 )
-end
-
-function _Minion:setupBoss1MinionSprite()
-	self.sprite = display.newCircle( self.displayGroup, self.x, self.y, 17 )
-	self.sprite:setFillColor( 0, 0, 0 )
-end
+--]]
 
 return _Minion

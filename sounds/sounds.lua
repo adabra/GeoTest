@@ -1,7 +1,7 @@
 local _M = {}
 
 
-_M.path = "/audio/"
+_M.path = "audio/"
 _M.mp3 = ".mp3"
 _M.wav = ".wav"
 
