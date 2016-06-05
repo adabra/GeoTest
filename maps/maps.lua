@@ -29,5 +29,6 @@ for i=#_M+1,9 do
 	_M[i] = ""
 end
 
+print("Width: " .. _M[3].widthInMeters ..", Height: " .. _M[3].heightInMeters)
 
 return _M

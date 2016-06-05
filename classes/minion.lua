@@ -3,12 +3,40 @@ local gameValuesGameMaster = require('gameValues.gameMaster')
 local HealthBar = require('classes.healthBar')
 local sounds = require('sounds.sounds')
 
-local _Minion = { minionSizes = {} }
+local _Minion = { minionSizes = {}, minionScales = {} }
 
 _Minion.minionSizes[gameValues.typeLightMinion] = 0.5
 _Minion.minionSizes[gameValues.typeBasicMinion] = 0.7
 _Minion.minionSizes[gameValues.typeHeavyMinion] = 1
 _Minion.minionSizes[gameValues.typeBoss1Minion] = 1.5
+print("MINION TYPE:")
+print(gameValues['typeMinion'..'0'..'Minion'])
+for i=0,9 do
+	_Minion.minionSizes['minion'..i] = 0.2--0.2 + ((i+1)*0.05)
+	_Minion.minionScales['minion'..i] = {}
+end
+
+_Minion.minionScales.minion0.width = 2
+_Minion.minionScales.minion0.height = 1.2
+_Minion.minionScales.minion1.width = 2
+_Minion.minionScales.minion1.height = 1.2
+_Minion.minionScales.minion2.width = 1
+_Minion.minionScales.minion2.height = 3
+_Minion.minionScales.minion3.width = 1
+_Minion.minionScales.minion3.height = 3
+_Minion.minionScales.minion4.width = 2
+_Minion.minionScales.minion4.height = 2
+_Minion.minionScales.minion5.width = 1.5
+_Minion.minionScales.minion5.height = 2.5
+_Minion.minionScales.minion6.width = 3
+_Minion.minionScales.minion6.height = 3
+_Minion.minionScales.minion7.width = 3
+_Minion.minionScales.minion7.height = 3
+_Minion.minionScales.minion8.width = 3
+_Minion.minionScales.minion8.height = 3
+_Minion.minionScales.minion9.width = 3
+_Minion.minionScales.minion9.height = 3
+
 
 
 function _Minion:new( displayGroup, gameMap, minionMaster, minionType )
@@ -177,24 +205,24 @@ function _Minion:cleanUp()
 	self = nil
 end
 
+--[[
 function _Minion:setUpSprite( type )
 	local minionColors = {minion1 = {0,0,1}, minion2 = {0,1,0}, minion3 = {0,1,1}, minion4 = {1,0,0}, minion5 = {1,0,1}, minion6 = {1,1,0}, minion7 = {1,1,1}, minion0 = {0,0,0}}
 	self.sprite = display.newCircle( self.displayGroup, 0, 0, 5 )
 	print("type:"..type)
 	self.sprite:setFillColor( unpack(minionColors[type]) )
 end
+--]]
 
-
---[[
 
 function _Minion:setUpSprite( type )
 	self.sprite = display.newImageRect( 
 		self.displayGroup, 
-		"images/game_objects/" .. self.minionType .. "Minion.png", 
-		self.gameMap.cellWidth*self.minionSizes[self.minionType], 
-		self.gameMap.cellWidth*self.minionSizes[self.minionType] )
+		"images/game_objects/" .. self.minionType .. ".png", 
+		self.gameMap.cellWidth*self.minionSizes[self.minionType]*self.minionScales[self.minionType].width, 
+		self.gameMap.cellWidth*self.minionSizes[self.minionType]*self.minionScales[self.minionType].height )
 end
 
---]]
+
 
 return _Minion

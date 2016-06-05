@@ -22,7 +22,7 @@ function _MinionMaster:init()
 		heavy = gameValuesMinion.heavyMinionDamage,
 		boss1 = gameValuesMinion.boss1MinionDamage }
 	-------
-	for i=0,7 do
+	for i=0,9 do
 			self.minionDamage['minion' .. i] = gameValuesMinion['minion'..i..'MinionDamage']
 	end
 	--------
@@ -37,7 +37,7 @@ function _MinionMaster:setMinionSpeeds( mapWidth )
 	self.boss1MinionUnitsMovedPerFrame = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion.boss1MinionMetersPerSecond, mapWidth/display.contentWidth)--0.6
 
 	-----
-	for i=0,7 do
+	for i=0,9 do
 		self['minion'..i..'MinionUnitsMovedPerFrame'] = utils.metersPerSecondToCoronaPixelsPerFrame(gameValuesMinion['minion'..i..'MinionMetersPerSecond'], mapWidth/display.contentWidth)
 	end
 	-----
@@ -57,7 +57,7 @@ end
 function _MinionMaster:initWaves()
 	local waves = {}
 
-	for i=0,7 do
+	for i=0,9 do
 		table.insert( waves, {
 			timeBetweenMinions = 2000,
 			{minionType=gameValuesMinion['typeMinion'..i..'Minion'], numberOfMinions =5}

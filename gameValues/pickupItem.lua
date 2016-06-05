@@ -17,9 +17,9 @@ _M.typeGoldCoin = "goldCoin"
 _M.typeZapper = "zapper"
 _M.typeHpPack = "hpPack"
 
-_M.goldCoinTimer = 10000
-_M.zapperTimer = 10000
-_M.hpPackTimer = 10000
+_M.goldCoinTimer = 14000
+_M.zapperTimer = 14000
+_M.hpPackTimer = 14000
 
 
 _M.durationBarHeight = Layout.mapArea.width*0.01

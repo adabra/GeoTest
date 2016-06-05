@@ -32,5 +32,7 @@ _M.sellAndUpgradeInstructions = "Tap a tower to sell or upgrade."
 _M.upgradeTowerUnavailable = "Tower at max level!"
 _M.fastForwardButton = ">>"
 _M.pauseButton = "Pause"
+_M.level = "Level "
+_M.complete = " Complete!"
 
 return _M

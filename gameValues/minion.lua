@@ -42,13 +42,14 @@ _M.boss1MinionDamage = 100
 _M.typeMinion0Minion = "minion0"
 _M.minion0MinionMetersPerSecond = 5
 _M.minion0MinionDamage = 5
-_M.minion0MinionMaxHP = 250
+_M.minion0MinionMaxHP = 275
 
 local extraHP = 300
-for i=1,7 do
+for i=1,10 do
 	_M['typeMinion'..i..'Minion'] = 'minion'..i
 	_M['minion'..i..'MinionMetersPerSecond'] = _M.minion0MinionMetersPerSecond 
 	_M['minion'..i..'MinionDamage'] = _M['minion'..(i-1)..'MinionDamage'] + 5
+	print('Minion'..i.." damage: " .. _M['minion'..i..'MinionDamage'])
 	_M['minion'..i..'MinionMaxHP'] = _M['minion'..(i-1)..'MinionMaxHP'] + extraHP
 	if i>4 then
 		_M['minion'..i..'MinionMaxHP'] = _M['minion'..i..'MinionMaxHP'] + extraHP

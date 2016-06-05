@@ -143,9 +143,17 @@ function scene:eachFrame()
 	end
 end
 
-
+--local ACC_LABEL
  -- Called when a location event has been received
 local function onLocationEvent( event )
+      --[[
+      print("ACCURACY: " .. event.accuracy)
+      if not ACC_LABEL then
+         ACC_LABEL = display.newText( event.accuracy, display.contentCenterX,100, native.systemFont, 50 )
+      else
+         ACC_LABEL.text = event.accuracy
+      end
+      --]]
       -- Check for error (user may have turned off Location Services)
       if event.errorCode then
          native.showAlert( "GPS Location Error", event.errorMessage, {"OK"} )

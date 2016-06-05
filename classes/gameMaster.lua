@@ -301,7 +301,15 @@ end
 
 function _GameMaster:useItem( itemType )
 	if itemType == gameValuesPickupItem.typeGoldCoin then
-		self.creditAmount = self.creditAmount + gameValues.goldCoinAmount
+		local amount
+		
+		if self.waveLevel < 5 then
+			amount = gameValues.goldCoinAmountEarly
+		else
+			amount = gameValues.goldCoinAmountLate
+		end
+
+		self.creditAmount = self.creditAmount + amount
 		self.statusBar:setCreditAmount( self.creditAmount )
 		audio.play(sounds.soundPowerUpPickedUp)
 
@@ -376,6 +384,7 @@ function _GameMaster:gameLost()
 	self.controlPanel:cleanUpTowerBuildingInterface()
 	self:setGameState( gameValues.stateBaseDestroyed )
 	self.controlPanel:createGameLostInterface( self.controlPanel.displayGroup )
+	self:cleanUpPickupItems()
 	self:pauseGame()
 	audio.play( sounds.soundGameLost )
 end

@@ -423,7 +423,7 @@ function _ControlPanel:createSellAndUpgradeInstructionsOverlay( displayGroup )
 	if self.straightFromWave then
 		self.sellAndUpgradeInstructionsOverlay = self:createMapOverlay( 
 			displayGroup, 
-			strings.sellAndUpgradeInstructions, 
+			strings.level .. self.gameMaster.waveLevel .. strings.complete .. '\n\n' .. strings.sellAndUpgradeInstructions, 
 			true, 
 			true)
 	end
